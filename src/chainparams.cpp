@@ -2317,8 +2317,8 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 1;
-        nTargetTimespan = 2 * 60; // 401KCoin: 1 day
-        nTargetSpacing = 2 * 60;  // 401KCoin: 1 minute
+        nTargetTimespan = 30; // 401KCoin: 1 day
+        nTargetSpacing = 30;  // 401KCoin: 1 minute
         nMaturity = 15;
         //nMaturity = 20; // Reduced maturation period to assist staking trial
         nMasternodeCountDrift = 20;
