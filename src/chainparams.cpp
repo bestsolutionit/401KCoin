@@ -2319,14 +2319,14 @@ public:
         nMinerThreads = 1;
         nTargetTimespan = 30; // 401KCoin: 1 day
         nTargetSpacing = 30;  // 401KCoin: 1 minute
-        nMaturity = 15;
+        nMaturity = 0;
         //nMaturity = 20; // Reduced maturation period to assist staking trial
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 25000000 * COIN;
 
         /** Height or Time Based Activations **/
         //nLastPOWBlock = 2880; // 2 days @ 1440 per day (PIVX: 259200, Phore 200)
-        nLastPOWBlock = 100; // 14 days @ 1440 per day (PIVX: 259200, Phore 200)
+        nLastPOWBlock = 2; // 14 days @ 1440 per day (PIVX: 259200, Phore 200)
         //if the lowest block height (vSortedByTimestamp[0]) is >= switch height, use new modifier calc
         // nModifierUpdateBlock = 0; // (PIVX: 615800)
         nZerocoinStartHeight = 999999999; // (PIVX: 863787, Phore 90000)
