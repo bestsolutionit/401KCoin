@@ -2326,7 +2326,7 @@ public:
 
         /** Height or Time Based Activations **/
         //nLastPOWBlock = 2880; // 2 days @ 1440 per day (PIVX: 259200, Phore 200)
-        nLastPOWBlock = 20; // 14 days @ 1440 per day (PIVX: 259200, Phore 200)
+        nLastPOWBlock = 100; // 14 days @ 1440 per day (PIVX: 259200, Phore 200)
         //if the lowest block height (vSortedByTimestamp[0]) is >= switch height, use new modifier calc
         // nModifierUpdateBlock = 0; // (PIVX: 615800)
         nZerocoinStartHeight = 999999999; // (PIVX: 863787, Phore 90000)
