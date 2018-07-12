@@ -2310,23 +2310,23 @@ public:
         pchMessageStart[3] = 0x2b;
         vAlertPubKey = ParseHex("0x"); // Disabled
         nDefaultPort = 9009;
-        bnProofOfWorkLimit = ~uint256(0) >> 20; // 401KCoin starting difficulty is 1 / 2^12
+        bnProofOfWorkLimit = ~uint256(0) >> 1; // 401KCoin starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210240;
         nMaxReorganizationDepth = 100;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 1;
-        nTargetTimespan = 30; // 401KCoin: 1 day
-        nTargetSpacing = 30;  // 401KCoin: 1 minute
-        nMaturity = 0;
+        nTargetTimespan = 60; // 401KCoin: 1 day
+        nTargetSpacing = 60;  // 401KCoin: 1 minute
+        nMaturity = 3;
         //nMaturity = 20; // Reduced maturation period to assist staking trial
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 25000000 * COIN;
 
         /** Height or Time Based Activations **/
         //nLastPOWBlock = 2880; // 2 days @ 1440 per day (PIVX: 259200, Phore 200)
-        nLastPOWBlock = 2; // 14 days @ 1440 per day (PIVX: 259200, Phore 200)
+        nLastPOWBlock = 20; // 14 days @ 1440 per day (PIVX: 259200, Phore 200)
         //if the lowest block height (vSortedByTimestamp[0]) is >= switch height, use new modifier calc
         // nModifierUpdateBlock = 0; // (PIVX: 615800)
         nZerocoinStartHeight = 999999999; // (PIVX: 863787, Phore 90000)
@@ -2385,10 +2385,10 @@ public:
         }
 
 
-        vSeeds.push_back(CDNSSeedData("1", "167.99.144.178"));
-        vSeeds.push_back(CDNSSeedData("2", "178.128.47.71"));
-        // vSeeds.push_back(CDNSSeedData("3", "138.197.159.182"));
-        // vSeeds.push_back(CDNSSeedData("4", "178.128.54.249"));
+        // vSeeds.push_back(CDNSSeedData("1", "167.99.144.178"));
+        // vSeeds.push_back(CDNSSeedData("2", "178.128.47.71"));
+        vSeeds.push_back(CDNSSeedData("3", "138.197.159.182"));
+        vSeeds.push_back(CDNSSeedData("4", "178.128.54.249"));
         // vSeeds.push_back(CDNSSeedData("5", "139.59.74.84"));
         // vSeeds.push_back(CDNSSeedData("6", "206.189.58.59"));
         
@@ -2437,7 +2437,7 @@ public:
         nZerocoinHeaderVersion = 4; //Block headers must be this version once zerocoin is active
         nZerocoinRequiredStakeDepth = 200; //The required confirmations for a zpiv to be stakable
 
-        nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
+        nBudget_Fee_Confirmations = 2; // Number of confirmations for the finalization fee
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const
@@ -2533,8 +2533,8 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("1", "138.197.159.182"));
-        vSeeds.push_back(CDNSSeedData("2", "178.128.54.249"));
+        // vSeeds.push_back(CDNSSeedData("1", "138.197.159.182"));
+        // vSeeds.push_back(CDNSSeedData("2", "178.128.54.249"));
 
        // Testnet 401K coin addresses start with 'k'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 107);
