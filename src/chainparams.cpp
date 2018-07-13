@@ -2385,12 +2385,12 @@ public:
         }
 
 
-        // vSeeds.push_back(CDNSSeedData("1", "167.99.144.178"));
-        // vSeeds.push_back(CDNSSeedData("2", "178.128.47.71"));
+        vSeeds.push_back(CDNSSeedData("1", "167.99.144.178"));
+        vSeeds.push_back(CDNSSeedData("2", "178.128.47.71"));
         vSeeds.push_back(CDNSSeedData("3", "138.197.159.182"));
         vSeeds.push_back(CDNSSeedData("4", "178.128.54.249"));
-        // vSeeds.push_back(CDNSSeedData("5", "139.59.74.84"));
-        // vSeeds.push_back(CDNSSeedData("6", "206.189.58.59"));
+        vSeeds.push_back(CDNSSeedData("5", "139.59.74.84"));
+        vSeeds.push_back(CDNSSeedData("6", "206.189.58.59"));
         
         // 401K coin addresses start with 'K'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 45);
@@ -2533,9 +2533,14 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        // vSeeds.push_back(CDNSSeedData("1", "138.197.159.182"));
-        // vSeeds.push_back(CDNSSeedData("2", "178.128.54.249"));
-
+        
+        vSeeds.push_back(CDNSSeedData("1", "167.99.144.178"));
+        vSeeds.push_back(CDNSSeedData("2", "178.128.47.71"));
+        vSeeds.push_back(CDNSSeedData("3", "138.197.159.182"));
+        vSeeds.push_back(CDNSSeedData("4", "178.128.54.249"));
+        vSeeds.push_back(CDNSSeedData("5", "139.59.74.84"));
+        vSeeds.push_back(CDNSSeedData("6", "206.189.58.59"));
+        
        // Testnet 401K coin addresses start with 'k'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 107);
         // Testnet 401K coin script addresses start with '5' or '6'
