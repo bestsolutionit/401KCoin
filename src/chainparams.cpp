@@ -2317,9 +2317,9 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 1;
-        nTargetTimespan = 60; // 401KCoin: 1 day
-        nTargetSpacing = 60;  // 401KCoin: 1 minute
-        nMaturity = 3;
+        nTargetTimespan = 2 * 60; // 401KCoin: 1 day
+        nTargetSpacing = 2 * 60;  // 401KCoin: 1 minute
+        nMaturity = 15;
         //nMaturity = 20; // Reduced maturation period to assist staking trial
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 25000000 * COIN;
@@ -2389,8 +2389,6 @@ public:
         vSeeds.push_back(CDNSSeedData("2", "178.128.47.71"));
         vSeeds.push_back(CDNSSeedData("3", "138.197.159.182"));
         vSeeds.push_back(CDNSSeedData("4", "178.128.54.249"));
-        vSeeds.push_back(CDNSSeedData("5", "139.59.74.84"));
-        vSeeds.push_back(CDNSSeedData("6", "206.189.58.59"));
         
         // 401K coin addresses start with 'K'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 45);
@@ -2437,7 +2435,7 @@ public:
         nZerocoinHeaderVersion = 4; //Block headers must be this version once zerocoin is active
         nZerocoinRequiredStakeDepth = 200; //The required confirmations for a zpiv to be stakable
 
-        nBudget_Fee_Confirmations = 2; // Number of confirmations for the finalization fee
+        nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const
@@ -2538,8 +2536,6 @@ public:
         vSeeds.push_back(CDNSSeedData("2", "178.128.47.71"));
         vSeeds.push_back(CDNSSeedData("3", "138.197.159.182"));
         vSeeds.push_back(CDNSSeedData("4", "178.128.54.249"));
-        vSeeds.push_back(CDNSSeedData("5", "139.59.74.84"));
-        vSeeds.push_back(CDNSSeedData("6", "206.189.58.59"));
         
        // Testnet 401K coin addresses start with 'k'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 107);
