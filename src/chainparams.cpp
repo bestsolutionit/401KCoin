@@ -183,8 +183,8 @@ public:
         assert(genesis.hashMerkleRoot == uint256("0x70cff1fc2ed81c547c0baeb5f63269739ddef46d38962fee643fdc53aa4ed856"));
 //myfix
         // DNS Seeding
-        vSeeds.push_back(CDNSSeedData("1", "159.65.75.127"));
-//        vSeeds.push_back(CDNSSeedData("2", "178.128.190.52"));
+        vSeeds.push_back(CDNSSeedData("1", "178.128.54.249"));
+        vSeeds.push_back(CDNSSeedData("2", "138.197.159.182"));
 
         // 401K coin addresses start with 'K'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 45);
@@ -214,7 +214,7 @@ public:
         nPoolMaxTransactions = 3;
         strSporkKey = "04c627eb27385ec2bd733fde55c1b2f6e48b768bc43c57cd3ac11f1972846b979418425f29c1dfc5ec7776e46ac8b6c9e5fea610dff0804a5b2681b2633f1e3070";
         strMasternodePoolDummyAddress = "KEYiweVK31tG5DyxzaVHRWcr57KQZjN3jt";
-        nStartMasternodePayments = genesis.nTime + 1643200; // 21600; // 24 hours after genesis creation
+        nStartMasternodePayments = genesis.nTime; // 21600; // 24 hours after genesis creation
 
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
     }
@@ -265,10 +265,8 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
 
-        vSeeds.push_back(CDNSSeedData("1", "167.99.144.178"));
-        vSeeds.push_back(CDNSSeedData("2", "206.189.171.147"));
-        vSeeds.push_back(CDNSSeedData("3", "138.197.159.182"));
-        vSeeds.push_back(CDNSSeedData("4", "178.128.54.249"));
+        vSeeds.push_back(CDNSSeedData("1", "178.128.54.249"));
+        vSeeds.push_back(CDNSSeedData("2", "138.197.159.182"));
 
         // Testnet 401K coin addresses start with 'k'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 107);
