@@ -1,8 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX developers
-// Copyright (c) 2018 The 401KCoin developers
-
+// Copyright (c) 2015-2017 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,7 +14,6 @@
 #include "base58.h"
 #include "init.h"
 #include "wallet.h"
-#include "askpassphrasedialog.h"
 
 #include <string>
 #include <vector>
@@ -121,7 +118,7 @@ void SignVerifyMessageDialog::on_signMessageButton_SM_clicked()
         return;
     }
 
-    WalletModel::UnlockContext ctx(model->requestUnlock(AskPassphraseDialog::Context::Sign_Message, true));
+    WalletModel::UnlockContext ctx(model->requestUnlock(true));
     if (!ctx.isValid()) {
         ui->statusLabel_SM->setStyleSheet("QLabel { color: red; }");
         ui->statusLabel_SM->setText(tr("Wallet unlock was cancelled."));

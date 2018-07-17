@@ -1,7 +1,3 @@
-// Copyright (c) 2017 The PIVX developers
-// Distributed under the MIT software license, see the accompanying
-// file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
 #ifndef MULTISENDDIALOG_H
 #define MULTISENDDIALOG_H
 
@@ -25,7 +21,7 @@ public:
     void setModel(WalletModel* model);
     void setAddress(const QString& address);
     void setAddress(const QString& address, QLineEdit* addrEdit);
-private Q_SLOTS:
+private slots:
     void on_viewButton_clicked();
     void on_addButton_clicked();
     void on_deleteButton_clicked();

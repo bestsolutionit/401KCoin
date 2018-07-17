@@ -1,10 +1,9 @@
 // Copyright (c) 2011-2013 The Bitcoin developers
-// Copyright (c) 2017-2018 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/bitcoin-config.h"
+#include "config/401kcoin-config.h"
 #endif
 
 #include "optionsdialog.h"
@@ -12,7 +11,7 @@
 
 #include "bitcoinunits.h"
 #include "guiutil.h"
-#include "obfuscation.h"
+#include "activemasternode.h"
 #include "optionsmodel.h"
 
 #include "main.h" // for MAX_SCRIPTCHECK_THREADS
@@ -60,7 +59,6 @@ OptionsDialog::OptionsDialog(QWidget* parent, bool enableWallet) : QDialog(paren
     connect(ui->connectSocks, SIGNAL(toggled(bool)), ui->proxyPort, SLOT(setEnabled(bool)));
 
     ui->proxyIp->installEventFilter(this);
-    ui->proxyPort->installEventFilter(this);
 
 /* Window elements init */
 #ifdef Q_OS_MAC
@@ -81,36 +79,11 @@ OptionsDialog::OptionsDialog(QWidget* parent, bool enableWallet) : QDialog(paren
         digits.setNum(index);
         ui->digits->addItem(digits, digits);
     }
-    
-    /* Theme selector static themes */
-    ui->theme->addItem(QString("Default"), QVariant("default"));
-
-    /* Preferred Zerocoin Denominations */
-    ui->preferredDenom->addItem(QString(tr("Any")), QVariant("0"));
-    ui->preferredDenom->addItem(QString("1"), QVariant("1"));
-    ui->preferredDenom->addItem(QString("5"), QVariant("5"));
-    ui->preferredDenom->addItem(QString("10"), QVariant("10"));
-    ui->preferredDenom->addItem(QString("50"), QVariant("50"));
-    ui->preferredDenom->addItem(QString("100"), QVariant("100"));
-    ui->preferredDenom->addItem(QString("500"), QVariant("500"));
-    ui->preferredDenom->addItem(QString("1000"), QVariant("1000"));
-    ui->preferredDenom->addItem(QString("5000"), QVariant("5000"));
-
-    /* Theme selector external themes */
-    boost::filesystem::path pathAddr = GetDataDir() / "themes";
-    QDir dir(pathAddr.string().c_str());
-    dir.setFilter(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot);
-    QFileInfoList list = dir.entryInfoList();
-
-    for (int i = 0; i < list.size(); ++i) {
-        QFileInfo fileInfo = list.at(i);
-        ui->theme->addItem(fileInfo.fileName(), QVariant(fileInfo.fileName()));
-    }
 
     /* Language selector */
     QDir translations(":translations");
     ui->lang->addItem(QString("(") + tr("default") + QString(")"), QVariant(""));
-    Q_FOREACH (const QString& langStr, translations.entryList()) {
+    foreach (const QString& langStr, translations.entryList()) {
         QLocale locale(langStr);
 
         /** check if the locale name consists of 2 parts (language_country) */
@@ -144,7 +117,7 @@ OptionsDialog::OptionsDialog(QWidget* parent, bool enableWallet) : QDialog(paren
     mapper->setOrientation(Qt::Vertical);
 
     /* setup/change UI elements when proxy IP is invalid/valid */
-    connect(this, SIGNAL(proxyIpChecks(QValidatedLineEdit*, QLineEdit*)), this, SLOT(doProxyIpChecks(QValidatedLineEdit*, QLineEdit*)));
+    connect(this, SIGNAL(proxyIpChecks(QValidatedLineEdit*, int)), this, SLOT(doProxyIpChecks(QValidatedLineEdit*, int)));
 }
 
 OptionsDialog::~OptionsDialog()
@@ -184,7 +157,6 @@ void OptionsDialog::setModel(OptionsModel* model)
     connect(ui->connectSocks, SIGNAL(clicked(bool)), this, SLOT(showRestartWarning()));
     /* Display */
     connect(ui->digits, SIGNAL(valueChanged()), this, SLOT(showRestartWarning()));
-    connect(ui->theme, SIGNAL(valueChanged()), this, SLOT(showRestartWarning()));
     connect(ui->lang, SIGNAL(valueChanged()), this, SLOT(showRestartWarning()));
     connect(ui->thirdPartyTxUrls, SIGNAL(textChanged(const QString&)), this, SLOT(showRestartWarning()));
     connect(ui->showMasternodesTab, SIGNAL(clicked(bool)), this, SLOT(showRestartWarning()));
@@ -196,12 +168,6 @@ void OptionsDialog::setMapper()
     mapper->addMapping(ui->bitcoinAtStartup, OptionsModel::StartAtStartup);
     mapper->addMapping(ui->threadsScriptVerif, OptionsModel::ThreadsScriptVerif);
     mapper->addMapping(ui->databaseCache, OptionsModel::DatabaseCache);
-    // Zeromint Enabled
-    mapper->addMapping(ui->checkBoxZeromintEnable, OptionsModel::ZeromintEnable);
-    // Zerocoin mint percentage
-    mapper->addMapping(ui->zeromintPercentage, OptionsModel::ZeromintPercentage);
-    // Zerocoin preferred denomination
-    mapper->addMapping(ui->preferredDenom, OptionsModel::ZeromintPrefDenom);
 
     /* Wallet */
     mapper->addMapping(ui->spendZeroConfChange, OptionsModel::SpendZeroConfChange);
@@ -224,12 +190,9 @@ void OptionsDialog::setMapper()
 
     /* Display */
     mapper->addMapping(ui->digits, OptionsModel::Digits);
-    mapper->addMapping(ui->theme, OptionsModel::Theme);
-    mapper->addMapping(ui->theme, OptionsModel::Theme);
     mapper->addMapping(ui->lang, OptionsModel::Language);
     mapper->addMapping(ui->unit, OptionsModel::DisplayUnit);
     mapper->addMapping(ui->thirdPartyTxUrls, OptionsModel::ThirdPartyTxUrls);
-    mapper->addMapping(ui->checkBoxHideZeroBalances, OptionsModel::HideZeroBalances);
 
     /* Masternode Tab */
     mapper->addMapping(ui->showMasternodesTab, OptionsModel::ShowMasternodesTab);
@@ -272,7 +235,6 @@ void OptionsDialog::on_resetButton_clicked()
 void OptionsDialog::on_okButton_clicked()
 {
     mapper->submit();
-    obfuScationPool.cachedNumBlocks = std::numeric_limits<int>::max();
     pwalletMain->MarkDirty();
     accept();
 }
@@ -301,44 +263,30 @@ void OptionsDialog::clearStatusLabel()
     ui->statusLabel->clear();
 }
 
-void OptionsDialog::doProxyIpChecks(QValidatedLineEdit* pUiProxyIp, QLineEdit* pUiProxyPort)
+void OptionsDialog::doProxyIpChecks(QValidatedLineEdit* pUiProxyIp, int nProxyPort)
 {
+    Q_UNUSED(nProxyPort);
+
     const std::string strAddrProxy = pUiProxyIp->text().toStdString();
     CService addrProxy;
 
-    // Check for a valid IPv4 / IPv6 address
+    /* Check for a valid IPv4 / IPv6 address */
     if (!(fProxyIpValid = LookupNumeric(strAddrProxy.c_str(), addrProxy))) {
         disableOkButton();
         pUiProxyIp->setValid(false);
         ui->statusLabel->setStyleSheet("QLabel { color: red; }");
         ui->statusLabel->setText(tr("The supplied proxy address is invalid."));
-        return;
+    } else {
+        enableOkButton();
+        ui->statusLabel->clear();
     }
-    // Check proxy port
-    if (!pUiProxyPort->hasAcceptableInput()){
-        disableOkButton();
-        ui->statusLabel->setStyleSheet("QLabel { color: red; }");
-        ui->statusLabel->setText(tr("The supplied proxy port is invalid."));
-        return;
-    }
-
-    proxyType checkProxy = proxyType(addrProxy);
-    if (!checkProxy.IsValid()) {
-        disableOkButton();
-        ui->statusLabel->setStyleSheet("QLabel { color: red; }");
-        ui->statusLabel->setText(tr("The supplied proxy settings are invalid."));
-        return;
-    }
-
-    enableOkButton();
-    ui->statusLabel->clear();
 }
 
 bool OptionsDialog::eventFilter(QObject* object, QEvent* event)
 {
     if (event->type() == QEvent::FocusOut) {
-        if (object == ui->proxyIp || object == ui->proxyPort) {
-            Q_EMIT proxyIpChecks(ui->proxyIp, ui->proxyPort);
+        if (object == ui->proxyIp) {
+            emit proxyIpChecks(ui->proxyIp, ui->proxyPort->text().toInt());
         }
     }
     return QDialog::eventFilter(object, event);

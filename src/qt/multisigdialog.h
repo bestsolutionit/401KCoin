@@ -1,5 +1,4 @@
 // Copyright (c) 2017 The PIVX developers
-// Copyright (c) 2018 The 401KCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -32,7 +31,7 @@ public:
     void setModel(WalletModel* model);
     void updateCoinControl(CAmount nAmount, unsigned int nQuantity);
 
-public Q_SLOTS:
+public slots:
     void showTab(int index);
 
 private:
@@ -53,7 +52,7 @@ private:
     bool addMultisig(int m, std::vector<std::string> keys);
     bool isFullyVerified(CMutableTransaction& txToVerify);
 
-private Q_SLOTS:
+private slots:
    void deleteFrame();
    void pasteText();
    void commitMultisigTx();

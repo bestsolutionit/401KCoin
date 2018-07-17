@@ -1,8 +1,8 @@
 ---
-name: "401kcoin-osx-3.2"
+name: "401kcoin-osx-1.0"
 enable_cache: true
 suites:
-- "trusty"
+- "xenial"
 architectures:
 - "amd64"
 packages:
@@ -28,7 +28,7 @@ packages:
 - "python-setuptools"
 - "fonts-tuffy"
 remotes:
-- "url": "https://github.com/401kcoin/401kcoin.git"
+- "url": "https://github.com/401KCoin/401KCoin.git"
   "dir": "401kcoin"
 files:
 - "MacOSX10.11.sdk.tar.gz"

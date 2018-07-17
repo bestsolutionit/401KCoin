@@ -38,31 +38,26 @@ Instructions: Homebrew
 
 #### Install dependencies using Homebrew
 
-        brew install autoconf automake berkeley-db4 libtool boost miniupnpc openssl pkg-config protobuf qt5 zmq libevent
+        brew install autoconf automake berkeley-db4 libtool boost miniupnpc openssl pkg-config protobuf qt5 libzmq
 
 ### Building `401kcoind`
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone https://github.com/401kcoin/401kcoin.git
-        cd 401KCoin
+        git clone https://github.com/401KCoin/401KCoin.git
+        cd 401kcoin
 
-2.  Make the Homebrew OpenSSL headers visible to the configure script  (do ```brew info openssl``` to find out why this is necessary, or if you use Homebrew with installation folders different from the default).
-
-        export LDFLAGS+=-L/usr/local/opt/openssl/lib
-        export CPPFLAGS+=-I/usr/local/opt/openssl/include
-
-3.  Build 401kcoind:
+2.  Build 401kcoind:
 
         ./autogen.sh
         ./configure --with-gui=qt5
         make
 
-4.  It is also a good idea to build and run the unit tests:
+3.  It is also a good idea to build and run the unit tests:
 
         make check
 
-5.  (Optional) You can also install 401kcoind to your path:
+4.  (Optional) You can also install 401kcoind to your path:
 
         make install
 
@@ -86,7 +81,7 @@ Creating a release build
 ------------------------
 You can ignore this section if you are building `401kcoind` for your own use.
 
-401kcoind/401kcoin-cli binaries are not included in the 401kcoin-Qt.app bundle.
+401kcoind/401kcoin-cli binaries are not included in the 401KCoin-Qt.app bundle.
 
 If you are building `401kcoind` or `401kcoin-qt` for others, your build machine should be set up
 as follows for maximum compatibility:

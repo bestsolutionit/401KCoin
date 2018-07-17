@@ -1,5 +1,4 @@
 // Copyright (c) 2012-2013 The Bitcoin Core developers
-// Copyright (c) 2017 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -18,43 +17,43 @@
 
 using namespace std;
 
-static const string strSecret1     ("7R2Sc2tTJ5ddNoCRoLTaKEtPHmiG6zoY6DXEVrCGUd6QBRuaYXN");
-static const string strSecret2     ("7QPXEz7kyjaiGzBSXWhLYkh6v9C3Y7AWE2J6BVt8ChmDJHQe5wN");
-static const string strSecret1C    ("VK3N1dL74PSfZCuSTWtJ3WHoP2M7fU8QE2GSaL8jJvJqJaWDwCMG");
-static const string strSecret2C    ("VGEQUj6q7QwoBZP5fg53H9r17Z9kCJCwzUiRsLUenev9GyJaZ8B4");
-static const CBitcoinAddress addr1 ("Si97cuFeZfRXQPG3J2CvKBwdLSdmV5UWKB");
-static const CBitcoinAddress addr2 ("SY9zmBCH54DEJHpungs9yc7vQuLKwKuvBM");
-static const CBitcoinAddress addr1C("SQKQ1Y1YRfBhtY4QXEMHp6LBNhxrPetT8W");
-static const CBitcoinAddress addr2C("Shg4Emiiw9E7doCMraaKMAf2XB74NuouHC");
+static const string strSecret1     ("2a6Rd6XtMKvFrjkDi6FcfSrJkpaKc382bCDadKjxPsSAHKXoZok");
+static const string strSecret2     ("2YtPcre7RfCg6TdakgACcAiFBakczN41n1D68nvseWST5eVqqxU");
+static const string strSecret1C    ("7w4wgKRKeiW4aXfm6NBWQh6dNQz57eN21vWXRKibVwc3xfUaExcT");
+static const string strSecret2C    ("7qjpqG6oMqcXZ6YTymqcEDs3bhyXrBvJRdvMfPinYYwL7HbEPDnQ");
+static const CBitcoinAddress addr1 ("GPbEQ1hJxpJkWBDKMpc4y2KkugwuUaRUTY");
+static const CBitcoinAddress addr2 ("GMLyt6XF2uyf5D154j7VW8oYGbcmvREGBm");
+static const CBitcoinAddress addr1C("GRswJtXD3dWyWpz8oXdbxWeTEvYAuXmQUx");
+static const CBitcoinAddress addr2C("GfpzbEUtk8je9RvaSMuCkScEU6fvichQLm");
 
 
 static const string strAddressBad("Xta1praZQjyELweyMByXyiREw1ZRsjXzVP");
 
-
 #ifdef KEY_TESTS_DUMPINFO
-void dumpKeyInfo(uint256 privkey)
+void dumpKeyInfo()
 {
-    CKey key;
-    key.resize(32);
-    memcpy(&secret[0], &privkey, 32);
-    vector<unsigned char> sec;
-    sec.resize(32);
-    memcpy(&sec[0], &secret[0], 32);
-    printf("  * secret (hex): %s\n", HexStr(sec).c_str());
+    CKey k;
+    k.MakeNewKey(false);
+    CPrivKey s = k.GetPrivKey();
+
+    printf("Generating new key\n");
 
     for (int nCompressed=0; nCompressed<2; nCompressed++)
     {
-        bool fCompressed = nCompressed == 1;
-        printf("  * %s:\n", fCompressed ? "compressed" : "uncompressed");
-        CBitcoinSecret bsecret;
-        bsecret.SetSecret(secret, fCompressed);
-        printf("    * secret (base58): %s\n", bsecret.ToString().c_str());
+        bool bCompressed = nCompressed == 1;
+
         CKey key;
-        key.SetSecret(secret, fCompressed);
-        vector<unsigned char> vchPubKey = key.GetPubKey();
-        printf("    * pubkey (hex): %s\n", HexStr(vchPubKey).c_str());
-        printf("    * address (base58): %s\n", CBitcoinAddress(vchPubKey).ToString().c_str());
-    }
+        key.SetPrivKey(s, bCompressed);
+        CPrivKey secret = key.GetPrivKey();
+        CPubKey pubKey = key.GetPubKey();
+
+        CBitcoinSecret bsecret;
+        bsecret.SetKey(key);
+
+        printf("  * %s:\n", bCompressed ? "compressed" : "uncompressed");
+        printf("    * secret (base58): %s\n", bsecret.ToString().c_str());
+        printf("    * pubkey (hex): %s\n", HexStr(pubKey).c_str());
+        printf("    * address (base58): %s\n", CBitcoinAddress(CTxDestination(pubKey.GetID())).ToString().c_str());
 }
 #endif
 
@@ -173,25 +172,19 @@ BOOST_AUTO_TEST_CASE(key_test1)
     BOOST_CHECK(key1.Sign(hashMsg, detsig));
     BOOST_CHECK(key1C.Sign(hashMsg, detsigc));
     BOOST_CHECK(detsig == detsigc);
-    // printf("detsig: %s\n", HexStr(detsig).c_str());
-    BOOST_CHECK(detsig == ParseHex("30450221009f32d2b608da39d2827e74c2c6cca68cd96e467679ba979ae3430cb0f85e23490220164675af54707dfd84e0d930a3ee3b4ed81bc092d58a1435deecfde4ce5fdb4a"));
+    BOOST_CHECK(detsig == ParseHex("30450221008e7fe2176fc31d4c8ade9f7f07361409eff432d62e98dce653a95850a7793f910220487bcbf390003988a0cc46f3ed2bf013b78ca3a40406bde7991004487ba58695"));
     BOOST_CHECK(key2.Sign(hashMsg, detsig));
     BOOST_CHECK(key2C.Sign(hashMsg, detsigc));
     BOOST_CHECK(detsig == detsigc);
-    // printf("detsig: %s\n", HexStr(detsig).c_str());
-    BOOST_CHECK(detsig == ParseHex("304502210092211d02512027ba20c5a15903f36e36362b9e057f60bff578d06fabd802ab8d02205beadb34791a047aa902c9461993c02df6b40ca65bcd1f66eee27ab9aa20852c"));
+    BOOST_CHECK(detsig == ParseHex("30440220469e065172b99b782ac742d54a568867eb13274864665e605272a8f11c696cdf02205892001019e2813b39887c3f5e67048751b16ebb5fd2f9f3a38639538234e4f1"));
     BOOST_CHECK(key1.SignCompact(hashMsg, detsig));
     BOOST_CHECK(key1C.SignCompact(hashMsg, detsigc));
-    // printf("detsig: %s\n", HexStr(detsig).c_str());
-    // printf("detsigc: %s\n", HexStr(detsigc).c_str());
-    BOOST_CHECK(detsig == ParseHex("1c9f32d2b608da39d2827e74c2c6cca68cd96e467679ba979ae3430cb0f85e2349164675af54707dfd84e0d930a3ee3b4ed81bc092d58a1435deecfde4ce5fdb4a"));
-    BOOST_CHECK(detsigc == ParseHex("209f32d2b608da39d2827e74c2c6cca68cd96e467679ba979ae3430cb0f85e2349164675af54707dfd84e0d930a3ee3b4ed81bc092d58a1435deecfde4ce5fdb4a"));
+    BOOST_CHECK(detsig == ParseHex("1b8e7fe2176fc31d4c8ade9f7f07361409eff432d62e98dce653a95850a7793f91487bcbf390003988a0cc46f3ed2bf013b78ca3a40406bde7991004487ba58695"));
+    BOOST_CHECK(detsigc == ParseHex("1f8e7fe2176fc31d4c8ade9f7f07361409eff432d62e98dce653a95850a7793f91487bcbf390003988a0cc46f3ed2bf013b78ca3a40406bde7991004487ba58695"));
     BOOST_CHECK(key2.SignCompact(hashMsg, detsig));
     BOOST_CHECK(key2C.SignCompact(hashMsg, detsigc));
-    // printf("detsig: %s\n", HexStr(detsig).c_str());
-    // printf("detsigc: %s\n", HexStr(detsigc).c_str());
-    BOOST_CHECK(detsig == ParseHex("1c92211d02512027ba20c5a15903f36e36362b9e057f60bff578d06fabd802ab8d5beadb34791a047aa902c9461993c02df6b40ca65bcd1f66eee27ab9aa20852c"));
-    BOOST_CHECK(detsigc == ParseHex("2092211d02512027ba20c5a15903f36e36362b9e057f60bff578d06fabd802ab8d5beadb34791a047aa902c9461993c02df6b40ca65bcd1f66eee27ab9aa20852c"));
+    BOOST_CHECK(detsig == ParseHex("1c469e065172b99b782ac742d54a568867eb13274864665e605272a8f11c696cdf5892001019e2813b39887c3f5e67048751b16ebb5fd2f9f3a38639538234e4f1"));
+    BOOST_CHECK(detsigc == ParseHex("20469e065172b99b782ac742d54a568867eb13274864665e605272a8f11c696cdf5892001019e2813b39887c3f5e67048751b16ebb5fd2f9f3a38639538234e4f1"));
 }
 
 BOOST_AUTO_TEST_SUITE_END()

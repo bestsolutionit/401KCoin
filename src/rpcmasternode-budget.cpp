@@ -1,7 +1,5 @@
 // Copyright (c) 2014-2015 The Dash Developers
-// Copyright (c) 2015-2018 The PIVX developers
-// Copyright (c) 2018 The 401KCoin developers
-
+// Copyright (c) 2015-2017 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,6 +11,7 @@
 #include "masternode-payments.h"
 #include "masternodeconfig.h"
 #include "masternodeman.h"
+#include "masternode-helpers.h"
 #include "rpcserver.h"
 #include "utilmoneystr.h"
 
@@ -50,7 +49,7 @@ void budgetToJSON(CBudgetProposal* pbudgetProposal, UniValue& bObj)
     bObj.push_back(Pair("fValid", pbudgetProposal->fValid));
 }
 
-// This command is retained for backwards compatibility, but is depreciated.
+// This command is retained for backwards compatibility, but is deprecated.
 // Future removal of this command is planned to keep things clean.
 UniValue mnbudget(const UniValue& params, bool fHelp)
 {
@@ -63,14 +62,14 @@ UniValue mnbudget(const UniValue& params, bool fHelp)
         throw runtime_error(
             "mnbudget \"command\"... ( \"passphrase\" )\n"
             "\nVote or show current budgets\n"
-            "This command is depreciated, please see individual command documentation for future reference\n\n"
+            "This command is deprecated, please see individual command documentation for future reference\n\n"
 
             "\nAvailable commands:\n"
             "  prepare            - Prepare proposal for network by signing and creating tx\n"
             "  submit             - Submit proposal for network\n"
-            "  vote-many          - Vote on a 401KCoin initiative\n"
-            "  vote-alias         - Vote on a 401KCoin initiative\n"
-            "  vote               - Vote on a 401KCoin initiative/budget\n"
+            "  vote-many          - Vote on a 401K Coin initiative\n"
+            "  vote-alias         - Vote on a 401K Coin initiative\n"
+            "  vote               - Vote on a 401K Coin initiative/budget\n"
             "  getvotes           - Show current masternode budgets\n"
             "  getinfo            - Show current masternode budgets\n"
             "  show               - Show all budgets\n"
@@ -160,7 +159,7 @@ UniValue preparebudget(const UniValue& params, bool fHelp)
 
     if (fHelp || params.size() != 6)
         throw runtime_error(
-            "preparebudget \"proposal-name\" \"url\" payment-count block-start \"address\" monthy-payment\n"
+            "preparebudget \"proposal-name\" \"url\" payment-count block-start \"401k-address\" monthy-payment\n"
             "\nPrepare proposal for network by signing and creating tx\n"
 
             "\nArguments:\n"
@@ -168,19 +167,17 @@ UniValue preparebudget(const UniValue& params, bool fHelp)
             "2. \"url\":            (string, required) URL of proposal details (64 character limit)\n"
             "3. payment-count:    (numeric, required) Total number of monthly payments\n"
             "4. block-start:      (numeric, required) Starting super block height\n"
-            "5. \"address\":   (string, required) 401KCoin address to send payments to\n"
+            "5. \"401k-address\":   (string, required) 401K address to send payments to\n"
             "6. monthly-payment:  (numeric, required) Monthly payment amount\n"
 
             "\nResult:\n"
             "\"xxxx\"       (string) proposal fee hash (if successful) or error message (if failed)\n"
-
             "\nExamples:\n" +
-            HelpExampleCli("preparebudget", "\"test-proposal\" \"https://forum.401kcoinchain.org/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500") +
-            HelpExampleRpc("preparebudget", "\"test-proposal\" \"https://forum.401kcoinchain.org/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500"));
+            HelpExampleCli("preparebudget", "\"test-proposal\" \"https://401kcoin.ltd/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500") +
+            HelpExampleRpc("preparebudget", "\"test-proposal\" \"https://401kcoin.ltd/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500"));
 
-    LOCK2(cs_main, pwalletMain->cs_wallet);
-
-    EnsureWalletIsUnlocked();
+    if (pwalletMain->IsLocked())
+        throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the wallet passphrase with walletpassphrase first.");
 
     std::string strProposalName = SanitizeString(params[0].get_str());
     if (strProposalName.size() > 20)
@@ -213,9 +210,9 @@ UniValue preparebudget(const UniValue& params, bool fHelp)
 
     CBitcoinAddress address(params[4].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid 401KCoin address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid 401K address");
 
-    // Parse 401KCoin address
+    // Parse 401K address
     CScript scriptPubKey = GetScriptForDestination(address.Get());
     CAmount nAmount = AmountFromValue(params[5]);
 
@@ -236,7 +233,7 @@ UniValue preparebudget(const UniValue& params, bool fHelp)
     // }
 
     CWalletTx wtx;
-    if (!pwalletMain->GetBudgetSystemCollateralTX(wtx, budgetProposalBroadcast.GetHash(), useIX)) { // 50 PIV collateral for proposal
+    if (!pwalletMain->GetBudgetSystemCollateralTX(wtx, budgetProposalBroadcast.GetHash(), useIX)) {
         throw runtime_error("Error making collateral transaction for proposal. Please check your wallet balance.");
     }
 
@@ -255,7 +252,7 @@ UniValue submitbudget(const UniValue& params, bool fHelp)
 
     if (fHelp || params.size() != 7)
         throw runtime_error(
-            "submitbudget \"proposal-name\" \"url\" payment-count block-start \"address\" monthy-payment \"fee-tx\"\n"
+            "submitbudget \"proposal-name\" \"url\" payment-count block-start \"401k-address\" monthy-payment \"fee-tx\"\n"
             "\nSubmit proposal to the network\n"
 
             "\nArguments:\n"
@@ -263,16 +260,15 @@ UniValue submitbudget(const UniValue& params, bool fHelp)
             "2. \"url\":            (string, required) URL of proposal details (64 character limit)\n"
             "3. payment-count:    (numeric, required) Total number of monthly payments\n"
             "4. block-start:      (numeric, required) Starting super block height\n"
-            "5. \"address\":   (string, required) 401KCoin address to send payments to\n"
+            "5. \"401k-address\":   (string, required) 401K address to send payments to\n"
             "6. monthly-payment:  (numeric, required) Monthly payment amount\n"
             "7. \"fee-tx\":         (string, required) Transaction hash from preparebudget command\n"
 
             "\nResult:\n"
             "\"xxxx\"       (string) proposal hash (if successful) or error message (if failed)\n"
-
             "\nExamples:\n" +
-            HelpExampleCli("submitbudget", "\"test-proposal\" \"https://forum.401kcoinchain.org/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500") +
-            HelpExampleRpc("submitbudget", "\"test-proposal\" \"https://forum.401kcoinchain.org/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500"));
+            HelpExampleCli("submitbudget", "\"test-proposal\" \"https://401kcoin.ltd/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500") +
+            HelpExampleRpc("submitbudget", "\"test-proposal\" \"https://401kcoin.ltd/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500"));
 
     // Check these inputs the same way we check the vote commands:
     // **********************************************************
@@ -308,9 +304,9 @@ UniValue submitbudget(const UniValue& params, bool fHelp)
 
     CBitcoinAddress address(params[4].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid 401KCoin address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid 401K address");
 
-    // Parse 401KCoin address
+    // Parse 401K address
     CScript scriptPubKey = GetScriptForDestination(address.Get());
     CAmount nAmount = AmountFromValue(params[5]);
     uint256 hash = ParseHashV(params[6], "parameter 1");
@@ -402,7 +398,7 @@ UniValue mnbudgetvote(const UniValue& params, bool fHelp)
         UniValue statusObj(UniValue::VOBJ);
 
         while (true) {
-            if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode)) {
+            if (!masternodeSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode)) {
                 failed++;
                 statusObj.push_back(Pair("node", "local"));
                 statusObj.push_back(Pair("result", "failed"));
@@ -469,7 +465,7 @@ UniValue mnbudgetvote(const UniValue& params, bool fHelp)
 
             UniValue statusObj(UniValue::VOBJ);
 
-            if (!obfuScationSigner.SetKey(mne.getPrivKey(), errorMessage, keyMasternode, pubKeyMasternode)) {
+            if (!masternodeSigner.SetKey(mne.getPrivKey(), errorMessage, keyMasternode, pubKeyMasternode)) {
                 failed++;
                 statusObj.push_back(Pair("node", mne.getAlias()));
                 statusObj.push_back(Pair("result", "failed"));
@@ -543,7 +539,7 @@ UniValue mnbudgetvote(const UniValue& params, bool fHelp)
 
             UniValue statusObj(UniValue::VOBJ);
 
-            if(!obfuScationSigner.SetKey(mne.getPrivKey(), errorMessage, keyMasternode, pubKeyMasternode)){
+            if(!masternodeSigner.SetKey(mne.getPrivKey(), errorMessage, keyMasternode, pubKeyMasternode)){
                 failed++;
                 statusObj.push_back(Pair("node", mne.getAlias()));
                 statusObj.push_back(Pair("result", "failed"));
@@ -622,7 +618,6 @@ UniValue getbudgetvotes(const UniValue& params, bool fHelp)
             "  }\n"
             "  ,...\n"
             "]\n"
-
             "\nExamples:\n" +
             HelpExampleCli("getbudgetvotes", "\"test-proposal\"") + HelpExampleRpc("getbudgetvotes", "\"test-proposal\""));
 
@@ -660,7 +655,6 @@ UniValue getnextsuperblock(const UniValue& params, bool fHelp)
 
             "\nResult:\n"
             "n      (numeric) Block height of the next super block\n"
-
             "\nExamples:\n" +
             HelpExampleCli("getnextsuperblock", "") + HelpExampleRpc("getnextsuperblock", ""));
 
@@ -689,7 +683,7 @@ UniValue getbudgetprojection(const UniValue& params, bool fHelp)
             "    \"BlockEnd\": n,                (numeric) Proposal ending block\n"
             "    \"TotalPaymentCount\": n,       (numeric) Number of payments\n"
             "    \"RemainingPaymentCount\": n,   (numeric) Number of remaining payments\n"
-            "    \"PaymentAddress\": \"xxxx\",     (string) 401KCoin address of payment\n"
+            "    \"PaymentAddress\": \"xxxx\",     (string) 401K address of payment\n"
             "    \"Ratio\": x.xxx,               (numeric) Ratio of yeas vs nays\n"
             "    \"Yeas\": n,                    (numeric) Number of yea votes\n"
             "    \"Nays\": n,                    (numeric) Number of nay votes\n"
@@ -705,7 +699,6 @@ UniValue getbudgetprojection(const UniValue& params, bool fHelp)
             "  }\n"
             "  ,...\n"
             "]\n"
-
             "\nExamples:\n" +
             HelpExampleCli("getbudgetprojection", "") + HelpExampleRpc("getbudgetprojection", ""));
 
@@ -753,7 +746,7 @@ UniValue getbudgetinfo(const UniValue& params, bool fHelp)
             "    \"BlockEnd\": n,                (numeric) Proposal ending block\n"
             "    \"TotalPaymentCount\": n,       (numeric) Number of payments\n"
             "    \"RemainingPaymentCount\": n,   (numeric) Number of remaining payments\n"
-            "    \"PaymentAddress\": \"xxxx\",     (string) 401KCoin address of payment\n"
+            "    \"PaymentAddress\": \"xxxx\",     (string) 401K address of payment\n"
             "    \"Ratio\": x.xxx,               (numeric) Ratio of yeas vs nays\n"
             "    \"Yeas\": n,                    (numeric) Number of yea votes\n"
             "    \"Nays\": n,                    (numeric) Number of nay votes\n"
@@ -767,7 +760,6 @@ UniValue getbudgetinfo(const UniValue& params, bool fHelp)
             "  }\n"
             "  ,...\n"
             "]\n"
-
             "\nExamples:\n" +
             HelpExampleCli("getbudgetprojection", "") + HelpExampleRpc("getbudgetprojection", ""));
 
@@ -814,7 +806,6 @@ UniValue mnbudgetrawvote(const UniValue& params, bool fHelp)
 
             "\nResult:\n"
             "\"status\"     (string) Vote status or error message\n"
-
             "\nExamples:\n" +
             HelpExampleCli("mnbudgetrawvote", "") + HelpExampleRpc("mnbudgetrawvote", ""));
 
@@ -871,8 +862,7 @@ UniValue mnfinalbudget(const UniValue& params, bool fHelp)
         (strCommand != "suggest" && strCommand != "vote-many" && strCommand != "vote" && strCommand != "show" && strCommand != "getvotes"))
         throw runtime_error(
             "mnfinalbudget \"command\"... ( \"passphrase\" )\n"
-            "\nVote or show current budgets\n"
-
+            "Vote or show current budgets\n"
             "\nAvailable commands:\n"
             "  vote-many   - Vote on a finalized budget\n"
             "  vote        - Vote on a finalized budget\n"
@@ -903,7 +893,7 @@ UniValue mnfinalbudget(const UniValue& params, bool fHelp)
 
             UniValue statusObj(UniValue::VOBJ);
 
-            if (!obfuScationSigner.SetKey(mne.getPrivKey(), errorMessage, keyMasternode, pubKeyMasternode)) {
+            if (!masternodeSigner.SetKey(mne.getPrivKey(), errorMessage, keyMasternode, pubKeyMasternode)) {
                 failed++;
                 statusObj.push_back(Pair("result", "failed"));
                 statusObj.push_back(Pair("errorMessage", "Masternode signing error, could not set key correctly: " + errorMessage));
@@ -962,7 +952,7 @@ UniValue mnfinalbudget(const UniValue& params, bool fHelp)
         CKey keyMasternode;
         std::string errorMessage;
 
-        if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode))
+        if (!masternodeSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode))
             return "Error upon calling SetKey";
 
         CMasternode* pmn = mnodeman.Find(activeMasternode.vin);
@@ -1046,7 +1036,6 @@ UniValue checkbudgets(const UniValue& params, bool fHelp)
         throw runtime_error(
             "checkbudgets\n"
             "\nInitiates a buddget check cycle manually\n"
-
             "\nExamples:\n" +
             HelpExampleCli("checkbudgets", "") + HelpExampleRpc("checkbudgets", ""));
 

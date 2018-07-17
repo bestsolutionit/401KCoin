@@ -1,6 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2017 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -55,12 +54,6 @@ std::string DecodeBase58(const char* psz);
 bool DecodeBase58(const std::string& str, std::vector<unsigned char>& vchRet);
 
 /**
- * Decode a base58-encoded hex-encoded string (str) into a byte vector (vchRet).
- * return the decoding if successful.
- */
-std::string DecodeBase58ToHex(const std::string& str);
-
-/**
  * Encode a byte vector into a base58-encoded string, including checksum
  */
 std::string EncodeBase58Check(const std::vector<unsigned char>& vchIn);
@@ -107,7 +100,7 @@ public:
     bool operator>(const CBase58Data& b58) const { return CompareTo(b58) > 0; }
 };
 
-/** base58-encoded addresses.
+/** base58-encoded 401K Coin addresses.
  * Public-key-hash-addresses have version 0 (or 111 testnet).
  * The data vector contains RIPEMD160(SHA256(pubkey)), where pubkey is the serialized public key.
  * Script-hash-addresses have version 5 (or 196 testnet).

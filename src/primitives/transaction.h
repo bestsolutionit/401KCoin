@@ -116,7 +116,6 @@ class CTxOut
 public:
     CAmount nValue;
     CScript scriptPubKey;
-    int nRounds;
 
     CTxOut()
     {
@@ -137,7 +136,6 @@ public:
     {
         nValue = -1;
         scriptPubKey.clear();
-        nRounds = -10; // an initial value, should be no way to get this by calculations
     }
 
     bool IsNull() const
@@ -160,27 +158,21 @@ public:
 
     bool IsDust(CFeeRate minRelayTxFee) const
     {
-        // "Dust" is defined in terms of CTransaction::minRelayTxFee, which has units upiv-per-kilobyte.
+        // "Dust" is defined in terms of CTransaction::minRelayTxFee, which has units u401k-per-kilobyte.
         // If you'd pay more than 1/3 in fees to spend something, then we consider it dust.
         // A typical txout is 34 bytes big, and will need a CTxIn of at least 148 bytes to spend
-        // i.e. total is 148 + 32 = 182 bytes. Default -minrelaytxfee is 10000 upiv per kB
-        // and that means that fee per txout is 182 * 10000 / 1000 = 1820 upiv.
-        // So dust is a txout less than 1820 *3 = 5460 upiv
-        // with default -minrelaytxfee = minRelayTxFee = 10000 upiv per kB.
+        // i.e. total is 148 + 32 = 182 bytes. Default -minrelaytxfee is 10000 u401k per kB
+        // and that means that fee per txout is 182 * 10000 / 1000 = 1820 u401k.
+        // So dust is a txout less than 1820 *3 = 5460 u401k
+        // with default -minrelaytxfee = minRelayTxFee = 10000 u401k per kB.
         size_t nSize = GetSerializeSize(SER_DISK,0)+148u;
         return (nValue < 3*minRelayTxFee.GetFee(nSize));
-    }
-
-    bool IsZerocoinMint() const
-    {
-        return !scriptPubKey.empty() && scriptPubKey.IsZerocoinMint();
     }
 
     friend bool operator==(const CTxOut& a, const CTxOut& b)
     {
         return (a.nValue       == b.nValue &&
-                a.scriptPubKey == b.scriptPubKey &&
-                a.nRounds      == b.nRounds);
+                a.scriptPubKey == b.scriptPubKey);
     }
 
     friend bool operator!=(const CTxOut& a, const CTxOut& b)
@@ -257,38 +249,16 @@ public:
     // Compute modified tx size for priority calculation (optionally given tx size)
     unsigned int CalculateModifiedSize(unsigned int nTxSize=0) const;
 
-    bool IsZerocoinSpend() const
-    {
-        return (vin.size() > 0 && vin[0].prevout.hash == 0 && vin[0].scriptSig[0] == OP_ZEROCOINSPEND);
-    }
-
-    bool IsZerocoinMint() const
-    {
-        for(const CTxOut& txout : vout) {
-            if (txout.scriptPubKey.IsZerocoinMint())
-                return true;
-        }
-        return false;
-    }
-
-    bool ContainsZerocoins() const
-    {
-        return IsZerocoinSpend() || IsZerocoinMint();
-    }
-
-    CAmount GetZerocoinMinted() const;
-    CAmount GetZerocoinSpent() const;
-    int GetZerocoinMintCount() const;
-
-    bool UsesUTXO(const COutPoint out);
-    std::list<COutPoint> GetOutPoints() const;
-
     bool IsCoinBase() const
     {
-        return (vin.size() == 1 && vin[0].prevout.IsNull() && !ContainsZerocoins());
+        return (vin.size() == 1 && vin[0].prevout.IsNull());
     }
 
-    bool IsCoinStake() const;
+    bool IsCoinStake() const
+    {
+        // ppcoin: the coin stake transaction is marked with the first output empty
+        return (vin.size() > 0 && (!vin[0].prevout.IsNull()) && vout.size() >= 2 && vout[0].IsEmpty());
+    }
 
     friend bool operator==(const CTransaction& a, const CTransaction& b)
     {

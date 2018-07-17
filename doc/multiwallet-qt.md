@@ -1,4 +1,4 @@
-Multiwallet Qt Development and Integration Strategy
+xMultiwallet Qt Development and Integration Strategy
 ===================================================
 
 In order to support loading of multiple wallets in 401kcoin-qt, a few changes in the UI architecture will be needed.

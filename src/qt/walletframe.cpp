@@ -1,5 +1,4 @@
 // Copyright (c) 2011-2013 The Bitcoin developers
-// Copyright (c) 2016-2018 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -140,13 +139,6 @@ void WalletFrame::gotoReceiveCoinsPage()
         i.value()->gotoReceiveCoinsPage();
 }
 
-void WalletFrame::gotoPrivacyPage()
-{
-    QMap<QString, WalletView*>::const_iterator i;
-    for (i = mapWalletViews.constBegin(); i != mapWalletViews.constEnd(); ++i)
-        i.value()->gotoPrivacyPage();
-}
-
 void WalletFrame::gotoSendCoinsPage(QString addr)
 {
     QMap<QString, WalletView*>::const_iterator i;
@@ -212,21 +204,11 @@ void WalletFrame::changePassphrase()
         walletView->changePassphrase();
 }
 
-void WalletFrame::unlockWallet(bool setContext)
-{
-    if (setContext) {
-        unlockWallet(AskPassphraseDialog::Context::Unlock_Full);
-    }
-    else {
-        unlockWallet(AskPassphraseDialog::Context::Unlock_Menu);
-    }
-}
-
-void WalletFrame::unlockWallet(AskPassphraseDialog::Context context)
+void WalletFrame::unlockWallet()
 {
     WalletView* walletView = currentWalletView();
     if (walletView)
-        walletView->unlockWallet(context);
+        walletView->unlockWallet();
 }
 
 void WalletFrame::lockWallet()

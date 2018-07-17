@@ -1,13 +1,11 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX developers
-// Copyright (c) 2018 The 401KCoin developers
-
+// Copyright (c) 2015-2017 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/bitcoin-config.h"
+#include "config/401kcoin-config.h"
 #endif
 
 #include "optionsmodel.h"
@@ -64,37 +62,18 @@ void OptionsModel::Init()
 
     // Display
     if (!settings.contains("nDisplayUnit"))
-        settings.setValue("nDisplayUnit", BitcoinUnits::BTC);
+        settings.setValue("nDisplayUnit", BitcoinUnits::b401K);
     nDisplayUnit = settings.value("nDisplayUnit").toInt();
 
     if (!settings.contains("strThirdPartyTxUrls"))
         settings.setValue("strThirdPartyTxUrls", "");
     strThirdPartyTxUrls = settings.value("strThirdPartyTxUrls", "").toString();
 
-    if (!settings.contains("fHideZeroBalances"))
-        settings.setValue("fHideZeroBalances", true);
-    fHideZeroBalances = settings.value("fHideZeroBalances").toBool();
-
     if (!settings.contains("fCoinControlFeatures"))
         settings.setValue("fCoinControlFeatures", false);
     fCoinControlFeatures = settings.value("fCoinControlFeatures", false).toBool();
 
-    if (!settings.contains("fZeromintEnable"))
-        settings.setValue("fZeromintEnable", true);
-    fEnableZeromint = settings.value("fZeromintEnable").toBool();
 
-    if (!settings.contains("nZeromintPercentage"))
-        settings.setValue("nZeromintPercentage", 10);
-    nZeromintPercentage = settings.value("nZeromintPercentage").toLongLong();
-
-    if (!settings.contains("nPreferredDenom"))
-        settings.setValue("nPreferredDenom", 0);
-    nPreferredDenom = settings.value("nPreferredDenom", "0").toLongLong();
-
-    if (!settings.contains("nAnonymizeCoinAmount"))
-        settings.setValue("nAnonymizeCoinAmount", 1000);
-
-    nAnonymizeCoinAmount = settings.value("nAnonymizeCoinAmount").toLongLong();
 
     if (!settings.contains("fShowMasternodesTab"))
         settings.setValue("fShowMasternodesTab", masternodeConfig.getCount());
@@ -153,8 +132,6 @@ void OptionsModel::Init()
     // Display
     if (!settings.contains("digits"))
         settings.setValue("digits", "2");
-    if (!settings.contains("theme"))
-        settings.setValue("theme", "");
     if (!settings.contains("fCSSexternal"))
         settings.setValue("fCSSexternal", false);
     if (!settings.contains("language"))
@@ -162,14 +139,6 @@ void OptionsModel::Init()
     if (!SoftSetArg("-lang", settings.value("language").toString().toStdString()))
         addOverriddenOption("-lang");
 
-    if (settings.contains("fZeromintEnable"))
-        SoftSetBoolArg("-enablezeromint", settings.value("fZeromintEnable").toBool());
-    if (settings.contains("nZeromintPercentage"))
-        SoftSetArg("-zeromintpercentage", settings.value("nZeromintPercentage").toString().toStdString());
-    if (settings.contains("nPreferredDenom"))
-        SoftSetArg("-preferredDenom", settings.value("nPreferredDenom").toString().toStdString());
-    if (settings.contains("nAnonymizeCoinAmount"))
-        SoftSetArg("-anonymizecoinamount", settings.value("nAnonymizeCoinAmount").toString().toStdString());
 
     language = settings.value("language").toString();
 }
@@ -180,7 +149,7 @@ void OptionsModel::Reset()
 
     // Remove all entries from our QSettings object
     settings.clear();
-    resetSettings = true; // Needed in bitcoin.cpp during shotdown to also remove the window positions
+    resetSettings = true; // Needed in 401kcoin.cpp during shotdown to also remove the window positions
 
     // default setting for OptionsModel::StartAtStartup - disabled
     if (GUIUtil::GetStartOnSystemStartup())
@@ -236,14 +205,11 @@ QVariant OptionsModel::data(const QModelIndex& index, int role) const
                 return QVariant((int)pwalletMain->nStakeSplitThreshold);
             return settings.value("nStakeSplitThreshold");
         case DisplayUnit:
-
             return nDisplayUnit;
         case ThirdPartyTxUrls:
             return strThirdPartyTxUrls;
         case Digits:
             return settings.value("digits");
-        case Theme:
-            return settings.value("theme");
         case Language:
             return settings.value("language");
         case CoinControlFeatures:
@@ -252,16 +218,6 @@ QVariant OptionsModel::data(const QModelIndex& index, int role) const
             return settings.value("nDatabaseCache");
         case ThreadsScriptVerif:
             return settings.value("nThreadsScriptVerif");
-        case HideZeroBalances:
-            return settings.value("fHideZeroBalances");
-        case ZeromintEnable:
-            return QVariant(fEnableZeromint);
-        case ZeromintPercentage:
-            return QVariant(nZeromintPercentage);
-        case ZeromintPrefDenom:
-            return QVariant(nPreferredDenom);
-        case AnonymizeCoinAmount:
-            return QVariant(nAnonymizeCoinAmount);
         case Listen:
             return settings.value("fListen");
         default:
@@ -357,48 +313,16 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
                 setRestartRequired(true);
             }
             break;
-        case Theme:
-            if (settings.value("theme") != value) {
-                settings.setValue("theme", value);
-                setRestartRequired(true);
-            }
-            break;
         case Language:
             if (settings.value("language") != value) {
                 settings.setValue("language", value);
                 setRestartRequired(true);
             }
             break;
-        case ZeromintEnable:
-            fEnableZeromint = value.toBool();
-            settings.setValue("fZeromintEnable", fEnableZeromint);
-            Q_EMIT zeromintEnableChanged(fEnableZeromint);
-            break;
-        case ZeromintPercentage:
-            nZeromintPercentage = value.toInt();
-            settings.setValue("nZeromintPercentage", nZeromintPercentage);
-            Q_EMIT zeromintPercentageChanged(nZeromintPercentage);
-            break;
-        case ZeromintPrefDenom:
-            nPreferredDenom = value.toInt();
-            settings.setValue("nPreferredDenom", nPreferredDenom);
-            Q_EMIT preferredDenomChanged(nPreferredDenom);
-            break;
-        case HideZeroBalances:
-            fHideZeroBalances = value.toBool();
-            settings.setValue("fHideZeroBalances", fHideZeroBalances);
-            Q_EMIT hideZeroBalancesChanged(fHideZeroBalances);
-            break;
-
-        case AnonymizeCoinAmount:
-            nAnonymizeCoinAmount = value.toInt();
-            settings.setValue("nAnonymizeCoinAmount", nAnonymizeCoinAmount);
-            Q_EMIT anonymizeCoinAmountChanged(nAnonymizeCoinAmount);
-            break;
         case CoinControlFeatures:
             fCoinControlFeatures = value.toBool();
             settings.setValue("fCoinControlFeatures", fCoinControlFeatures);
-            Q_EMIT coinControlFeaturesChanged(fCoinControlFeatures);
+            emit coinControlFeaturesChanged(fCoinControlFeatures);
             break;
         case DatabaseCache:
             if (settings.value("nDatabaseCache") != value) {
@@ -423,7 +347,7 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
         }
     }
 
-    Q_EMIT dataChanged(index, index);
+    emit dataChanged(index, index);
 
     return successful;
 }
@@ -435,7 +359,7 @@ void OptionsModel::setDisplayUnit(const QVariant& value)
         QSettings settings;
         nDisplayUnit = value.toInt();
         settings.setValue("nDisplayUnit", nDisplayUnit);
-        Q_EMIT displayUnitChanged(nDisplayUnit);
+        emit displayUnitChanged(nDisplayUnit);
     }
 }
 
@@ -456,7 +380,6 @@ void OptionsModel::setStakeSplitThreshold(int value)
         }
     }
 }
-
 
 bool OptionsModel::getProxySettings(QNetworkProxy& proxy) const
 {

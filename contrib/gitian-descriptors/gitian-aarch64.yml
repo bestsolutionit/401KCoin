@@ -1,5 +1,5 @@
 ---
-name: "401kcoin-aarch64-3.2"
+name: "401kcoin-aarch64-1.0"
 enable_cache: true
 suites:
 - "xenial"
@@ -25,7 +25,7 @@ packages:
 - "python"
 reference_datetime: "2015-06-01 00:00:00"
 remotes:
-- "url": "https://github.com/401kcoin/401kcoin.git"
+- "url": "https://github.com/401KCoin/401KCoin.git"
   "dir": "401kcoin"
 files: []
 script: |

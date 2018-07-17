@@ -7,7 +7,7 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/401kcoin/401kcoin-detached-sigs.git"
+- "url": "https://github.com/401KCoin/401KCoin-detached-sigs.git"
   "dir": "signature"
 files:
 - "401kcoin-osx-unsigned.tar.gz"

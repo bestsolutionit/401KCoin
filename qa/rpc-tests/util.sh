@@ -2,7 +2,7 @@
 # Copyright (c) 2014 The Bitcoin Core developers
 # Copyright (c) 2014-2015 The Dash developers
 # Copyright (c) 2015-2017 The PIVX developers
-# Copyright (c) 2018 The 401KCoin developers
+# Copyright (c) 2018 The 401K Coin developers
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,7 +14,7 @@ function echoerr {
 
 # Usage: ExtractKey <key> "<json_object_string>"
 # Warning: this will only work for the very-well-behaved
-# JSON produced by bitcoind, do NOT use it to try to
+# JSON produced by 401kcoind, do NOT use it to try to
 # parse arbitrary/nested/etc JSON.
 function ExtractKey {
     echo $2 | tr -d ' "{}\n' | awk -v RS=',' -F: "\$1 ~ /$1/ { print \$2}"

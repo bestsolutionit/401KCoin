@@ -89,7 +89,7 @@ use old versions of Upstart and do not supply the start-stop-daemon uitility.
 Copy 401kcoind.init to /etc/init.d/401kcoind. Test by running "service 401kcoind start".
 
 Using this script, you can adjust the path and flags to the 401kcoind program by
-setting the 401KCoinD and FLAGS environment variables in the file
+setting the 401K COIND and FLAGS environment variables in the file
 /etc/sysconfig/401kcoind. You can also use the DAEMONOPTS environment variable here.
 
 5. Auto-respawn

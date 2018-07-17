@@ -1,5 +1,4 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
-// Copyright (c) 2017 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,7 +8,6 @@
 #include "guiutil.h"
 
 #include <QDialog>
-#include <QHeaderView>
 #include <QItemSelection>
 #include <QKeyEvent>
 #include <QMenu>
@@ -46,7 +44,7 @@ public:
 
     void setModel(WalletModel* model);
 
-public Q_SLOTS:
+public slots:
     void clear();
     void reject();
     void accept();
@@ -62,7 +60,7 @@ private:
     void copyColumnToClipboard(int column);
     virtual void resizeEvent(QResizeEvent* event);
 
-private Q_SLOTS:
+private slots:
     void on_receiveButton_clicked();
     void on_showRequestButton_clicked();
     void on_removeRequestButton_clicked();

@@ -1,5 +1,4 @@
 // Copyright (c) 2011-2013 The Bitcoin developers
-// Copyright (c) 2017 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -48,15 +47,13 @@ public:
     bool handlePaymentRequest(const SendCoinsRecipient& recipient);
     bool fSplitBlock;
 
-public Q_SLOTS:
+public slots:
     void clear();
     void reject();
     void accept();
     SendCoinsEntry* addEntry();
     void updateTabsAndLabels();
-    void setBalance(const CAmount& balance, const CAmount& unconfirmedBalance, const CAmount& immatureBalance, 
-                    const CAmount& zerocoinBalance, const CAmount& unconfirmedZerocoinBalance, const CAmount& immatureZerocoinBalance,
-                    const CAmount& watchOnlyBalance, const CAmount& watchUnconfBalance, const CAmount& watchImmatureBalance);
+    void setBalance(const CAmount& balance, const CAmount& unconfirmedBalance, const CAmount& immatureBalance, const CAmount& watchOnlyBalance, const CAmount& watchUnconfBalance, const CAmount& watchImmatureBalance);
 
 private:
     Ui::SendCoinsDialog* ui;
@@ -73,7 +70,7 @@ private:
     void minimizeFeeSection(bool fMinimize);
     void updateFeeMinimizedLabel();
 
-private Q_SLOTS:
+private slots:
     void on_sendButton_clicked();
     void on_buttonChooseFee_clicked();
     void on_buttonMinimizeFee_clicked();
@@ -101,7 +98,7 @@ private Q_SLOTS:
     void updateSmartFeeLabel();
     void updateGlobalFeeVariables();
 
-Q_SIGNALS:
+signals:
     // Fired when a message should be reported to the user
     void message(const QString& title, const QString& message, unsigned int style);
 };

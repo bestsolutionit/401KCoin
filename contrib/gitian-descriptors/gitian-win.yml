@@ -1,5 +1,5 @@
 ---
-name: "401kcoin-win-3.2"
+name: "401kcoin-win-1.0"
 enable_cache: true
 suites:
 - "trusty"
@@ -22,7 +22,7 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://github.com/401kcoin/401kcoin.git"
+- "url": "https://github.com/401KCoin/401KCoin.git"
   "dir": "401kcoin"
 files: []
 script: |
@@ -147,9 +147,9 @@ script: |
     make install DESTDIR=${INSTALLPATH}
     cp -f 401kcoin-*setup*.exe $OUTDIR/
     cd installed
-    # mv ${DISTNAME}/bin/*.dll ${DISTNAME}/lib/ # temporarily disabled for Zerocoin
-    # find . -name "lib*.la" -delete            # temporarily disabled for Zerocoin
-    # find . -name "lib*.a" -delete             # temporarily disabled for Zerocoin
+    # mv ${DISTNAME}/bin/*.dll ${DISTNAME}/lib/
+    find . -name "lib*.la" -delete
+    find . -name "lib*.a" -delete
     rm -rf ${DISTNAME}/lib/pkgconfig
     find ${DISTNAME}/bin -type f -executable -exec ${i}-objcopy --only-keep-debug {} {}.dbg \; -exec ${i}-strip -s {} \; -exec ${i}-objcopy --add-gnu-debuglink={}.dbg {} \;
     # find ${DISTNAME}/lib -type f -exec ${i}-objcopy --only-keep-debug {} {}.dbg \; -exec ${i}-strip -s {} \; -exec ${i}-objcopy --add-gnu-debuglink={}.dbg {} \;

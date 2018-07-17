@@ -1,13 +1,13 @@
-401KCoin Core
+401K Coin Core
 =====================
 
 Setup
 ---------------------
-[401KCoin Core](http://401kcoinchain.org/wallet) is the original 401KCoin client and it builds the backbone of the network. However, it downloads and stores the entire history of 401KCoin transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[401K Coin Core](http://401kcoin.ltd) is the original 401K Coin client and it builds the backbone of the network. However, it downloads and stores the entire history of 401K Coin transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
-The following are some helpful notes on how to run 401KCoin on your native platform.
+The following are some helpful notes on how to run 401K Coin on your native platform.
 
 ### Unix
 
@@ -26,15 +26,11 @@ Drag 401KCoin-Qt to your applications folder, and then run 401KCoin-Qt.
 
 ### Need Help?
 
-* See the documentation at the [401KCoin Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
-for help and more information.
-* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [401KCoin Forum](http://forum.401kcoinlabs.org/).
-* Join our Discord server [Discord Server](https://discord.401kcoinchain.org)
-* Join one of our Slack groups [401KCoin Slack Groups](https://401kcoinchain.org/slack-logins/) (Main community is replaced by Discord).
+* Join our Discord server [Discord Server](https://www.401kcoin.ltd)
 
 Building
 ---------------------
-The following are developer notes on how to build 401KCoin on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build 401K Coin on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OSX Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
@@ -42,7 +38,7 @@ The following are developer notes on how to build 401KCoin on your native platfo
 
 Development
 ---------------------
-The Pivx repo's [root README](https://github.com/401kcoin/401kcoin/blob/master/README.md) contains relevant information on the development process and automated testing.
+The 401K Coin repo's [root README](https://github.com/401KCoin/401KCoin/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
@@ -53,11 +49,6 @@ The Pivx repo's [root README](https://github.com/401kcoin/401kcoin/blob/master/R
 - [Unit Tests](unit-tests.md)
 - [Unauthenticated REST Interface](REST-interface.md)
 - [Dnsseed Policy](dnsseed-policy.md)
-
-### Resources
-
-* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [401KCoin](http://forum.401kcoinlabs.org/) forum.
-* Join the [401KCoin-Dev](https://401kcoin-dev.slack.com/) Slack group ([Sign-Up](https://401kcoin-dev.herokuapp.com/)).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The XBTC developers
-// Copyright (c) 2018 The 401KCoin developers
+// Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2018 The 401K Coin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,18 +20,18 @@ BitcoinUnits::BitcoinUnits(QObject* parent) : QAbstractListModel(parent),
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(BTC);
-    unitlist.append(mBTC);
-    unitlist.append(uBTC);
+    unitlist.append(b401K);
+    unitlist.append(m401K);
+    unitlist.append(u401K);
     return unitlist;
 }
 
 bool BitcoinUnits::valid(int unit)
 {
     switch (unit) {
-    case BTC:
-    case mBTC:
-    case uBTC:
+    case b401K:
+    case m401K:
+    case u401K:
         return true;
     default:
         return false;
@@ -41,11 +41,11 @@ bool BitcoinUnits::valid(int unit)
 QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
-    case BTC:
+    case b401K:
         return QString("401k");
-    case mBTC:
+    case m401K:
         return QString("m401k");
-    case uBTC:
+    case u401K:
         return QString::fromUtf8("u401k");
     default:
         return QString("???");
@@ -56,22 +56,22 @@ QString BitcoinUnits::name(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case BTC:
+        case b401K:
             return QString("401K");
-        case mBTC:
+        case m401K:
             return QString("m401K");
-        case uBTC:
+        case u401K:
             return QString::fromUtf8("μ401K");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case BTC:
+        case b401K:
             return QString("t401K");
-        case mBTC:
+        case m401K:
             return QString("mt401K");
-        case uBTC:
+        case u401K:
             return QString::fromUtf8("μt401K");
         default:
             return QString("???");
@@ -83,22 +83,22 @@ QString BitcoinUnits::description(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case BTC:
+        case b401K:
             return QString("401K");
-        case mBTC:
+        case m401K:
             return QString("Milli-401K (1 / 1" THIN_SP_UTF8 "000)");
-        case uBTC:
+        case u401K:
             return QString("Micro-401K (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case BTC:
+        case b401K:
             return QString("Test401Ks");
-        case mBTC:
+        case m401K:
             return QString("Milli-Test401K (1 / 1" THIN_SP_UTF8 "000)");
-        case uBTC:
+        case u401K:
             return QString("Micro-Test401K (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
@@ -109,11 +109,11 @@ QString BitcoinUnits::description(int unit)
 qint64 BitcoinUnits::factor(int unit)
 {
     switch (unit) {
-    case BTC:
+    case b401K:
         return 100000000;
-    case mBTC:
+    case m401K:
         return 100000;
-    case uBTC:
+    case u401K:
         return 100;
     default:
         return 100000000;
@@ -123,11 +123,11 @@ qint64 BitcoinUnits::factor(int unit)
 int BitcoinUnits::decimals(int unit)
 {
     switch (unit) {
-    case BTC:
+    case b401K:
         return 8;
-    case mBTC:
+    case m401K:
         return 5;
-    case uBTC:
+    case u401K:
         return 2;
     default:
         return 0;

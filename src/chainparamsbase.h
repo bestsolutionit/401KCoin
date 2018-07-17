@@ -1,5 +1,4 @@
 // Copyright (c) 2014 The Bitcoin developers
-// Copyright (c) 2017 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,7 +10,7 @@
 
 /**
  * CBaseChainParams defines the base parameters (shared between 401kcoin-cli and 401kcoind)
- * of a given instance of the 401KCoin system.
+ * of a given instance of the 401K Coin system.
  */
 class CBaseChainParams
 {

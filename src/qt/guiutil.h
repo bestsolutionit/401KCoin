@@ -1,5 +1,4 @@
 // Copyright (c) 2011-2013 The Bitcoin developers
-// Copyright (c) 2017-2018 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -31,7 +30,7 @@ class QUrl;
 class QWidget;
 QT_END_NAMESPACE
 
-/** Utility functions used by the Bitcoin Qt UI.
+/** Utility functions used by the 401KCoin Qt UI.
  */
 namespace GUIUtil
 {
@@ -39,7 +38,7 @@ namespace GUIUtil
 QString dateTimeStr(const QDateTime& datetime);
 QString dateTimeStr(qint64 nTime);
 
-// Render Bitcoin addresses in monospace font
+// Render 401K addresses in monospace font
 QFont bitcoinAddressFont();
 
 // Set up widgets for address and amounts
@@ -65,14 +64,6 @@ QString HtmlEscape(const std::string& str, bool fMultiLine = false);
        @see  TransactionView::copyLabel, TransactionView::copyAmount, TransactionView::copyAddress
      */
 void copyEntryData(QAbstractItemView* view, int column, int role = Qt::EditRole);
-
-/** Return a field of the currently selected entry as a QString. Does nothing if nothing
-        is selected.
-       @param[in] column  Data column to extract from the model
-       @param[in] role    Data role to extract from the model
-       @see  TransactionView::copyLabel, TransactionView::copyAmount, TransactionView::copyAddress
-     */
-QString getEntryData(QAbstractItemView *view, int column, int role);
 
 void setClipboard(const QString& str);
 
@@ -176,7 +167,7 @@ private:
     void setViewHeaderResizeMode(int logicalIndex, QHeaderView::ResizeMode resizeMode);
     void resizeColumn(int nColumnIndex, int width);
 
-private Q_SLOTS:
+private slots:
     void on_sectionResized(int logicalIndex, int oldSize, int newSize);
     void on_geometriesChanged();
 };
@@ -204,11 +195,8 @@ void saveWindowGeometry(const QString& strSetting, QWidget* parent);
 /** Restore window size and position */
 void restoreWindowGeometry(const QString& strSetting, const QSize& defaultSizeIn, QWidget* parent);
 
-/** Load global CSS theme */
+/** Load global CSS */
 QString loadStyleSheet();
-
-/** Check whether a theme is not build-in */
-bool isExternal(QString theme);
 
 /* Convert QString to OS specific boost path through UTF-8 */
 boost::filesystem::path qstringToBoostPath(const QString& path);
@@ -224,9 +212,6 @@ QString formatServicesStr(quint64 mask);
 
 /* Format a CNodeCombinedStats.dPingTime into a user-readable string or display N/A, if 0*/
 QString formatPingTime(double dPingTime);
-
-/* Format a CNodeCombinedStats.nTimeOffset into a user-readable string. */
-QString formatTimeOffset(int64_t nTimeOffset);
 
 #if defined(Q_OS_MAC) && QT_VERSION >= 0x050000
 // workaround for Qt OSX Bug:

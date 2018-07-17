@@ -1,5 +1,4 @@
 // Copyright (c) 2011-2013 The Bitcoin developers
-// Copyright (c) 2017-2018 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -38,17 +37,11 @@ public:
         DisplayUnit,         // BitcoinUnits::Unit
         ThirdPartyTxUrls,    // QString
         Digits,              // QString
-        Theme,               // QString
         Language,            // QString
         CoinControlFeatures, // bool
         ThreadsScriptVerif,  // int
         DatabaseCache,       // int
         SpendZeroConfChange, // bool
-        ZeromintEnable,      // bool
-        ZeromintPercentage,  // int
-        ZeromintPrefDenom,   // int
-        HideZeroBalances,    // bool
-        AnonymizeCoinAmount, //int
         ShowMasternodesTab,  // bool
         Listen,              // bool
         StakeSplitThreshold, // int
@@ -88,21 +81,15 @@ private:
     int nDisplayUnit;
     QString strThirdPartyTxUrls;
     bool fCoinControlFeatures;
-    bool fHideZeroBalances;
     /* settings that were overriden by command-line */
     QString strOverriddenByCommandLine;
 
     /// Add option to list of GUI options overridden through command line/config file
     void addOverriddenOption(const std::string& option);
 
-Q_SIGNALS:
+signals:
     void displayUnitChanged(int unit);
-    void zeromintEnableChanged(bool);
-    void zeromintPercentageChanged(int);
-    void preferredDenomChanged(int);
-    void anonymizeCoinAmountChanged(int);
     void coinControlFeaturesChanged(bool);
-    void hideZeroBalancesChanged(bool);
 };
 
 #endif // BITCOIN_QT_OPTIONSMODEL_H

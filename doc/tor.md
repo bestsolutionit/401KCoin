@@ -1,7 +1,7 @@
-TOR SUPPORT IN 401KCoin
-=======================
+TOR SUPPORT IN 401K Coin
+============================
 
-It is possible to run 401KCoin as a Tor hidden service, and connect to such services.
+It is possible to run 401K Coin as a Tor hidden service, and connect to such services.
 
 The following directions assume you have a Tor proxy running on port 9050. Many
 distributions default to having a SOCKS proxy listening on port 9050, but others
@@ -10,10 +10,10 @@ port. See [Tor Project FAQ:TBBSocksPort](https://www.torproject.org/docs/faq.htm
 for how to properly configure Tor.
 
 
-Run 401KCoin behind a Tor proxy
-----------------------------------
+Run 401K Coin behind a Tor proxy
+------------------------------------
 
-The first step is running 401KCoin behind a Tor proxy. This will already make all
+The first step is running 401K Coin behind a Tor proxy. This will already make all
 outgoing connections be anonymized, but more is possible.
 ```
 -proxy=ip:port  Set the proxy server. If SOCKS5 is selected (default), this proxy
@@ -46,8 +46,8 @@ In a typical situation, this suffices to run behind a Tor proxy:
 ./401kcoind -proxy=127.0.0.1:9050
 ```
 
-Run a 401KCoin hidden server
--------------------------------
+Run a 401K Coin hidden server
+----------------------------------
 
 If you configure your Tor system accordingly, it is possible to make your node also
 reachable from the Tor network. Add these lines to your /etc/tor/torrc (or equivalent
@@ -59,7 +59,7 @@ SOCKSPolicy accept 127.0.0.1/8
 Log notice file /var/log/tor/notices.log
 ControlPort 9051
 HiddenServiceDir /var/lib/tor/dnet/
-HiddenServicePort 989 127.0.0.1:9009
+HiddenServicePort 989 127.0.0.1:33002
 HiddenServiceStatistics 0
 ORPort 9001
 LongLivedPorts 989
@@ -69,7 +69,7 @@ NumEntryGuards 8
 ```
 
 The directory can be different of course, but (both) port numbers should be equal to
-your 401kcoind's P2P listen port (9009 by default).
+your 401kcoind's P2P listen port (33002 by default).
 ```
 -externalip=X   You can tell 401kcoin about its publicly reachable address using
                 this option, and this can be a .onion address. Given the above
@@ -102,7 +102,7 @@ specify:
 ./401kcoind ... -discover
 ```
 
-and open port 9009 on your firewall (or use -upnp).
+and open port 33002 on your firewall (or use -upnp).
 
 If you only want to use Tor to reach onion addresses, but not use it as a proxy
 for normal IPv4/IPv6 communication, use:
@@ -110,17 +110,8 @@ for normal IPv4/IPv6 communication, use:
 ./401kcoind -onion=127.0.0.1:9050 -externalip=dnetzj6l4cvo2fxy.onion:989 -discover
 ```
 
-List of known 401KCoin Tor relays
+List of known 401K Coin Tor relays
 ------------------------------------
 ```
-y5kcscnhpygvvnjn.onion:989
-5bmhtjvn2jvwpiej.onion:989
-pyfdxkazur3iib7y.onion:989
-ok3ym5zy6m5klimk.onion:989
-i6vpvzk2jxuqqs5f.onion:989
-bgdhpb76fkbw5fmg.onion:989
-gtlqzb5zbws5di7g.onion:989
-f7j2m26rptm5f7af.onion:989
-dnetzj6l4cvo2fxy.onion:989
-s3v3n7xhqafg6sb7.onion:989
+***TODO***
 ```

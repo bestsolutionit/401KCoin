@@ -32,33 +32,7 @@
          <number>0</number>
         </property>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_Header" stretch="1,0,1">
-          <item>
-           <widget class="QLabel" name="labelOverviewHeaderLeft">
-            <property name="minimumSize">
-             <size>
-              <width>464</width>
-              <height>60</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>60</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>20</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>RECEIVE</string>
-            </property>
-           </widget>
-          </item>
+         <layout class="QHBoxLayout" name="horizontalLayout_Header" stretch="1,0">
           <item>
            <spacer name="horizontalSpacer_3">
             <property name="orientation">
@@ -156,7 +130,7 @@
              <item row="6" column="0">
               <widget class="QLabel" name="label_3">
                <property name="toolTip">
-                <string>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the 401KCoin network.</string>
+                <string>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the 401K Coin network.</string>
                </property>
                <property name="text">
                 <string>&amp;Message:</string>
@@ -179,7 +153,7 @@
              <item row="6" column="2">
               <widget class="QLineEdit" name="reqMessage">
                <property name="toolTip">
-                <string>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the 401KCoin network.</string>
+                <string>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the 401K Coin network.</string>
                </property>
               </widget>
              </item>
@@ -256,7 +230,7 @@
                   <string>&amp;Request payment</string>
                  </property>
                  <property name="icon">
-                  <iconset resource="../bitcoin.qrc">
+                  <iconset resource="../401kcoin.qrc">
                    <normaloff>:/icons/receiving_addresses</normaloff>:/icons/receiving_addresses</iconset>
                  </property>
                 </widget>
@@ -276,7 +250,7 @@
                   <string>Clear</string>
                  </property>
                  <property name="icon">
-                  <iconset resource="../bitcoin.qrc">
+                  <iconset resource="../401kcoin.qrc">
                    <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
                  </property>
                  <property name="autoDefault">
@@ -409,7 +383,7 @@
                 <string>Show</string>
                </property>
                <property name="icon">
-                <iconset resource="../bitcoin.qrc">
+                <iconset resource="../401kcoin.qrc">
                  <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
                </property>
                <property name="autoDefault">
@@ -429,7 +403,7 @@
                 <string>Remove</string>
                </property>
                <property name="icon">
-                <iconset resource="../bitcoin.qrc">
+                <iconset resource="../401kcoin.qrc">
                  <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
                </property>
                <property name="autoDefault">
@@ -482,7 +456,7 @@
   <tabstop>removeRequestButton</tabstop>
  </tabstops>
  <resources>
-  <include location="../bitcoin.qrc"/>
+  <include location="../401kcoin.qrc"/>
  </resources>
  <connections/>
 </ui>

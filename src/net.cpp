@@ -1,27 +1,28 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX developers
-// Copyright (c) 2018 The 401KCoin developers
-
+// Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2018 The 401K Coin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/bitcoin-config.h"
+#include "config/401kcoin-config.h"
 #endif
 
 #include "net.h"
-
+#include "init.h"
 #include "addrman.h"
 #include "chainparams.h"
 #include "clientversion.h"
 #include "miner.h"
-#include "obfuscation.h"
 #include "primitives/transaction.h"
 #include "scheduler.h"
 #include "ui_interface.h"
+
+#ifdef ENABLE_WALLET
 #include "wallet.h"
+#endif
 
 #ifdef WIN32
 #include <string.h>
@@ -80,6 +81,7 @@ bool fListen = true;
 uint64_t nLocalServices = NODE_NETWORK;
 CCriticalSection cs_mapLocalHost;
 map<CNetAddr, LocalServiceInfo> mapLocalHost;
+static bool vfReachable[NET_MAX] = {};
 static bool vfLimited[NET_MAX] = {};
 static CNode* pnodeLocalHost = NULL;
 uint64_t nLocalHostNonce = 0;
@@ -239,6 +241,14 @@ void AdvertizeLocal(CNode* pnode)
     }
 }
 
+void SetReachable(enum Network net, bool fFlag)
+{
+    LOCK(cs_mapLocalHost);
+    vfReachable[net] = fFlag;
+    if (net == NET_IPV6 && fFlag)
+        vfReachable[NET_IPV4] = true;
+}
+
 // learn a new local address
 bool AddLocal(const CService& addr, int nScore)
 {
@@ -261,6 +271,7 @@ bool AddLocal(const CService& addr, int nScore)
             info.nScore = nScore + (fAlready ? 1 : 0);
             info.nPort = addr.GetPort();
         }
+        SetReachable(addr.GetNetwork());
     }
 
     return true;
@@ -323,7 +334,7 @@ bool IsLocal(const CService& addr)
 bool IsReachable(enum Network net)
 {
     LOCK(cs_mapLocalHost);
-    return !vfLimited[net];
+    return vfReachable[net] && !vfLimited[net];
 }
 
 /** check whether a given address is in a network we can probably connect to */
@@ -387,19 +398,17 @@ CNode* FindNode(const CService& addr)
     return NULL;
 }
 
-CNode* ConnectNode(CAddress addrConnect, const char* pszDest, bool obfuScationMaster)
+CNode* ConnectNode(CAddress addrConnect, const char* pszDest)
 {
     if (pszDest == NULL) {
         // we clean masternode connections in CMasternodeMan::ProcessMasternodeConnections()
         // so should be safe to skip this and connect to local Hot MN on CActiveMasternode::ManageStatus()
-        if (IsLocal(addrConnect) && !obfuScationMaster)
+        if (IsLocal(addrConnect))
             return NULL;
 
         // Look for an existing connection
         CNode* pnode = FindNode((CService)addrConnect);
         if (pnode) {
-            pnode->fObfuScationMaster = obfuScationMaster;
-
             pnode->AddRef();
             return pnode;
         }
@@ -433,7 +442,6 @@ CNode* ConnectNode(CAddress addrConnect, const char* pszDest, bool obfuScationMa
         }
 
         pnode->nTimeConnected = GetTime();
-        if (obfuScationMaster) pnode->fObfuScationMaster = true;
 
         return pnode;
     } else if (!proxyConnectionFailed) {
@@ -495,13 +503,9 @@ bool CNode::setBannedIsDirty;
 
 void CNode::ClearBanned()
 {
-    {
-        LOCK(cs_setBanned);
-        setBanned.clear();
-        setBannedIsDirty = true;
-    }
-    DumpBanlist(); // store banlist to Disk
-    uiInterface.BannedListChanged();
+    LOCK(cs_setBanned);
+    setBanned.clear();
+    setBannedIsDirty = true;
 }
 
 bool CNode::IsBanned(CNetAddr ip)
@@ -553,25 +557,11 @@ void CNode::Ban(const CSubNet& subNet, const BanReason &banReason, int64_t banti
     }
     banEntry.nBanUntil = (sinceUnixEpoch ? 0 : GetTime() )+bantimeoffset;
 
-    {
-        LOCK(cs_setBanned);
-        if (setBanned[subNet].nBanUntil < banEntry.nBanUntil) {
-            setBanned[subNet] = banEntry;
-            setBannedIsDirty = true;
-        }
-        else
-            return;
-    }
-    uiInterface.BannedListChanged();
-    {
-        LOCK(cs_vNodes);
-        BOOST_FOREACH(CNode* pnode, vNodes) {
-            if (subNet.Match((CNetAddr)pnode->addr))
-                pnode->fDisconnect = true;
-        }
-    }
-    if(banReason == BanReasonManuallyAdded)
-        DumpBanlist(); //store banlist to disk immediately if user requested ban
+    LOCK(cs_setBanned);
+    if (setBanned[subNet].nBanUntil < banEntry.nBanUntil)
+        setBanned[subNet] = banEntry;
+
+    setBannedIsDirty = true;
 }
 
 bool CNode::Unban(const CNetAddr &addr)
@@ -582,15 +572,13 @@ bool CNode::Unban(const CNetAddr &addr)
 
 bool CNode::Unban(const CSubNet &subNet)
 {
+    LOCK(cs_setBanned);
+    if (setBanned.erase(subNet))
     {
-        LOCK(cs_setBanned);
-        if (!setBanned.erase(subNet))
-            return false;
         setBannedIsDirty = true;
+        return true;
     }
-    uiInterface.BannedListChanged();
-    DumpBanlist(); //store banlist to disk immediately
-    return true;
+    return false;
 }
 
 void CNode::GetBanned(banmap_t &banMap)
@@ -610,28 +598,18 @@ void CNode::SweepBanned()
 {
     int64_t now = GetTime();
 
-    bool notifyUI = false;
+    LOCK(cs_setBanned);
+    banmap_t::iterator it = setBanned.begin();
+    while(it != setBanned.end())
     {
-        LOCK(cs_setBanned);
-        banmap_t::iterator it = setBanned.begin();
-        while(it != setBanned.end())
+        CBanEntry banEntry = (*it).second;
+        if(now > banEntry.nBanUntil)
         {
-            CSubNet subNet = (*it).first;
-            CBanEntry banEntry = (*it).second;
-            if(now > banEntry.nBanUntil)
-            {
-                setBanned.erase(it++);
-                setBannedIsDirty = true;
-                notifyUI = true;
-                LogPrint("net", "%s: Removed banned node ip/subnet from banlist.dat: %s\n", __func__, subNet.ToString());
-            }
-            else
-                ++it;
+            setBanned.erase(it++);
+            setBannedIsDirty = true;
         }
-    }
-    // update UI
-    if(notifyUI) {
-        uiInterface.BannedListChanged();
+        else
+            ++it;
     }
 }
 
@@ -676,7 +654,6 @@ void CNode::copyStats(CNodeStats& stats)
     X(nLastSend);
     X(nLastRecv);
     X(nTimeConnected);
-    X(nTimeOffset);
     X(addrName);
     X(nVersion);
     X(cleanSubVer);
@@ -697,7 +674,7 @@ void CNode::copyStats(CNodeStats& stats)
         nPingUsecWait = GetTimeMicros() - nPingUsecStart;
     }
 
-    // Raw ping time is in microseconds, but show it to user as whole seconds (Bitcoin users should be well used to small numbers with many decimal places by now :)
+    // Raw ping time is in microseconds, but show it to user as whole seconds (401K Coin users should be well used to small numbers with many decimal places by now :)
     stats.dPingTime = (((double)nPingUsecTime) / 1e6);
     stats.dPingWait = (((double)nPingUsecWait) / 1e6);
 
@@ -1159,7 +1136,7 @@ void ThreadMapPort()
             }
         }
 
-        string strDesc = "401KCoin " + FormatFullVersion();
+        string strDesc = "401K Coin " + FormatFullVersion();
 
         try {
             while (true) {
@@ -1282,7 +1259,12 @@ void DumpAddresses()
 void DumpData()
 {
     DumpAddresses();
-    DumpBanlist();
+
+    if (CNode::BannedSetIsDirty())
+    {
+        DumpBanlist();
+        CNode::SetBannedSetDirty(false);
+    }
 }
 
 void static ProcessOneShot()
@@ -1637,7 +1619,7 @@ bool BindListenPort(const CService& addrBind, string& strError, bool fWhiteliste
     if (::bind(hListenSocket, (struct sockaddr*)&sockaddr, len) == SOCKET_ERROR) {
         int nErr = WSAGetLastError();
         if (nErr == WSAEADDRINUSE)
-            strError = strprintf(_("Unable to bind to %s on this computer. 401KCoin Core is probably already running."), addrBind.ToString());
+            strError = strprintf(_("Unable to bind to %s on this computer. 401K Coin Core is probably already running."), addrBind.ToString());
         else
             strError = strprintf(_("Unable to bind to %s on this computer (bind returned error %s)"), addrBind.ToString(), NetworkErrorString(nErr));
         LogPrintf("%s\n", strError);
@@ -1725,10 +1707,6 @@ void StartNode(boost::thread_group& threadGroup, CScheduler& scheduler)
     CNode::SetBanned(banmap); //thread save setter
     CNode::SetBannedSetDirty(false); //no need to write down just read or nonexistent data
     CNode::SweepBanned(); //sweap out unused entries
-
-    // Initialize random numbers. Even when rand() is only usable for trivial use-cases most nodes should have a different 
-    // seed after all the file-IO done at this point. Should be good enough even when nodes are started via scripts.
-    srand(time(NULL));
 
     LogPrintf("Loaded %i addresses from peers.dat  %dms\n",
         addrman.size(), GetTimeMillis() - nStart);
@@ -1891,7 +1869,8 @@ void RelayInv(CInv& inv)
 {
     LOCK(cs_vNodes);
     BOOST_FOREACH (CNode* pnode, vNodes){
-    		if((pnode->nServices==NODE_BLOOM_WITHOUT_MN) && inv.IsMasterNodeType())continue;
+        if((pnode->nServices==NODE_BLOOM_WITHOUT_MN) && inv.IsMasterNodeType())
+            continue;
         if (pnode->nVersion >= ActiveProtocol())
             pnode->PushInventory(inv);
     }
@@ -2062,7 +2041,6 @@ CNode::CNode(SOCKET hSocketIn, CAddress addrIn, std::string addrNameIn, bool fIn
     nSendBytes = 0;
     nRecvBytes = 0;
     nTimeConnected = GetTime();
-    nTimeOffset = 0;
     addr = addrIn;
     addrName = addrNameIn == "" ? addr.ToStringIPPort() : addrNameIn;
     nVersion = 0;
@@ -2087,7 +2065,6 @@ CNode::CNode(SOCKET hSocketIn, CAddress addrIn, std::string addrNameIn, bool fIn
     nPingUsecStart = 0;
     nPingUsecTime = 0;
     fPingQueued = false;
-    fObfuScationMaster = false;
 
     {
         LOCK(cs_nLastNodeId);
@@ -2176,10 +2153,8 @@ void CNode::EndMessage() UNLOCK_FUNCTION(cs_vSend)
     if (mapArgs.count("-fuzzmessagestest"))
         Fuzz(GetArg("-fuzzmessagestest", 10));
 
-    if (ssSend.size() == 0) {
-	    LEAVE_CRITICAL_SECTION(cs_vSend);
+    if (ssSend.size() == 0)
         return;
-    }
 
     // Set the size
     unsigned int nSize = ssSend.size() - CMessageHeader::HEADER_SIZE;
@@ -2308,20 +2283,15 @@ bool CBanDB::Read(banmap_t& banSet)
 
 void DumpBanlist()
 {
-    CNode::SweepBanned(); // clean unused entries (if bantime has expired)
-
-    if (!CNode::BannedSetIsDirty())
-        return;
-
     int64_t nStart = GetTimeMillis();
+
+    CNode::SweepBanned(); //clean unused entires (if bantime has expired)
 
     CBanDB bandb;
     banmap_t banmap;
     CNode::GetBanned(banmap);
-    if (bandb.Write(banmap)) {
-        CNode::SetBannedSetDirty(false);
-    }
+    bandb.Write(banmap);
 
     LogPrint("net", "Flushed %d banned node ips/subnets to banlist.dat  %dms\n",
-        banmap.size(), GetTimeMillis() - nStart);
+             banmap.size(), GetTimeMillis() - nStart);
 }

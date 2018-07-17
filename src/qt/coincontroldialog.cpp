@@ -1,7 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2018 The 401KCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -17,7 +16,6 @@
 
 #include "coincontrol.h"
 #include "main.h"
-#include "obfuscation.h"
 #include "wallet.h"
 #include "multisigdialog.h"
 
@@ -437,8 +435,9 @@ void CoinControlDialog::viewItemChanged(QTreeWidgetItem* item, int column)
             coinControl->UnSelect(outpt);
         else if (item->isDisabled()) // locked (this happens if "check all" through parent node)
             item->setCheckState(COLUMN_CHECKBOX, Qt::Unchecked);
-        else
+        else {
             coinControl->Select(outpt);
+        }
 
         // selection changed -> update labels
         if (ui->treeWidget->isEnabled()){ // do not update on every click for (un)select all
@@ -543,7 +542,7 @@ void CoinControlDialog::updateLabels(WalletModel* model, QDialog* dialog)
     CAmount nPayAmount = 0;
     bool fDust = false;
     CMutableTransaction txDummy;
-    Q_FOREACH (const CAmount& amount, CoinControlDialog::payAmounts) {
+    foreach (const CAmount& amount, CoinControlDialog::payAmounts) {
         nPayAmount += amount;
 
         if (amount > 0) {
@@ -654,7 +653,7 @@ void CoinControlDialog::updateLabels(WalletModel* model, QDialog* dialog)
     }
 
     // actually update labels
-    int nDisplayUnit = BitcoinUnits::BTC;
+    int nDisplayUnit = BitcoinUnits::b401K;
     if (model && model->getOptionsModel())
         nDisplayUnit = model->getOptionsModel()->getDisplayUnit();
 
@@ -711,7 +710,7 @@ void CoinControlDialog::updateLabels(WalletModel* model, QDialog* dialog)
         dFeeVary = (double)std::max(CWallet::minTxFee.GetFeePerK(), payTxFee.GetFeePerK()) / 1000;
     else
         dFeeVary = (double)std::max(CWallet::minTxFee.GetFeePerK(), mempool.estimateFee(nTxConfirmTarget).GetFeePerK()) / 1000;
-    QString toolTip4 = tr("Can vary +/- %1 upiv per input.").arg(dFeeVary);
+    QString toolTip4 = tr("Can vary +/- %1 u401k per input.").arg(dFeeVary);
 
     l3->setToolTip(toolTip4);
     l4->setToolTip(toolTip4);
@@ -817,7 +816,7 @@ void CoinControlDialog::updateView()
             if (ExtractDestination(out.tx->vout[out.i].scriptPubKey, outputAddress)) {
                 sAddress = QString::fromStdString(CBitcoinAddress(outputAddress).ToString());
 
-                // if listMode or change => show Bitcoin address. In tree mode, address is not shown again for direct wallet address outputs
+                // if listMode or change => show 401K address. In tree mode, address is not shown again for direct wallet address outputs
                 if (!treeMode || (!(sAddress == sWalletAddress)))
                     itemOutput->setText(COLUMN_ADDRESS, sAddress);
 
