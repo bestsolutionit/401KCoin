@@ -144,7 +144,7 @@ public:
         pchMessageStart[2] = 0x9a;
         pchMessageStart[3] = 0x2b;
         vAlertPubKey = ParseHex("04878a83b51fcf96c2b43690f09c84bbd64df781333ad1dc96d66121e65f7572d3630542a0def8611bb836a009bd42c7aec41d17ded5e0239536791e02ab9272a3");
-        nDefaultPort = 33002;
+        nDefaultPort = 55002;
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         nSubsidyHalvingInterval = 1050000;
         nMaxReorganizationDepth = 100;
@@ -152,14 +152,14 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 60; // 401K coin: 2 minutes
-        nTargetSpacing = 1 * 60;  // 401K coin: 2 minutes
-        nMaturity = 5;//myfix
+        nTargetTimespan = 2 * 60; // 401K coin: 2 minutes
+        nTargetSpacing = 2 * 60;  // 401K coin: 2 minutes
+        nMaturity = 15;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 25000000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 50;//myfix
+        nLastPOWBlock = 100;//myfix
         nModifierUpdateBlock = 1; // we use the version 2 for 401K
 
         const char* pszTimestamp = "401KCoin Core Developers Team";
@@ -181,10 +181,12 @@ public:
 	    hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0x00000585522398e3bdf6e91dfe8382fdb3ea5af76c963c4e04f7ec894e18281f"));
         assert(genesis.hashMerkleRoot == uint256("0x70cff1fc2ed81c547c0baeb5f63269739ddef46d38962fee643fdc53aa4ed856"));
-//myfix
+
         // DNS Seeding
-        vSeeds.push_back(CDNSSeedData("1", "178.128.54.249"));
-        vSeeds.push_back(CDNSSeedData("2", "138.197.159.182"));
+        vSeeds.push_back(CDNSSeedData("1", "167.99.144.178"));
+        vSeeds.push_back(CDNSSeedData("2", "206.189.171.147"));
+        // vSeeds.push_back(CDNSSeedData("3", "138.197.159.182"));
+        // vSeeds.push_back(CDNSSeedData("4", "178.128.54.249"));
 
         // 401K coin addresses start with 'K'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 45);
@@ -241,12 +243,12 @@ public:
         pchMessageStart[2] = 0x9c;
         pchMessageStart[3] = 0xbd;
         vAlertPubKey = ParseHex("04cb01107a46c5ff9b5b7f639a89ba5c19b7b8aa2c3a6db651c85bb4f042f617c3b05e221c4ebe2038773b9db6ffe481d91bc38d409e314a919a8609e48e5da288");
-        nDefaultPort = 33004;
+        nDefaultPort = 55004;
         nEnforceBlockUpgradeMajority = 51;
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 60; // 401K coin: 1 minute
+        nTargetTimespan = 2 * 60; // 401K coin: 1 minute
         nTargetSpacing = 2 * 60;  // 401K coin: 2 minutes
         nLastPOWBlock = 200;
         nMaturity = 15;
@@ -265,8 +267,10 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
 
-        vSeeds.push_back(CDNSSeedData("1", "178.128.54.249"));
-        vSeeds.push_back(CDNSSeedData("2", "138.197.159.182"));
+        vSeeds.push_back(CDNSSeedData("1", "167.99.144.178"));
+        vSeeds.push_back(CDNSSeedData("2", "206.189.171.147"));
+        // vSeeds.push_back(CDNSSeedData("3", "138.197.159.182"));
+        // vSeeds.push_back(CDNSSeedData("4", "178.128.54.249"));
 
         // Testnet 401K coin addresses start with 'k'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 107);
@@ -333,7 +337,7 @@ public:
 
         // MineNewGenesisBlock();
         hashGenesisBlock = genesis.GetHash();
-        nDefaultPort = 33002;
+        nDefaultPort = 55002;
         assert(hashGenesisBlock == uint256("0x6fca129c7eeeb20ca100a118bef996fa1b65360a111578e9c681c8d0832152f5"));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
@@ -363,7 +367,7 @@ public:
     {
         networkID = CBaseChainParams::UNITTEST;
         strNetworkID = "unittest";
-        nDefaultPort = 33004;
+        nDefaultPort = 55004;
         vFixedSeeds.clear(); //! Unit test mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Unit test mode doesn't have any DNS seeds.
 
