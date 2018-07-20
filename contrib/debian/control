@@ -23,8 +23,8 @@ Build-Depends: debhelper,
  libprotobuf-dev, protobuf-compiler
 Standards-Version: 3.9.2
 Homepage: http://www.savebitcoin.io
-Vcs-Git: git://github.com/401kcoin/401kcoin.git
-Vcs-Browser: http://github.com/401kcoin/401kcoin
+Vcs-Git: git://github.com/401KCoin/401KCoin.git
+Vcs-Browser: http://github.com/401KCin/401KCoin
 
 Package: 401kcoind
 Architecture: any

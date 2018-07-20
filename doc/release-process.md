@@ -24,7 +24,7 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/401kcoin/gitian.sigs.git
+    git clone https://github.com/401KCoin/gitian.sigs.git
     git clone https://github.com/401KCoin/401KCoin-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     git clone https://github.com/401KCoin/401KCoin.git

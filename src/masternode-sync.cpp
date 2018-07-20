@@ -241,7 +241,7 @@ void CMasternodeSync::Process()
             Resync if we lose all masternodes from sleep/wake or failure to sync originally
         */
         if (mnodeman.CountEnabled() == 0) {
-            //Reset();
+            Reset();
         } else
             return;
     }
@@ -285,7 +285,7 @@ void CMasternodeSync::Process()
         //set to synced
         if (RequestedMasternodeAssets == MASTERNODE_SYNC_SPORKS) {
 
-//            if (pnode->HasFulfilledRequest("getspork")) continue;
+            if (pnode->HasFulfilledRequest("getspork")) continue;
             pnode->FulfilledRequest("getspork");
 
             pnode->PushMessage("getsporks"); //get current network sporks
@@ -303,7 +303,7 @@ void CMasternodeSync::Process()
                     return;
                 }
 
-//                if (pnode->HasFulfilledRequest("mnsync")) continue;
+                if (pnode->HasFulfilledRequest("mnsync")) continue;
                 pnode->FulfilledRequest("mnsync");
 
                 // timeout
@@ -334,7 +334,7 @@ void CMasternodeSync::Process()
                     return;
                 }
 
-//                if (pnode->HasFulfilledRequest("mnwsync")) continue;
+                if (pnode->HasFulfilledRequest("mnwsync")) continue;
                 pnode->FulfilledRequest("mnwsync");
 
                 // timeout
@@ -385,7 +385,7 @@ void CMasternodeSync::Process()
                     activeMasternode.ManageStatus();
                     return;
                 }
-//                if (pnode->HasFulfilledRequest("busync")) continue;
+                if (pnode->HasFulfilledRequest("busync")) continue;
                 pnode->FulfilledRequest("busync");
 
                 if (RequestedMasternodeAttempt >= MASTERNODE_SYNC_THRESHOLD * 3) return;

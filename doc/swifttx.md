@@ -12,8 +12,8 @@ When a "Transaction Lock" occurs the hash of the related transaction is broadcas
 * `zmqpubhashtxlock`: publishes the transaction hash when locked via SwiftTX
 
 This mechanism has been integrated into Bitcore-Node-401KCoin which allows for notification to be broadcast through Insight API in one of two ways:
-* WebSocket: [https://github.com/401kcoin/insight-api-401kcoin#web-socket-api](https://github.com/401kcoin/insight-api-401kcoin#web-socket-api)
-* API: [https://github.com/401kcoin/insight-api-401kcoin#swifttx-transactions](https://github.com/401kcoin/insight-api-401kcoin#swifttx-transactions)
+* WebSocket: [https://github.com/401KCoin/insight-api-401kcoin#web-socket-api](https://github.com/401KCoin/insight-api-401kcoin#web-socket-api)
+* API: [https://github.com/401KCoin/insight-api-401kcoin#swifttx-transactions](https://github.com/401KCoin/insight-api-401kcoin#swifttx-transactions)
 
 ####Command line option
 
