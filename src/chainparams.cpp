@@ -165,12 +165,12 @@ public:
         assert(hashGenesisBlock == uint256("0xc50762567b796c592f4496efee8da878515ba54dabe1d9a17f777963b4999968"));
         assert(genesis.hashMerkleRoot == uint256("0xf624fdb1fd4854ec218518518f8fd213eaa82196f9a833f86cb3c33b2c4dbec4"));
 
-        // vSeeds.push_back(CDNSSeedData("1", "dns0.401kcoin.io")); 
-        // vSeeds.push_back(CDNSSeedData("2", "401kcoin.seed.rho.industries")); 
-        // vSeeds.push_back(CDNSSeedData("3", "401kcoin.seed.rho.industries")); 
-        // vSeeds.push_back(CDNSSeedData("4", "401kcoin.seed.rho.industries")); 
-        // vSeeds.push_back(CDNSSeedData("5", "401kcoin.seed.rho.industries")); 
-        // vSeeds.push_back(CDNSSeedData("6", "401kcoin.seed.rho.industries")); 
+        vSeeds.push_back(CDNSSeedData("1", "167.99.144.178")); 
+        vSeeds.push_back(CDNSSeedData("2", "206.189.171.147")); 
+        vSeeds.push_back(CDNSSeedData("3", "138.197.159.182")); 
+        vSeeds.push_back(CDNSSeedData("4", "178.128.54.249")); 
+        vSeeds.push_back(CDNSSeedData("5", "178.128.1.74")); 
+        vSeeds.push_back(CDNSSeedData("6", "165.227.62.111")); 
 
         // 401K coin addresses start with 'K'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 45);

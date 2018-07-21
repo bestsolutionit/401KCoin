@@ -234,8 +234,7 @@ am__DIST_COMMON = $(srcdir)/Makefile.in \
 	$(top_srcdir)/src/config/401kcoin-config.h.in \
 	$(top_srcdir)/src/test/buildenv.py.in COPYING INSTALL \
 	build-aux/compile build-aux/config.guess build-aux/config.sub \
-	build-aux/depcomp build-aux/install-sh build-aux/ltmain.sh \
-	build-aux/missing
+	build-aux/install-sh build-aux/ltmain.sh build-aux/missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -278,14 +277,14 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /Volumes/D/401k/Phore/build-aux/missing aclocal-1.16
+ACLOCAL = ${SHELL} /Volumes/D/401k/401KCoin/build-aux/missing aclocal-1.16
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
 AR = /usr/bin/ar
 ARFLAGS = cr
-AUTOCONF = ${SHELL} /Volumes/D/401k/Phore/build-aux/missing autoconf
-AUTOHEADER = ${SHELL} /Volumes/D/401k/Phore/build-aux/missing autoheader
-AUTOMAKE = ${SHELL} /Volumes/D/401k/Phore/build-aux/missing automake-1.16
+AUTOCONF = ${SHELL} /Volumes/D/401k/401KCoin/build-aux/missing autoconf
+AUTOHEADER = ${SHELL} /Volumes/D/401k/401KCoin/build-aux/missing autoheader
+AUTOMAKE = ${SHELL} /Volumes/D/401k/401KCoin/build-aux/missing automake-1.16
 AWK = awk
 BDB_CFLAGS = 
 BDB_CPPFLAGS = 
@@ -380,7 +379,7 @@ LTLIBOBJS =
 LT_SYS_LIBRARY_PATH = 
 LUPDATE = /usr/local/Cellar/qt/5.11.1/bin/lupdate
 MAINT = 
-MAKEINFO = ${SHELL} /Volumes/D/401k/Phore/build-aux/missing makeinfo
+MAKEINFO = ${SHELL} /Volumes/D/401k/401KCoin/build-aux/missing makeinfo
 MAKENSIS = 
 MANIFEST_TOOL = :
 MINIUPNPC_CPPFLAGS = 
@@ -470,10 +469,10 @@ X11XCB_LIBS =
 XGETTEXT = 
 ZMQ_CFLAGS = -I/usr/local/Cellar/zeromq/4.2.5/include
 ZMQ_LIBS = -L/usr/local/Cellar/zeromq/4.2.5/lib -lzmq
-abs_builddir = /Volumes/D/401k/Phore
-abs_srcdir = /Volumes/D/401k/Phore
-abs_top_builddir = /Volumes/D/401k/Phore
-abs_top_srcdir = /Volumes/D/401k/Phore
+abs_builddir = /Volumes/D/401k/401KCoin
+abs_srcdir = /Volumes/D/401k/401KCoin
+abs_top_builddir = /Volumes/D/401k/401KCoin
+abs_top_srcdir = /Volumes/D/401k/401KCoin
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -505,7 +504,7 @@ host_vendor = apple
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /Volumes/D/401k/Phore/build-aux/install-sh
+install_sh = ${SHELL} /Volumes/D/401k/401KCoin/build-aux/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
