@@ -17,7 +17,7 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "401KCoin"
-            VALUE "FileDescription",    "401kcoind (OSS daemon/client for 401K Coin)"
+            VALUE "FileDescription",    "401kcoind (OSS daemon/client for 401KCoin)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "401kcoind"
             VALUE "LegalCopyright",     COPYRIGHT_STR

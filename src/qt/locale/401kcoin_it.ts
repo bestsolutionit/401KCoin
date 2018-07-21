@@ -62,12 +62,12 @@
         <translation>Indirizzi di ricezione</translation>
     </message>
     <message>
-        <source>These are your 401K addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Questi sono gli indirizzi 401K per l'invio di pagamenti. Controlla sempre l'importo e l'indirizzo di ricezione prima di inviare valuta.</translation>
+        <source>These are your 401KCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Questi sono gli indirizzi 401KCoin per l'invio di pagamenti. Controlla sempre l'importo e l'indirizzo di ricezione prima di inviare valuta.</translation>
     </message>
     <message>
-        <source>These are your 401K addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Questi sono gli indirizzi 401K per la ricezione di pagamenti. Si raccomanda di utilizzare un indirizzo diverso per ogni transazione.</translation>
+        <source>These are your 401KCoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Questi sono gli indirizzi 401KCoin per la ricezione di pagamenti. Si raccomanda di utilizzare un indirizzo diverso per ogni transazione.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -136,6 +136,10 @@
         <translation>Serve per impedire invii accidentali nel caso in cui l'utenza del sistema operativo sia stata compromessa. Non garantisce alcuna reale sicurezza.</translation>
     </message>
     <message>
+        <source>For anonymization and staking only</source>
+        <translation>Esclusivamente per anonimizzazione e staking</translation>
+    </message>
+    <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Inserisci la nuova parola d'ordine per il portafoglio.&lt;br/&gt;Si raccomanda di usare una parola d'ordine di &lt;b&gt;dieci o più caratteri casuali&lt;/b&gt;, oppure di &lt;b&gt;otto o più parole&lt;/b&gt;.</translation>
     </message>
@@ -172,8 +176,8 @@
         <translation>Conferma cifratura portafoglio</translation>
     </message>
     <message>
-        <source>401K Coin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your 401Ks from being stolen by malware infecting your computer.</source>
-        <translation>401K Coin verrà ora chiuso per completare il processo di cifratura. Ricorda che crittografare il tuo portafoglio non protegge completamente i tuoi 401K dal furto da parte di software malevoli che potrebbero infettare il tuo computer.</translation>
+        <source>401KCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your 401Ks from being stolen by malware infecting your computer.</source>
+        <translation>401KCoin verrà ora chiuso per completare il processo di cifratura. Ricorda che crittografare il tuo portafoglio non protegge completamente i tuoi 401K dal furto da parte di software malevoli che potrebbero infettare il tuo computer.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -235,16 +239,16 @@
         <translation>&amp;BIP 38 Criptato</translation>
     </message>
     <message>
-        <source>Enter a 401K Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Inserisci un indirizzo 401K che desideri crittografare utilizzando BIP 38. Inserisci una passphrase nella casella centrale. Premi Cripta per calcolare la chiave privata crittografata.</translation>
+        <source>Enter a 401KCoin Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Inserisci un indirizzo 401KCoin che desideri crittografare utilizzando BIP 38. Inserisci una passphrase nella casella centrale. Premi Cripta per calcolare la chiave privata crittografata.</translation>
     </message>
     <message>
         <source>Address:</source>
         <translation>Indirizzo:</translation>
     </message>
     <message>
-        <source>The 401K address to sign the message with</source>
-        <translation>L'indirizzo 401K per firmare il messaggio con</translation>
+        <source>The 401KCoin address to sign the message with</source>
+        <translation>L'indirizzo 401KCoin per firmare il messaggio con</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -275,8 +279,8 @@
         <translation>Copiare la firma corrente negli Appunti di sistema</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this 401K address</source>
-        <translation>Firmare il messaggio per dimostrare di possedere questo indirizzo 401K</translation>
+        <source>Sign the message to prove you own this 401KCoin address</source>
+        <translation>Firmare il messaggio per dimostrare di possedere questo indirizzo 401KCoin</translation>
     </message>
     <message>
         <source>Encrypt &amp;Key</source>
@@ -299,12 +303,12 @@
         <translation>Immettere la chiave privata codificata BIP 38. Inserire la passphrase nella casella centrale. Fare clic su Decripta Chiave per calcolare la chiave privata. Dopo che la chiave viene decrittata, cliccando su "Importa indirizzo" verrà aggiunta questa chiave privata al portafoglio.</translation>
     </message>
     <message>
-        <source>The 401K address the message was signed with</source>
-        <translation>L'indirizzo 401K con cui è stato firmato il messaggio</translation>
+        <source>The 401KCoin address the message was signed with</source>
+        <translation>L'indirizzo 401KCoin con cui è stato firmato il messaggio</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified 401K address</source>
-        <translation>Verificare il messaggio per assicurarsi che sia stato firmato con l'indirizzo 401K specificato</translation>
+        <source>Verify the message to ensure it was signed with the specified 401KCoin address</source>
+        <translation>Verificare il messaggio per assicurarsi che sia stato firmato con l'indirizzo 401KCoin specificato </translation>
     </message>
     <message>
         <source>Decrypt &amp;Key</source>
@@ -586,12 +590,12 @@
         <translation>Schede degli strumenti</translation>
     </message>
     <message>
-        <source>401K Coin Core</source>
-        <translation>401K Coin Core</translation>
+        <source>401KCoin Core</source>
+        <translation>401KCoin Core</translation>
     </message>
     <message>
-        <source>Send coins to a 401K address</source>
-        <translation>Invia monete all'indirizzo 401K</translation>
+        <source>Send coins to a 401KCoin address</source>
+        <translation>Invia monete all' indirizzo 401KCoin</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and 401kcoin: URIs)</source>
@@ -606,24 +610,24 @@
         <translation>Esplora i masternodes</translation>
     </message>
     <message>
-        <source>&amp;About 401K Coin Core</source>
-        <translation>&amp;Informazioni 401K Coin Core</translation>
+        <source>&amp;About 401KCoin Core</source>
+        <translation>&amp;Informazioni 401KCoin Core</translation>
     </message>
     <message>
-        <source>Show information about 401K Coin Core</source>
-        <translation>Visualizza informazioni su 401K Coin Core</translation>
+        <source>Show information about 401KCoin Core</source>
+        <translation>Visualizza informazioni su 401KCoin Core</translation>
     </message>
     <message>
-        <source>Modify configuration options for 401K Coin</source>
-        <translation>Modifica le opzioni di configurazione per 401K Coin</translation>
+        <source>Modify configuration options for 401KCoin</source>
+        <translation>Modifica le opzioni di configurazione per 401KCoin</translation>
     </message>
     <message>
-        <source>Sign messages with your 401K addresses to prove you own them</source>
-        <translation>Firma i messaggi con i tuoi indirizzi 401K per dimostrare di essere il proprietario </translation>
+        <source>Sign messages with your 401KCoin addresses to prove you own them</source>
+        <translation>Firma i messaggi con i tuoi indirizzi 401KCoin per dimostrare di essere il proprietario </translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified 401K addresses</source>
-        <translation>Verifica i messaggi per assicurarsi che siano stati firmati con indirizzi 401K specifici</translation>
+        <source>Verify messages to ensure they were signed with specified 401KCoin addresses</source>
+        <translation>Verifica i messaggi per assicurarsi che siano stati firmati con indirizzi 401KCoin specifici</translation>
     </message>
     <message>
         <source>Encrypt and decrypt private keys using a passphrase</source>
@@ -634,16 +638,16 @@
         <translation>Impostazioni MultiSend</translation>
     </message>
     <message>
-        <source>Open a 401kcoin: URI or payment request</source>
-        <translation>Apri un 401kcoin: URI o richiesta di pagamento</translation>
+        <source>Open a 401KCoin: URI or payment request</source>
+        <translation>Apri un 401KCoin: URI o richiesta di pagamento</translation>
     </message>
     <message>
         <source>Block explorer window</source>
         <translation>Finestra Block Explorer</translation>
     </message>
     <message>
-        <source>Show the 401K Coin Core help message to get a list with possible 401K Coin command-line options</source>
-        <translation>Mostra il messaggio di aiuto 401K Coin Core per ottenere un elenco con le possibili opzioni di riga di comando 401K Coin</translation>
+        <source>Show the 401KCoin Core help message to get a list with possible 401KCoin command-line options</source>
+        <translation>Mostra il messaggio di aiuto 401KCoin Core per ottenere un elenco con le possibili opzioni di riga di comando 401KCoin</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -728,6 +732,10 @@ MultiSend: %1</translation>
  MultiSend: %1</source>
         <translation>Lo Staking non è attivo
 MultiSend: %1</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonimization and staking only</source>
+        <translation>Il portafoglio è &lt;b&gt;crittografato&lt;/b&gt; e attualmente &lt;b&gt;sbloccato&lt;/b&gt; per l'anonimizzazione e il solo stacking</translation>
     </message>
     </context>
 <context>
@@ -880,8 +888,8 @@ MultiSend: %1</translation>
         <translation>versione</translation>
     </message>
     <message>
-        <source>401K Coin Core</source>
-        <translation>401K Coin Core</translation>
+        <source>401KCoin Core</source>
+        <translation>401KCoin Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
@@ -907,8 +915,8 @@ MultiSend: %1</translation>
         <translation>Benvenuto</translation>
     </message>
     <message>
-        <source>401K Coin Core</source>
-        <translation>401K Coin Core</translation>
+        <source>401KCoin Core</source>
+        <translation>401KCoin Core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -942,6 +950,9 @@ MultiSend: %1</translation>
     </message>
     </context>
 <context>
+    <name>ObfuscationConfig</name>
+    </context>
+<context>
     <name>OpenURIDialog</name>
     </context>
 <context>
@@ -955,6 +966,53 @@ MultiSend: %1</translation>
     </context>
 <context>
     <name>PeerTableModel</name>
+    </context>
+<context>
+    <name>PrivacyDialog</name>
+    <message>
+        <source>Quantity:</source>
+        <translation>Quantità:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Totale:</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Scegli l'indirizzo utilizzato in precedenza</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Incolla l'indirizzo dagli appunti</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Priorità:</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Tassa:</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>no</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Differenza:</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Copia ammontare</translation>
+    </message>
     </context>
 <context>
     <name>QObject</name>
@@ -1053,6 +1111,10 @@ MultiSend: %1</translation>
         <translation>Copia ammontare</translation>
     </message>
     <message>
+        <source>anonymous funds</source>
+        <translation>Fondi anonimi</translation>
+    </message>
+    <message>
         <source>(no label)</source>
         <translation>(nessuna etichetta)</translation>
     </message>
@@ -1082,8 +1144,8 @@ MultiSend: %1</translation>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <source>The 401K address to sign the message with</source>
-        <translation>L'indirizzo 401K per firmare il messaggio con</translation>
+        <source>The 401KCoin address to sign the message with</source>
+        <translation>L'indirizzo 401KCoin per firmare il messaggio con</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1106,16 +1168,16 @@ MultiSend: %1</translation>
         <translation>Copiare la firma corrente negli Appunti di sistema</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this 401K address</source>
-        <translation>Firmare il messaggio per dimostrare di possedere questo indirizzo 401K</translation>
+        <source>Sign the message to prove you own this 401KCoin address</source>
+        <translation>Firmare il messaggio per dimostrare di possedere questo indirizzo 401KCoin</translation>
     </message>
     <message>
-        <source>The 401K address the message was signed with</source>
-        <translation>L'indirizzo 401K con cui è stato firmato il messaggio</translation>
+        <source>The 401KCoin address the message was signed with</source>
+        <translation>L'indirizzo 401KCoin con cui è stato firmato il messaggio</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified 401K address</source>
-        <translation>Verificare il messaggio per assicurarsi che sia stato firmato con l'indirizzo 401K specificato </translation>
+        <source>Verify the message to ensure it was signed with the specified 401KCoin address</source>
+        <translation>Verificare il messaggio per assicurarsi che sia stato firmato con l'indirizzo 401KCoin specificato </translation>
     </message>
     <message>
         <source>Reset all sign message fields</source>
@@ -1153,8 +1215,8 @@ MultiSend: %1</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>401K Coin Core</source>
-        <translation>401K Coin Core</translation>
+        <source>401KCoin Core</source>
+        <translation>401KCoin Core</translation>
     </message>
     </context>
 <context>
@@ -1247,6 +1309,9 @@ MultiSend: %1</translation>
         <source>Export the data in the current tab to a file</source>
         <translation>Esporta i dati della scheda corrente in un file</translation>
     </message>
+    </context>
+<context>
+    <name>Z401kControlDialog</name>
     </context>
 <context>
     <name>401kcoin-core</name>

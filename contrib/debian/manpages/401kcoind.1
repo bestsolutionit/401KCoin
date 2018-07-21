@@ -1,4 +1,4 @@
-.TH 401K COIND "1" "February 2017" "401kcoind 2.1.4.1"
+.TH 401KD "1" "February 2017" "401kcoind 2.1.4.1"
 .SH NAME
 401KCoin \- peer-to-peer network based digital currency
 .SH SYNOPSIS
@@ -6,9 +6,9 @@
 .TP
 401kcoind [options] help <command> \- Get help for a command
 .SH DESCRIPTION
-This  manual page documents the 401kcoind program. 401K Coin is a peer-to-peer digital currency. Peer-to-peer (P2P) means that there is no central authority to issue new money or keep track of transactions. Instead, these tasks are managed collectively by the nodes of the network. Advantages:
+This manual page documents the 401kcoind program. 401KCoin is a peer-to-peer digital currency. Peer-to-peer (P2P) means that there is no central authority to issue new money or keep track of transactions. Instead, these tasks are managed collectively by the nodes of the network. Advantages:
 
-401K Coin can be sent easily through the Internet, without having to trust middlemen. Transactions are designed to be irreversible. Be safe from instability caused by fractional reserve banking and central banks. The limited inflation of the 401K Coin system’s money supply is distributed evenly (by CPU power) throughout the network, not monopolized by banks.
+401KCoin can be sent easily through the Internet, without having to trust middlemen. Transactions are designed to be irreversible. Be safe from instability caused by fractional reserve banking and central banks. The limited inflation of the 401KCoin system’s money supply is distributed evenly (by CPU power) throughout the network, not monopolized by banks.
 
 .SH OPTIONS
 .TP
@@ -62,20 +62,6 @@ Allow JSON\-RPC connections from specified IP address
 .TP
 \fB\-rpcconnect=\fR<ip>
 Send commands to node running on <ip>
-.PP
-SSL options: (see the Bitcoin Wiki for SSL setup instructions)
-.TP
-\fB\-rpcssl\fR=\fI1\fR
-Use OpenSSL (https) for JSON\-RPC connections
-.TP
-\fB\-rpcsslcertificatchainfile=\fR<file.cert>
-Server certificate file (default: server.cert)
-.TP
-\fB\-rpcsslprivatekeyfile=\fR<file.pem>
-Server private key (default: server.pem)
-.TP
-\fB\-rpcsslciphers=\fR<ciphers>
-Acceptable ciphers (default: TLSv1+HIGH:\:!SSLv2:\:!aNULL:\:!eNULL:\:!AH:\:!3DES:\:@STRENGTH)
 .TP
 \-?
 This help message
@@ -84,14 +70,14 @@ This help message
 \fBbackupwallet 'destination'\fR
 Safely copies *wallet.dat* to 'destination', which can be a directory or a path with filename.
 .TP
-\fBgetaccount '401kaddress'\fR
+\fBgetaccount '401kcoinaddress'\fR
 Returns the account associated with the given address.
 .TP
-\fBsetaccount '401kaddress' ['account']\fR
+\fBsetaccount '401kcoinaddress' ['account']\fR
 Sets the ['account'] associated with the given address. ['account'] may be omitted to remove an address from ['account'].
 .TP
 \fBgetaccountaddress 'account'\fR
-Returns a new 401k address for 'account'.
+Returns a new 401kcoin address for 'account'.
 .TP
 \fBgetaddressesbyaccount 'account'\fR
 Returns the list of addresses associated with the given 'account'.
@@ -124,13 +110,13 @@ Returns a recent hashes per second performance measurement while generating.
 Returns an object containing server information.
 .TP
 \fBgetnewaddress 'account'\fR
-Returns a new 401k address for receiving payments. If 'account' is specified (recommended), it is added to the address book so payments received with the address will be credited to 'account'.
+Returns a new 401kcoin address for receiving payments. If 'account' is specified (recommended), it is added to the address book so payments received with the address will be credited to 'account'.
 .TP
 \fBgetreceivedbyaccount 'account' ['minconf=1']\fR
 Returns the total amount received by addresses associated with 'account' in transactions with at least ['minconf'] confirmations.
 .TP
-\fBgetreceivedbyaddress '401kaddress' ['minconf=1']\fR
-Returns the total amount received by '401kaddress' in transactions with at least ['minconf'] confirmations.
+\fBgetreceivedbyaddress '401kcoinaddress' ['minconf=1']\fR
+Returns the total amount received by '401kcoinaddress' in transactions with at least ['minconf'] confirmations.
 .TP
 \fBgettransaction 'txid'\fR
 Returns information about a specific transaction, given hexadecimal transaction ID.
@@ -148,7 +134,7 @@ List commands, or get help for a command.
 .TP
 \fBlistaccounts ['minconf=1']\fR
 List accounts and their current balances.
-     *note: requires 401k 1.0.0.1 or later.
+     *note: requires 401kcoin 1.0.2.1 or later.
 .TP
 \fBlistreceivedbyaccount ['minconf=1'] ['includeempty=false']\fR
 ['minconf'] is the minimum number of confirmations before payments are included. ['includeempty'] whether to include addresses that haven't received any payments. Returns an array of objects containing:
@@ -177,26 +163,26 @@ Returns a list of the last ['count'] transactions for 'account' \- for all accou
     "message"       : message associated with transaction (only for send).
     "to"            : message-to associated with transaction (only for send).
 
-    *note: requires 401K Coin 1.0.0.1 or later.
+    *note: requires 401kcoin 1.0.2.1 or later.
 .TP
 \fBmove <'fromaccount'> <'toaccount'> <'amount'> ['minconf=1'] ['comment']\fR
 Moves funds between accounts.
 .TP
-\fBsendfrom* <'account'> <'401kaddress'> <'amount'> ['minconf=1'] ['comment'] ['comment-to']\fR
-Sends amount from account's balance to '401kaddress'. This method will fail if there is less than amount 401K with ['minconf'] confirmations in the account's balance (unless account is the empty-string-named default account; it behaves like the *sendtoaddress* method). Returns transaction ID on success.
+\fBsendfrom* <'account'> <'401kcoinaddress'> <'amount'> ['minconf=1'] ['comment'] ['comment-to']\fR
+Sends amount from account's balance to '401kcoinaddress'. This method will fail if there is less than amount 401K with ['minconf'] confirmations in the account's balance (unless account is the empty-string-named default account; it behaves like the *sendtoaddress* method). Returns transaction ID on success.
 .TP
-\fBsendtoaddress '401kaddress' 'amount' ['comment'] ['comment-to']\fR
-Sends amount from the server's available balance to '401kaddress'. amount is a real and is rounded to the nearest 0.01. Returns transaction id on success.
+\fBsendtoaddress '401kcoinaddress' 'amount' ['comment'] ['comment-to']\fR
+Sends amount from the server's available balance to '401kcoinaddress'. amount is a real and is rounded to the nearest 0.01. Returns transaction id on success.
 .TP
 \fBstop\fR
-Stops the 401K Coin server.
+Stops the 401kcoin server.
 .TP
-\fBvalidateaddress '401kaddress'\fR
-Checks that '401kaddress' looks like a proper 401k address. Returns an object containing:
+\fBvalidateaddress '401kcoinaddress'\fR
+Checks that '401kcoinaddress' looks like a proper 401KCoin address. Returns an object containing:
 
     "isvalid" : true or false.
     "ismine"  : true if the address is in the server's wallet.
-    "address" : 401kaddress.
+    "address" : 401kcoinaddress.
 
     *note: ismine and address are only returned if the address is valid.
 
@@ -206,4 +192,3 @@ Checks that '401kaddress' looks like a proper 401k address. Returns an object co
 This manual page was written by Micah Anderson <micah@debian.org> for the Debian system (but may be used by others). Permission is granted to copy, distribute and/or modify this document under the terms of the GNU General Public License, Version 3 or any later version published by the Free Software Foundation.
 
 On Debian systems, the complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL.
-

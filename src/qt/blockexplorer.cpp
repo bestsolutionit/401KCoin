@@ -44,26 +44,25 @@ static std::string ValueToString(CAmount nValue, bool AllowNegative = false)
     if (nValue < 0 && !AllowNegative)
         return "<span>" + _("unknown") + "</span>";
 
-    QString Str = BitcoinUnits::formatWithUnit(BitcoinUnits::b401K, nValue);
+    QString Str = BitcoinUnits::formatWithUnit(BitcoinUnits::p401K, nValue);
     if (AllowNegative && nValue > 0)
         Str = '+' + Str;
     return std::string("<span>") + Str.toUtf8().data() + "</span>";
 }
 
-static std::string ScriptToString(const CScript& Script, bool Long = false, bool Highlight = false)
+static std::string ScriptToString(const CScript& script, bool l = false, bool highlight = false)
 {
-    if (Script.empty())
+    if (script.empty())
         return "unknown";
 
-    CTxDestination Dest;
-    CBitcoinAddress Address;
-    if (ExtractDestination(Script, Dest) && Address.Set(Dest)) {
-        if (Highlight)
-            return "<span class=\"addr\">" + Address.ToString() + "</span>";
+    CTxDestination dest;
+    if (ExtractDestination(script, dest)) {
+        if (highlight)
+            return "<span class=\"addr\">" + EncodeDestination(dest) + "</span>";
         else
-            return makeHRef(Address.ToString());
+            return makeHRef(EncodeDestination(dest));
     } else
-        return Long ? "<pre>" + FormatScript(Script) + "</pre>" : _("Non-standard script");
+        return l ? "<pre>" + FormatScript(script) + "</pre>" : _("Non-standard script");
 }
 
 static std::string TimeToString(uint64_t Time)
@@ -176,7 +175,7 @@ const CBlockIndex* getexplorerBlockIndex(int64_t height)
 
 std::string getexplorerBlockHash(int64_t Height)
 {
-    std::string genesisblockhash = "0000041e482b9b9691d98eefb48473405c0b8ec31b76df3797c74a78680ef818";
+    std::string genesisblockhash = "0xc50762567b796c592f4496efee8da878515ba54dabe1d9a17f777963b4999968";
     CBlockIndex* pindexBest = mapBlockIndex[chainActive.Tip()->GetBlockHash()];
     if ((Height < 0) || (Height > pindexBest->nHeight)) {
         return genesisblockhash;
@@ -373,9 +372,9 @@ std::string TxToString(uint256 BlockHash, const CTransaction& tx)
     return Content;
 }
 
-std::string AddressToString(const CBitcoinAddress& Address)
+std::string AddressToString(const CTxDestination& dest)
 {
-    std::string TxLabels[] =
+    std::string txLabels[] =
         {
             _("Date"),
             _("Hash"),
@@ -385,9 +384,9 @@ std::string AddressToString(const CBitcoinAddress& Address)
             _("Amount"),
             _("Delta"),
             _("Balance")};
-    std::string TxContent = table + makeHTMLTableRow(TxLabels, sizeof(TxLabels) / sizeof(std::string));
+    std::string txContent = table + makeHTMLTableRow(txLabels, sizeof(txLabels) / sizeof(std::string));
 
-    std::set<COutPoint> PrevOuts;
+    std::set<COutPoint> prevOuts;
     /*
     CScript AddressScript;
     AddressScript.SetDestination(Address.Get());
@@ -418,12 +417,12 @@ std::string AddressToString(const CBitcoinAddress& Address)
         }
     }
     */
-    TxContent += "</table>";
+    txContent += "</table>";
 
-    std::string Content;
-    Content += "<h1 style='color:#727070;'>" + _("Transactions to/from") + "&nbsp;<span>" + Address.ToString() + "</span></h1>";
-    Content += TxContent;
-    return Content;
+    std::string content;
+    content += "<h1 style='color:#5D4037;>" + _("Transactions to/from") + "&nbsp;<span>" + EncodeDestination(dest) + "</span></h1>";
+    content += txContent;
+    return content;
 }
 
 BlockExplorer::BlockExplorer(QWidget* parent) : QMainWindow(parent),
@@ -434,7 +433,7 @@ BlockExplorer::BlockExplorer(QWidget* parent) : QMainWindow(parent),
     ui->setupUi(this);
 
     this->setStyleSheet(GUIUtil::loadStyleSheet());
-
+    
     connect(ui->pushSearch, SIGNAL(released()), this, SLOT(onSearch()));
     connect(ui->content, SIGNAL(linkActivated(const QString&)), this, SLOT(goTo(const QString&)));
     connect(ui->back, SIGNAL(released()), this, SLOT(back()));
@@ -474,7 +473,7 @@ void BlockExplorer::showEvent(QShowEvent*)
 
         if (!GetBoolArg("-txindex", false)) {
             QString Warning = tr("Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (401kcoin.conf).");
-            QMessageBox::warning(this, "401K Coin Core Blockchain Explorer", Warning, QMessageBox::Ok);
+            QMessageBox::warning(this, "401KCoin Core Blockchain Explorer", Warning, QMessageBox::Ok);
         }
     }
 }
@@ -513,13 +512,12 @@ bool BlockExplorer::switchTo(const QString& query)
     }
 
     // If the query is not an integer, nor a block hash, nor a transaction hash, assume an address
-    CBitcoinAddress Address;
-    Address.SetString(query.toUtf8().constData());
-    if (Address.IsValid()) {
-        std::string Content = AddressToString(Address);
-        if (Content.empty())
+    if (IsValidDestinationString(query.toUtf8().constData())) {
+        CTxDestination dest = DecodeDestination(query.toUtf8().constData());
+        std::string content = EncodeDestination(dest);
+        if (content.empty())
             return false;
-        setContent(Content);
+        setContent(content);
         return true;
     }
 
@@ -550,7 +548,7 @@ void BlockExplorer::setBlock(CBlockIndex* pBlock)
 
 void BlockExplorer::setContent(const std::string& Content)
 {
-    QString CSS = "body {font-size:12px; color:#f8f6f6; bgcolor:#727070;}\n a, span { font-family: monospace; }\n span.addr {color:#727070; font-weight: bold;}\n table tr td {padding: 3px; border: 1px solid black; background-color: #727070;}\n td.d0 {font-weight: bold; color:#f8f6f6;}\n h2, h3 { white-space:nowrap; color:#727070;}\n a { color:#88f6f6; text-decoration:none; }\n a.nav {color:#727070;}\n";
+    QString CSS = "body {font-size:12px; color:#f8f6f6; bgcolor:#5D4037;}\n a, span { font-family: monospace; }\n span.addr {color:#5D4037; font-weight: bold;}\n table tr td {padding: 3px; border: 1px solid black; background-color: #5D4037;}\n td.d0 {font-weight: bold; color:#f8f6f6;}\n h2, h3 { white-space:nowrap; color:#5D4037;}\n a { color:#88f6f6; text-decoration:none; }\n a.nav {color:#5D4037;}\n";
     QString FullContent = "<html><head><style type=\"text/css\">" + CSS + "</style></head>" + "<body>" + Content.c_str() + "</body></html>";
     // printf(FullContent.toUtf8());
 

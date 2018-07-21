@@ -20,13 +20,13 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "401KCoin"
-            VALUE "FileDescription",    "401K Coin Core (OSS GUI client for 401K Coin)"
+            VALUE "FileDescription",    "401KCoin Core (OSS GUI client for 401KCoin)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "401kcoin-qt"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
             VALUE "OriginalFilename",   "401kcoin-qt.exe"
-            VALUE "ProductName",        "401K Coin Core"
+            VALUE "ProductName",        "401KCoin Core"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

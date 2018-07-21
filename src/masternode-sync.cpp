@@ -36,7 +36,7 @@ bool CMasternodeSync::IsBlockchainSynced()
 
     // if the last call to this function was more than 60 minutes ago (client was in sleep mode) reset the sync process
     if (GetTime() - lastProcess > 60 * 60) {
-        Reset();LogPrintf("IsBlockchainSynced() : \n");
+        Reset();
         fBlockchainSynced = false;
     }
     lastProcess = GetTime();
@@ -182,7 +182,7 @@ std::string CMasternodeSync::GetSyncStatus()
 
 void CMasternodeSync::ProcessMessage(CNode* pfrom, std::string& strCommand, CDataStream& vRecv)
 {
-    if (strCommand == "ssc") { //Sync status count
+    if (strCommand == NetMsgType::SSC) { //Sync status count
         int nItemID;
         int nCount;
         vRecv >> nItemID >> nCount;
@@ -223,13 +223,13 @@ void CMasternodeSync::ClearFulfilledRequest()
     if (!lockRecv) return;
 
     BOOST_FOREACH (CNode* pnode, vNodes) {
-        pnode->ClearFulfilledRequest("getspork");
+        pnode->ClearFulfilledRequest(NetMsgType::GETSPORK);
         pnode->ClearFulfilledRequest("mnsync");
         pnode->ClearFulfilledRequest("mnwsync");
         pnode->ClearFulfilledRequest("busync");
     }
 }
-//myfix
+
 void CMasternodeSync::Process()
 {
     static int tick = 0;
@@ -253,7 +253,7 @@ void CMasternodeSync::Process()
         return;
     }
 
-    LogPrintf("masternode : CMasternodeSync::Process() - tick %d RequestedMasternodeAssets %d\n", tick, RequestedMasternodeAssets);
+    LogPrint("masternode", "CMasternodeSync::Process() - tick %d RequestedMasternodeAssets %d\n", tick, RequestedMasternodeAssets);
 
     if (RequestedMasternodeAssets == MASTERNODE_SYNC_INITIAL) GetNextAsset();
 
@@ -267,14 +267,14 @@ void CMasternodeSync::Process()
     BOOST_FOREACH (CNode* pnode, vNodes) {
         if (Params().NetworkID() == CBaseChainParams::REGTEST) {
             if (RequestedMasternodeAttempt <= 2) {
-                pnode->PushMessage("getsporks"); //get current network sporks
+                pnode->PushMessage(NetMsgType::GETSPORKS); //get current network sporks
             } else if (RequestedMasternodeAttempt < 4) {
                 mnodeman.DsegUpdate(pnode);
             } else if (RequestedMasternodeAttempt < 6) {
                 int nMnCount = mnodeman.CountEnabled();
-                pnode->PushMessage("mnget", nMnCount); //sync payees
+                pnode->PushMessage(NetMsgType::MNGET, nMnCount); //sync payees
                 uint256 n = 0;
-                pnode->PushMessage("mnvs", n); //sync masternode votes
+                pnode->PushMessage(NetMsgType::MNVS, n); //sync masternode votes
             } else {
                 RequestedMasternodeAssets = MASTERNODE_SYNC_FINISHED;
             }
@@ -282,22 +282,22 @@ void CMasternodeSync::Process()
             return;
         }
 
-        //set to synced
+        // set to synced
         if (RequestedMasternodeAssets == MASTERNODE_SYNC_SPORKS) {
-
             if (pnode->HasFulfilledRequest("getspork")) continue;
             pnode->FulfilledRequest("getspork");
 
             pnode->PushMessage("getsporks"); //get current network sporks
             if (RequestedMasternodeAttempt >= 2) GetNextAsset();
             RequestedMasternodeAttempt++;
-
+ 
             return;
-        }
+         }
+
 
         if (pnode->nVersion >= masternodePayments.GetMinMasternodePaymentsProto()) {
             if (RequestedMasternodeAssets == MASTERNODE_SYNC_LIST) {
-                LogPrintf("masternode CMasternodeSync::Process() - lastMasternodeList %lld (GetTime() - MASTERNODE_SYNC_TIMEOUT) %lld\n", lastMasternodeList, GetTime() - MASTERNODE_SYNC_TIMEOUT);
+                LogPrint("masternode", "CMasternodeSync::Process() - lastMasternodeList %lld (GetTime() - MASTERNODE_SYNC_TIMEOUT) %lld\n", lastMasternodeList, GetTime() - MASTERNODE_SYNC_TIMEOUT);
                 if (lastMasternodeList > 0 && lastMasternodeList < GetTime() - MASTERNODE_SYNC_TIMEOUT * 2 && RequestedMasternodeAttempt >= MASTERNODE_SYNC_THRESHOLD) { //hasn't received a new item in the last five seconds, so we'll move to the
                     GetNextAsset();
                     return;
@@ -358,7 +358,7 @@ void CMasternodeSync::Process()
                 if (pindexPrev == NULL) return;
 
                 int nMnCount = mnodeman.CountEnabled();
-                pnode->PushMessage("mnget", nMnCount); //sync payees
+                pnode->PushMessage(NetMsgType::MNGET, nMnCount); //sync payees
                 RequestedMasternodeAttempt++;
 
                 return;
@@ -367,16 +367,19 @@ void CMasternodeSync::Process()
 
         if (pnode->nVersion >= ActiveProtocol()) {
             if (RequestedMasternodeAssets == MASTERNODE_SYNC_BUDGET) {
+                
                 // We'll start rejecting votes if we accidentally get set as synced too soon
                 if (lastBudgetItem > 0 && lastBudgetItem < GetTime() - MASTERNODE_SYNC_TIMEOUT * 2 && RequestedMasternodeAttempt >= MASTERNODE_SYNC_THRESHOLD) { 
                     
                     // Hasn't received a new item in the last five seconds, so we'll move to the
                     GetNextAsset();
+
                     // Try to activate our masternode if possible
                     activeMasternode.ManageStatus();
 
                     return;
                 }
+
                 // timeout
                 if (lastBudgetItem == 0 &&
                     (RequestedMasternodeAttempt >= MASTERNODE_SYNC_THRESHOLD * 3 || GetTime() - nAssetSyncStarted > MASTERNODE_SYNC_TIMEOUT * 5)) {
@@ -385,12 +388,14 @@ void CMasternodeSync::Process()
                     activeMasternode.ManageStatus();
                     return;
                 }
+
                 if (pnode->HasFulfilledRequest("busync")) continue;
                 pnode->FulfilledRequest("busync");
 
                 if (RequestedMasternodeAttempt >= MASTERNODE_SYNC_THRESHOLD * 3) return;
+
                 uint256 n = 0;
-                pnode->PushMessage("mnvs", n); //sync masternode votes
+                pnode->PushMessage(NetMsgType::MNVS, n); //sync masternode votes
                 RequestedMasternodeAttempt++;
 
                 return;

@@ -5,11 +5,12 @@
 DEFINES += ENABLE_WALLET
 
 TEMPLATE = app
-TARGET =
+TARGET = 
 DEPENDPATH += . \
               src \
               src/compat \
               src/config \
+              src/consensus \
               src/crypto \
               src/json \
               src/obj \
@@ -28,6 +29,8 @@ DEPENDPATH += . \
               src/qt/test \
               src/secp256k1/include \
               src/secp256k1/src \
+              src/support \
+              src/support/allocators \
               src/test/data \
               src/leveldb/doc/bench \
               src/leveldb/helpers/memenv \
@@ -47,8 +50,11 @@ INCLUDEPATH += . \
                src/qt \
                src/qt/forms \
                src/compat \
+               src/consensus \
                src/secp256k1/include \
                src/leveldb/helpers/memenv \
+               src/support \
+               src/support/allocators \
                src/test/data \
                src/test \
                src/qt/test \
@@ -56,13 +62,13 @@ INCLUDEPATH += . \
                src/secp256k1/src/java
 
 # Input
-HEADERS += src/bignum.h \
-           src/activemasternode.h \
+HEADERS += src/activemasternode.h \
            src/addrman.h \
            src/alert.h \
            src/allocators.h \
            src/amount.h \
            src/base58.h \
+           src/bech32.h \
            src/bloom.h \
            src/chain.h \
            src/chainparams.h \
@@ -77,6 +83,8 @@ HEADERS += src/bignum.h \
            src/compressor.h \
            src/core_io.h \
            src/crypter.h \
+           src/obfuscation-relay.h \
+           src/obfuscation.h \
            src/401kcoin-config.h \
            src/db.h \
            src/eccryptoverify.h \
@@ -96,7 +104,6 @@ HEADERS += src/bignum.h \
            src/masternode.h \
            src/masternodeconfig.h \
            src/masternodeman.h \
-           src/masternode-helpers.h \
            src/merkleblock.h \
            src/miner.h \
            src/mruset.h \
@@ -113,6 +120,8 @@ HEADERS += src/bignum.h \
            src/serialize.h \
            src/spork.h \
            src/streams.h \
+           src/support/allocators/zeroafterfree.h \
+           src/support/cleanse.h \
            src/sync.h \
            src/threadsafety.h \
            src/timedata.h \
@@ -130,7 +139,10 @@ HEADERS += src/bignum.h \
            src/wallet.h \
            src/wallet_ismine.h \
            src/walletdb.h \
+           src/validationinterface.h \
            src/compat/sanity.h \
+           src/consensus/merkle.h \
+           src/consensus/validation.h \
            src/config/401kcoin-config.h \
            src/crypto/common.h \
            src/crypto/hmac_sha256.h \
@@ -175,6 +187,7 @@ HEADERS += src/bignum.h \
            src/qt/coincontroldialog.h \
            src/qt/coincontroltreewidget.h \
            src/qt/csvmodelwriter.h \
+           src/qt/obfuscationconfig.h \
            src/qt/editaddressdialog.h \
            src/qt/guiconstants.h \
            src/qt/guiutil.h \
@@ -221,6 +234,7 @@ HEADERS += src/bignum.h \
            src/script/sigcache.h \
            src/script/sign.h \
            src/script/standard.h \
+           src/test/bignum.h \
            src/univalue/univalue.h \
            src/univalue/univalue_escapes.h \
            src/leveldb/db/builder.h \
@@ -339,6 +353,7 @@ HEADERS += src/bignum.h \
 FORMS += src/qt/forms/addressbookpage.ui \
          src/qt/forms/askpassphrasedialog.ui \
          src/qt/forms/coincontroldialog.ui \
+         src/qt/forms/obfuscationconfig.ui \
          src/qt/forms/editaddressdialog.ui \
          src/qt/forms/helpmessagedialog.ui \
          src/qt/forms/intro.ui \
@@ -358,6 +373,7 @@ SOURCES += src/activemasternode.cpp \
            src/allocators.cpp \
            src/amount.cpp \
            src/base58.cpp \
+           src/bech32.cpp \
            src/bloom.cpp \
            src/chain.cpp \
            src/chainparams.cpp \
@@ -369,6 +385,8 @@ SOURCES += src/activemasternode.cpp \
            src/core_read.cpp \
            src/core_write.cpp \
            src/crypter.cpp \
+           src/obfuscation-relay.cpp \
+           src/obfuscation.cpp \
            src/401kcoin-cli.cpp \
            src/401kcoin-tx.cpp \
            src/401kcoin.cpp \
@@ -390,7 +408,6 @@ SOURCES += src/activemasternode.cpp \
            src/masternode.cpp \
            src/masternodeconfig.cpp \
            src/masternodeman.cpp \
-           src/masternode-helpers.cpp \
            src/merkleblock.cpp \
            src/miner.cpp \
            src/net.cpp \
@@ -414,6 +431,7 @@ SOURCES += src/activemasternode.cpp \
            src/rpcserver.cpp \
            src/rpcwallet.cpp \
            src/spork.cpp \
+           src/support/cleanse.cpp \
            src/sync.cpp \
            src/timedata.cpp \
            src/txdb.cpp \
@@ -426,6 +444,8 @@ SOURCES += src/activemasternode.cpp \
            src/wallet.cpp \
            src/wallet_ismine.cpp \
            src/walletdb.cpp \
+           src/validationinterface.cpp \
+           src/consensus/merkle.cpp \
            src/compat/glibc_compat.cpp \
            src/compat/glibc_sanity.cpp \
            src/compat/glibcxx_compat.cpp \
@@ -466,6 +486,7 @@ SOURCES += src/activemasternode.cpp \
            src/qt/coincontroldialog.cpp \
            src/qt/coincontroltreewidget.cpp \
            src/qt/csvmodelwriter.cpp \
+           src/qt/obfuscationconfig.cpp \
            src/qt/401kcoin.cpp \
            src/qt/401kcoinstrings.cpp \
            src/qt/editaddressdialog.cpp \
@@ -536,10 +557,10 @@ SOURCES += src/activemasternode.cpp \
            src/test/netbase_tests.cpp \
            src/test/pmt_tests.cpp \
            src/test/rpc_tests.cpp \
-           src/test/rpc_wallet_tests.cpp \
            src/test/sanity_tests.cpp \
            src/test/script_P2SH_tests.cpp \
            src/test/script_tests.cpp \
+           src/test/script_standard_tests.cpp \
            src/test/scriptnum_tests.cpp \
            src/test/serialize_tests.cpp \
            src/test/sighash_tests.cpp \

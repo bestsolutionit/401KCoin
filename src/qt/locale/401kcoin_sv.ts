@@ -58,12 +58,12 @@
         <translation>Mottagar adresser</translation>
     </message>
     <message>
-        <source>These are your 401K addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Det här är dina 401K adresser för att sända betalningar. Kontrollera alltid summan och mottagaradressen före du sänder mynt.</translation>
+        <source>These are your 401KCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Det här är dina 401KCoin adresser för att sända betalningar. Kontrollera alltid summan och mottagaradressen före du sänder mynt.</translation>
     </message>
     <message>
-        <source>These are your 401K addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Det här är dina 401K adresser för att ta emot betalningar. Det är rekomenderat att använda en ny mottagaradress för varje transaktion.</translation>
+        <source>These are your 401KCoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Det här är dina 401KCoin adresser för att ta emot betalningar. Det är rekomenderat att använda en ny mottagaradress för varje transaktion.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -160,8 +160,8 @@
         <translation>Bekräfta plånboks krypering</translation>
     </message>
     <message>
-        <source>401K Coin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your 401Ks from being stolen by malware infecting your computer.</source>
-        <translation>401K Coin kommer att stängas ner nu för att färdigställa kryperingsprocessen. Kom ihåg att kryptering av din plånbok inte kan säkerställa dina 401Ks från att bli stulna av skadeprogram som infekterat din dator.</translation>
+        <source>401KCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your 401Ks from being stolen by malware infecting your computer.</source>
+        <translation>401KCoin kommer att stängas ner nu för att färdigställa kryperingsprocessen. Kom ihåg att kryptering av din plånbok inte kan säkerställa dina 401Ks från att bli stulna av skadeprogram som infekterat din dator.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -223,8 +223,8 @@
         <translation>BIP 38 Kryptering</translation>
     </message>
     <message>
-        <source>Enter a 401K Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Ange en 401K adress som du vill kryptera med BIP 38.
+        <source>Enter a 401KCoin Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Ange en 401KCoin adress som du vill kryptera med BIP 38.
 Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den krypterade privata nyckeln.</translation>
     </message>
     <message>
@@ -232,8 +232,8 @@ Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den k
         <translation>Adress:</translation>
     </message>
     <message>
-        <source>The 401K address to sign the message with</source>
-        <translation>401K adressen för signera meddelandet med</translation>
+        <source>The 401KCoin address to sign the message with</source>
+        <translation>401KCoin adressen för signera meddelandet med</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -264,8 +264,8 @@ Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den k
         <translation>Kopiera den nuvarande signaturen till systemets urklipp</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this 401K address</source>
-        <translation>Signera meddelandet för att bevisa att du äger denna 401K adress</translation>
+        <source>Sign the message to prove you own this 401KCoin address</source>
+        <translation>Signera meddelandet för att bevisa att du äger denna 401KCoin adress</translation>
     </message>
     <message>
         <source>Encrypt &amp;Key</source>
@@ -288,12 +288,12 @@ Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den k
         <translation>Ange BIP 38 krypterade privata nyckeln. Ange lösenfrasen i med mittersta boxen. Tryck på krypetra nyckel för att beräkna den privata nyckeln. Efter att nyckeln är avkrypterad, Tryck på 'Importera Adress' kommer att lägga till denna privata nyckel till plånboken.</translation>
     </message>
     <message>
-        <source>The 401K address the message was signed with</source>
-        <translation>401K adressen meddelandet blev signerat med</translation>
+        <source>The 401KCoin address the message was signed with</source>
+        <translation>401KCoin adressen meddelandet blev signerat med</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified 401K address</source>
-        <translation>Verifiera meddelandet för att säkerställa att de blev signerat med den specifika 401K adressen.</translation>
+        <source>Verify the message to ensure it was signed with the specified 401KCoin address</source>
+        <translation>Verifiera meddelandet för att säkerställa att de blev signerat med den specifika 401KCoin adressen.</translation>
     </message>
     <message>
         <source>Decrypt &amp;Key</source>
@@ -583,12 +583,12 @@ Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den k
         <translation>flik vertygsrad</translation>
     </message>
     <message>
-        <source>401K Coin Core</source>
-        <translation>401K Coin Kärna</translation>
+        <source>401KCoin Core</source>
+        <translation>401KCoin Kärna</translation>
     </message>
     <message>
-        <source>Send coins to a 401K address</source>
-        <translation>Skicka mynt till en 401K adress</translation>
+        <source>Send coins to a 401KCoin address</source>
+        <translation>Skicka mynt till en 401KCoin adress</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and 401kcoin: URIs)</source>
@@ -603,24 +603,24 @@ Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den k
         <translation>Utforska masternoder</translation>
     </message>
     <message>
-        <source>&amp;About 401K Coin Core</source>
-        <translation>Om 401K Coin Kärnan</translation>
+        <source>&amp;About 401KCoin Core</source>
+        <translation>Om 401KCoin Kärnan</translation>
     </message>
     <message>
-        <source>Show information about 401K Coin Core</source>
-        <translation>Visa information om 401K Coin Kärnan</translation>
+        <source>Show information about 401KCoin Core</source>
+        <translation>Visa information om 401KCoin Kärnan</translation>
     </message>
     <message>
-        <source>Modify configuration options for 401K Coin</source>
-        <translation>Ändra konfigurationsval för 401K Coin</translation>
+        <source>Modify configuration options for 401KCoin</source>
+        <translation>Ändra konfigurationsval för 401KCoin</translation>
     </message>
     <message>
-        <source>Sign messages with your 401K addresses to prove you own them</source>
-        <translation>Signera meddelanden med din 401K adress för att visa att du äger dem</translation>
+        <source>Sign messages with your 401KCoin addresses to prove you own them</source>
+        <translation>Signera meddelanden med din 401KCoin adress för att visa att du äger dem</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified 401K addresses</source>
-        <translation>Verifiera meddelandet för att säkerställa att de blev signerat med den specifika 401K adressen.</translation>
+        <source>Verify messages to ensure they were signed with specified 401KCoin addresses</source>
+        <translation>Verifiera meddelandet för att säkerställa att de blev signerat med den specifika 401KCoin adressen.</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -631,8 +631,8 @@ Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den k
         <translation>Kryptera och avkryptera privata nycklar genom användning av lösenfras</translation>
     </message>
     <message>
-        <source>401K Coin Core client</source>
-        <translation>401K Coin kärn klient</translation>
+        <source>401KCoin Core client</source>
+        <translation>401KCoin kärn klient</translation>
     </message>
     <message>
         <source>%1 and %2</source>
@@ -837,15 +837,15 @@ Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den k
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>401K Coin Core</source>
-        <translation>401K Coin Kärna</translation>
+        <source>401KCoin Core</source>
+        <translation>401KCoin Kärna</translation>
     </message>
     </context>
 <context>
     <name>Intro</name>
     <message>
-        <source>401K Coin Core</source>
-        <translation>401K Coin Kärna</translation>
+        <source>401KCoin Core</source>
+        <translation>401KCoin Kärna</translation>
     </message>
     <message>
         <source>Error</source>
@@ -879,6 +879,9 @@ Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den k
     </message>
     </context>
 <context>
+    <name>ObfuscationConfig</name>
+    </context>
+<context>
     <name>OpenURIDialog</name>
     </context>
 <context>
@@ -896,6 +899,65 @@ Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den k
     </context>
 <context>
     <name>PeerTableModel</name>
+    </context>
+<context>
+    <name>PrivacyDialog</name>
+    <message>
+        <source>Quantity:</source>
+        <translation>Kvantitet:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Antal:</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Använd den föregående använda adressen</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Limma in adress från urklipp</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>Etikett:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Prioritet:</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Avgift:</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>nej</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Bytes:</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>medel</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Kopiera kvantitet</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopiera antal</translation>
+    </message>
     </context>
 <context>
     <name>QObject</name>
@@ -1095,8 +1157,8 @@ Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den k
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <source>The 401K address to sign the message with</source>
-        <translation>401K adressen för signera meddelandet med</translation>
+        <source>The 401KCoin address to sign the message with</source>
+        <translation>401KCoin adressen för signera meddelandet med</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1119,16 +1181,16 @@ Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den k
         <translation>Kopiera den nuvarande signaturen till systemets urklipp</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this 401K address</source>
-        <translation>Signera meddelandet för att bevisa att du äger denna 401K adress</translation>
+        <source>Sign the message to prove you own this 401KCoin address</source>
+        <translation>Signera meddelandet för att bevisa att du äger denna 401KCoin adress</translation>
     </message>
     <message>
-        <source>The 401K address the message was signed with</source>
-        <translation>401K adressen meddelandet blev signerat med</translation>
+        <source>The 401KCoin address the message was signed with</source>
+        <translation>401KCoin adressen meddelandet blev signerat med</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified 401K address</source>
-        <translation>Verifiera meddelandet för att säkerställa att de blev signerat med den specifika 401K adressen.</translation>
+        <source>Verify the message to ensure it was signed with the specified 401KCoin address</source>
+        <translation>Verifiera meddelandet för att säkerställa att de blev signerat med den specifika 401KCoin adressen.</translation>
     </message>
     <message>
         <source>Reset all sign message fields</source>
@@ -1170,8 +1232,8 @@ Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den k
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>401K Coin Core</source>
-        <translation>401K Coin Kärna</translation>
+        <source>401KCoin Core</source>
+        <translation>401KCoin Kärna</translation>
     </message>
     </context>
 <context>
@@ -1352,6 +1414,9 @@ Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den k
         <source>Export the data in the current tab to a file</source>
         <translation>Exportera data in den nuvarande fliken till en fil</translation>
     </message>
+    </context>
+<context>
+    <name>Z401kControlDialog</name>
     </context>
 <context>
     <name>401kcoin-core</name>

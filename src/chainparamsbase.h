@@ -10,7 +10,7 @@
 
 /**
  * CBaseChainParams defines the base parameters (shared between 401kcoin-cli and 401kcoind)
- * of a given instance of the 401K Coin system.
+ * of a given instance of the 401KCoin system.
  */
 class CBaseChainParams
 {

@@ -62,12 +62,12 @@
         <translation>Direcciones de recepción</translation>
     </message>
     <message>
-        <source>These are your 401K addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Estas son sus direcciones 401K para realizar pagos. Verifique siempre la cantidad y la dirección de recepción antes de enviar monedas.</translation>
+        <source>These are your 401KCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Estas son sus direcciones 401KCoin para realizar pagos. Verifique siempre la cantidad y la dirección de recepción antes de enviar monedas.</translation>
     </message>
     <message>
-        <source>These are your 401K addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Estas son sus direcciones 401K para recibir pagos. Es recomendable usar una nueva dirección de recepción para cada transacción.</translation>
+        <source>These are your 401KCoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Estas son sus direcciones 401KCoin para recibir pagos. Es recomendable usar una nueva dirección de recepción para cada transacción.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -136,6 +136,10 @@
         <translation>Sirve para desactivar el envío de dinero cuando la cuenta del SO está comprometida. No provee de una seguridad real</translation>
     </message>
     <message>
+        <source>For anonymization and staking only</source>
+        <translation>Desbloquear solo para anonimización y staking</translation>
+    </message>
+    <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Escriba la nueva contraseña para la Wallet. &lt;br/&gt;Por favor utilice una contraseña de &lt;b&gt;10 o más caracteres aleatorios&lt;/b&gt;, u &lt;b&gt; ocho o más palabras&lt;/b&gt;</translation>
     </message>
@@ -172,8 +176,8 @@
         <translation>Confirme el cifrado del monedero</translation>
     </message>
     <message>
-        <source>401K Coin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your 401Ks from being stolen by malware infecting your computer.</source>
-        <translation>401K Coin se cerrará para finalizar el proceso de cifrado. Recuerde que cifrar su monedero no garantiza que sus 401Ks no sean robados mediante malware de su ordenador.</translation>
+        <source>401KCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your 401Ks from being stolen by malware infecting your computer.</source>
+        <translation>401KCoin se cerrará para finalizar el proceso de cifrado. Recuerde que cifrar su monedero no garantiza que sus 401Ks no sean robados mediante malware de su ordenador.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -235,16 +239,16 @@
         <translation>&amp;Cifrado BIP 38</translation>
     </message>
     <message>
-        <source>Enter a 401K Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Introduzca la dirección 401K que querría cifrar usando BIP 38. Introduzca una contraseña en el campo central. Haga clic en cifrar para generar la clave privada cifrada.</translation>
+        <source>Enter a 401KCoin Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Introduzca la dirección 401KCoin que querría cifrar usando BIP 38. Introduzca una contraseña en el campo central. Haga clic en cifrar para generar la clave privada cifrada.</translation>
     </message>
     <message>
         <source>Address:</source>
         <translation>Dirección:</translation>
     </message>
     <message>
-        <source>The 401K address to sign the message with</source>
-        <translation>La dirección 401K con la que desee firmar el mensaje</translation>
+        <source>The 401KCoin address to sign the message with</source>
+        <translation>La dirección 401KCoin con la que desee firmar el mensaje</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -275,8 +279,8 @@
         <translation>Copiar la firma actual al portapapeles del sistema</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this 401K address</source>
-        <translation>Firme el mensaje para demostrar que eres el propietario de esta dirección 401K</translation>
+        <source>Sign the message to prove you own this 401KCoin address</source>
+        <translation>Firme el mensaje para demostrar que eres el propietario de esta dirección 401KCoin</translation>
     </message>
     <message>
         <source>Encrypt &amp;Key</source>
@@ -299,12 +303,12 @@
         <translation>Introduzca la clave cifrada privada BIP 38. Introduzca la contraseña en el campo central. Haga clic en descifrar clave para generar la clave privada. Después de que la clave sea descifrada, pulsando en 'Importar dirección' añadirá esta clave privada al monedero.</translation>
     </message>
     <message>
-        <source>The 401K address the message was signed with</source>
-        <translation>La dirección 401K con la que se firmó el mensaje</translation>
+        <source>The 401KCoin address the message was signed with</source>
+        <translation>La dirección 401KCoin con la que se firmó el mensaje</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified 401K address</source>
-        <translation>Verifica el mensaje para asegurar que fue firmado con la dirección 401K especificada</translation>
+        <source>Verify the message to ensure it was signed with the specified 401KCoin address</source>
+        <translation>Verifica el mensaje para asegurar que fue firmado con la dirección 401KCoin especificada</translation>
     </message>
     <message>
         <source>Decrypt &amp;Key</source>
@@ -598,12 +602,12 @@
         <translation>Herramienta de pestañas</translation>
     </message>
     <message>
-        <source>401K Coin Core</source>
-        <translation>Núcleo 401K Coin</translation>
+        <source>401KCoin Core</source>
+        <translation>Núcleo 401KCoin</translation>
     </message>
     <message>
-        <source>Send coins to a 401K address</source>
-        <translation>Enviar coins a una dirección 401K</translation>
+        <source>Send coins to a 401KCoin address</source>
+        <translation>Enviar coins a una dirección 401KCoin</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and 401kcoin: URIs)</source>
@@ -614,6 +618,10 @@
         <translation>&amp;Privacidad</translation>
     </message>
     <message>
+        <source>Privacy Action for z401K and Obfuscation</source>
+        <translation>Privacidad con z401K y Ofuscación</translation>
+    </message>
+    <message>
         <source>&amp;Masternodes</source>
         <translation>Nodos &amp;Maestros</translation>
     </message>
@@ -622,24 +630,24 @@
         <translation>Explorar nodos maestros</translation>
     </message>
     <message>
-        <source>&amp;About 401K Coin Core</source>
-        <translation>&amp;Sobre el núcleo de 401K Coin</translation>
+        <source>&amp;About 401KCoin Core</source>
+        <translation>&amp;Sobre el núcleo de 401KCoin</translation>
     </message>
     <message>
-        <source>Show information about 401K Coin Core</source>
-        <translation>Mostrar información sobre el núcleo de 401K Coin</translation>
+        <source>Show information about 401KCoin Core</source>
+        <translation>Mostrar información sobre el núcleo de 401KCoin</translation>
     </message>
     <message>
-        <source>Modify configuration options for 401K Coin</source>
-        <translation>Modificar las opciones de configuración de 401K Coin</translation>
+        <source>Modify configuration options for 401KCoin</source>
+        <translation>Modificar las opciones de configuración de 401KCoin</translation>
     </message>
     <message>
-        <source>Sign messages with your 401K addresses to prove you own them</source>
-        <translation>Firmar mensajes con sus direcciones 401K para demostrar que le pertenecen</translation>
+        <source>Sign messages with your 401KCoin addresses to prove you own them</source>
+        <translation>Firmar mensajes con sus direcciones 401KCoin para demostrar que le pertenecen</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified 401K addresses</source>
-        <translation>Verificar mensajes para asegurar que están firmados con la dirección 401K especificada</translation>
+        <source>Verify messages to ensure they were signed with specified 401KCoin addresses</source>
+        <translation>Verificar mensajes para asegurar que están firmados con la dirección 401KCoin especificada</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -670,8 +678,8 @@
         <translation>Abrir Fichero de Configuración de Nodos Maestros</translation>
     </message>
     <message>
-        <source>Open a 401kcoin: URI or payment request</source>
-        <translation>Abrir un 401kcoin: URI o solicitud de pago</translation>
+        <source>Open a 401KCoin: URI or payment request</source>
+        <translation>Abrir un 401KCoin: URI o solicitud de pago</translation>
     </message>
     <message>
         <source>&amp;Blockchain explorer</source>
@@ -682,12 +690,16 @@
         <translation>Ventana del explorador de bloques</translation>
     </message>
     <message>
-        <source>Show the 401K Coin Core help message to get a list with possible 401K Coin command-line options</source>
-        <translation>Mostrar la ayuda de 401K Coin Core para obtener una lista de posibles opciones en línea de comandos</translation>
+        <source>Show the 401KCoin Core help message to get a list with possible 401KCoin command-line options</source>
+        <translation>Mostrar la ayuda de 401KCoin Core para obtener una lista de posibles opciones en línea de comandos</translation>
     </message>
     <message>
-        <source>401K Coin Core client</source>
-        <translation>Cliente 401K Coin Core</translation>
+        <source>401KCoin Core client</source>
+        <translation>Cliente 401KCoin Core</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n active connection(s) to 401KCoin network</source>
+        <translation><numerusform>%n conexión(es) activa a la red 401KCoin</numerusform><numerusform>%n conexion(es) activas a la red 401KCoin</numerusform></translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -709,9 +721,25 @@
         <source>Up to date</source>
         <translation>Actualizado</translation>
     </message>
+    <message numerus="yes">
+        <source>%n hour(s)</source>
+        <translation><numerusform>%n hora</numerusform><numerusform>%n horas</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s)</source>
+        <translation><numerusform>%n día</numerusform><numerusform>%n días</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n week(s)</source>
+        <translation><numerusform>%n semana</numerusform><numerusform>%n semanas</numerusform></translation>
+    </message>
     <message>
         <source>%1 and %2</source>
         <translation>%1 y %2</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n year(s)</source>
+        <translation><numerusform>%n año</numerusform><numerusform>%n años</numerusform></translation>
     </message>
     <message>
         <source>%1 behind</source>
@@ -790,6 +818,10 @@ MultiEnvío: %1</translation>
         <translation>El monedero está &lt;b&gt;encriptado&lt;/b&gt; y actualmente &lt;b&gt;desbloqueado&lt;/b&gt;</translation>
     </message>
     <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonimization and staking only</source>
+        <translation>El monedero está &lt;b&gt;encriptado&lt;/b&gt; y actualmente &lt;b&gt;desbloqueado&lt;/b&gt; sólo para anonimato y prueba de participación.</translation>
+    </message>
+    <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>El monedero está &lt;b&gt;encriptado&lt;/b&gt; y actualmente &lt;b&gt;bloqueado&lt;/b&gt;</translation>
     </message>
@@ -828,8 +860,8 @@ MultiEnvío: %1</translation>
 <context>
     <name>ClientModel</name>
     <message>
-        <source>Total: %1 (OBF compatible: %2 / Enabled: %3)</source>
-        <translation>Total: %1 (Ofuscación compatible: %2 / Activado: %3)</translation>
+        <source>Total: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Unknown: %5)</source>
+        <translation>Total: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Desconocido: %5)</translation>
     </message>
     <message>
         <source>Network Alert</source>
@@ -995,8 +1027,8 @@ MultiEnvío: %1</translation>
         <translation>medio-alta</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 u401k per input.</source>
-        <translation>Puede variar +/- %1 u401k por entrada.</translation>
+        <source>Can vary +/- %1 duff(s) per input.</source>
+        <translation>Puede variar +/- %1 duff(s) por entrada.</translation>
     </message>
     <message>
         <source>medium</source>
@@ -1110,8 +1142,8 @@ MultiEnvío: %1</translation>
         <translation>Editar dirección de envío</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid 401K address.</source>
-        <translation>La dirección introducida "%1" no es una dirección 401K válida.</translation>
+        <source>The entered address "%1" is not a valid 401KCoin address.</source>
+        <translation>La dirección introducida "%1" no es una dirección 401KCoin válida.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -1156,16 +1188,16 @@ MultiEnvío: %1</translation>
         <translation>versión</translation>
     </message>
     <message>
-        <source>401K Coin Core</source>
-        <translation>Núcleo 401K Coin</translation>
+        <source>401KCoin Core</source>
+        <translation>Núcleo 401KCoin</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About 401K Coin Core</source>
-        <translation>Acerca de 401K Coin Core</translation>
+        <source>About 401KCoin Core</source>
+        <translation>Acerca de 401KCoin Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1211,16 +1243,16 @@ MultiEnvío: %1</translation>
         <translation>Bienvenido/a</translation>
     </message>
     <message>
-        <source>Welcome to 401K Coin Core.</source>
-        <translation>Bienvenido/a a 401K Coin Core.</translation>
+        <source>Welcome to 401KCoin Core.</source>
+        <translation>Bienvenido/a a 401KCoin Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where 401K Coin Core will store its data.</source>
-        <translation>Al ser la primera vez que se inicia el programa, usted puede elegir dónde guardará 401K Coin Core sus datos.</translation>
+        <source>As this is the first time the program is launched, you can choose where 401KCoin Core will store its data.</source>
+        <translation>Al ser la primera vez que se inicia el programa, usted puede elegir dónde guardará 401KCoin Core sus datos.</translation>
     </message>
     <message>
-        <source>401K Coin Core will download and store a copy of the 401K Coin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>401K Coin Core descargará y guardará una copia de la cadena de bloques 401K Coin. Por lo menos %1GB de datos serán guardados en esta carpeta, y crecerá con el tiempo. El monedero también se guardará en esta carpeta.</translation>
+        <source>401KCoin Core will download and store a copy of the 401KCoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>401KCoin Core descargará y guardará una copia de la cadena de bloques 401KCoin. Por lo menos %1GB de datos serán guardados en esta carpeta, y crecerá con el tiempo. El monedero también se guardará en esta carpeta.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1231,8 +1263,8 @@ MultiEnvío: %1</translation>
         <translation>Usar una carpeta de datos personalizada:</translation>
     </message>
     <message>
-        <source>401K Coin Core</source>
-        <translation>Núcleo 401K Coin</translation>
+        <source>401KCoin Core</source>
+        <translation>Núcleo 401KCoin</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1373,12 +1405,12 @@ MultiEnvío: %1</translation>
         <translation>Introduzca Dirección a la cual Enviar</translation>
     </message>
     <message>
-        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other 401K addresses after it matures.
-To Add: enter percentage to give and 401K address to add to the MultiSend vector.
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other 401KCoin addresses after it matures.
+To Add: enter percentage to give and 401KCoin address to add to the MultiSend vector.
 To Delete: Enter address to delete and press delete.
 MultiSend will not be activated unless you have clicked Activate</source>
-        <translation>MultiEnvío le permite enviar automáticamente hasta el 100% de recompensa de participación o de nodo maestro a una lista de otras direcciones 401K después de su maduración.
-Para Añadir: introduzca porcentaje a enviar y las direcciones 401K a añadir al vector MultiEnvío.
+        <translation>MultiEnvío le permite enviar automáticamente hasta el 100% de recompensa de participación o de nodo maestro a una lista de otras direcciones 401KCoin después de su maduración.
+Para Añadir: introduzca porcentaje a enviar y las direcciones 401KCoin a añadir al vector MultiEnvío.
 Para Eliminar: Introduzca la dirección a eliminar y pulse la tecla delete.
 MultiEnvío no se activará a menos que haga usted click en Activar</translation>
     </message>
@@ -1494,6 +1526,73 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
     </message>
 </context>
 <context>
+    <name>ObfuscationConfig</name>
+    <message>
+        <source>Configure Obfuscation</source>
+        <translation>Configurar Ofuscación</translation>
+    </message>
+    <message>
+        <source>Basic Privacy</source>
+        <translation>Privacidad Básica</translation>
+    </message>
+    <message>
+        <source>High Privacy</source>
+        <translation>Alta Privacidad</translation>
+    </message>
+    <message>
+        <source>Maximum Privacy</source>
+        <translation>Máxima Privacidad</translation>
+    </message>
+    <message>
+        <source>Please select a privacy level.</source>
+        <translation>Por favor selecciones un nivel de privacidad.</translation>
+    </message>
+    <message>
+        <source>Use 2 separate masternodes to mix funds up to 10000 401K</source>
+        <translation>Use 2 nodos maestros diferentes para mezclar los fondos hasta los 10000 401K</translation>
+    </message>
+    <message>
+        <source>Use 8 separate masternodes to mix funds up to 10000 401K</source>
+        <translation>Use 8 nodos maestros diferentes para mezclar fondos hasta los 10000 401K</translation>
+    </message>
+    <message>
+        <source>Use 16 separate masternodes</source>
+        <translation>Use 16 nodos maestros diferentes</translation>
+    </message>
+    <message>
+        <source>This option is the quickest and will cost about ~0.025 401K to anonymize 10000 401K</source>
+        <translation>Esta opción es la más rápida y costará alrededor de ~0.025 401K para anonimizar 10000 401K</translation>
+    </message>
+    <message>
+        <source>This option is moderately fast and will cost about 0.05 401K to anonymize 10000 401K</source>
+        <translation>Esta opción es moderadamente rápida y costará cerca de 0.05 401K para anonimizar 10000 401K.</translation>
+    </message>
+    <message>
+        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
+        <translation>Esta es la opción más lenta pero más segura. Usar el máximo anonimato costará</translation>
+    </message>
+    <message>
+        <source>0.1 401K per 10000 401K you anonymize.</source>
+        <translation>0.1 401K por 10000 401K que anonimizas.</translation>
+    </message>
+    <message>
+        <source>Obfuscation Configuration</source>
+        <translation>Configuración de Ofuscación</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening 401KCoin's configuration screen.</source>
+        <translation>La Ofuscación se configuró correctamente en modo básico (%1 y 2 rondas). Puedes cambiar esto en cualquier momento accediendo a la ventana de configuración de 401KCoin.</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening 401KCoin's configuration screen.</source>
+        <translation>La Ofuscación se activó correctamente en modo alto (%1 y 8 rondas). Usted puede cambiar esto en cualquier momento abriendo la ventana de configuración de 401KCoin.</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening 401KCoin's configuration screen.</source>
+        <translation>La Ofuscación se activó correctamente en su grado máximo (%1 y 16 rondas). Usted puede cambiar ésto en cualquier momento en la ventana de configuración de 401KCoin.</translation>
+    </message>
+</context>
+<context>
     <name>OpenURIDialog</name>
     <message>
         <source>Open URI</source>
@@ -1551,8 +1650,8 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Si deselecciona el gasto de cambio no confirmado, las entradas de una transacción&lt;br/&gt;no podrán ser usadas hasta que esa transacción tenga al menos una confirmación.&lt;br/&gt;Esto también afecta a cómo se calcula su balance actual.</translation>
     </message>
     <message>
-        <source>Automatically open the 401K Coin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Abrir automáticamente el puerto del cliente 401K Coin en el enrutador. Ésto sólo funciona si su enrutador soporta UPnP y esta función está activada.</translation>
+        <source>Automatically open the 401KCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Abrir automáticamente el puerto del cliente 401KCoin en el enrutador. Ésto sólo funciona si su enrutador soporta UPnP y esta función está activada.</translation>
     </message>
     <message>
         <source>Accept connections from outside</source>
@@ -1571,12 +1670,12 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Experto</translation>
     </message>
     <message>
-        <source>Automatically start 401K Coin after logging in to the system.</source>
-        <translation>Arrancar 401K Coin automáticamente después de identificarse en Windows.</translation>
+        <source>Automatically start 401KCoin after logging in to the system.</source>
+        <translation>Arrancar 401KCoin automáticamente después de identificarse en Windows.</translation>
     </message>
     <message>
-        <source>&amp;Start 401K Coin on system login</source>
-        <translation>&amp;Arrancar 401K Coin al inicio del sistema</translation>
+        <source>&amp;Start 401KCoin on system login</source>
+        <translation>&amp;Arrancar 401KCoin al inicio del sistema</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1603,16 +1702,38 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>&amp;Red</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting 401K Coin.</source>
-        <translation>El idioma de interface de usuario puede seleccionarse aquí. Este ajuste tomará efecto después de reiniciar 401K Coin.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting 401KCoin.</source>
+        <translation>El idioma de interface de usuario puede seleccionarse aquí. Este ajuste tomará efecto después de reiniciar 401KCoin.</translation>
+    </message>
+    <message>
+        <source>Language missing or translation incomplete? Help contributing translations here:
+https://www.transifex.com/401kcoin-project/401kcoin-project-translations</source>
+        <translation>¿Falta su lenguaje o la traducción está incompleta? Contribuya con las traducciones aquí:
+https://www.transifex.com/401kcoin-project/401kcoin-project-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>Mapear un puerto utilizando &amp;UPnP</translation>
     </message>
     <message>
-        <source>Connect to the 401K Coin network through a SOCKS5 proxy.</source>
-        <translation>Conectar a la red 401K Coin mediante un proxy SOCKS5.</translation>
+        <source>Percentage of incoming 401K which get automatically converted to z401K via Zerocoin Protocol (min: 10%)</source>
+        <translation>Porcentaje de 401Ks entrantes que serán automáticamente convertidos a z401K a través del Protocolo Zerocoin (mín: 10%)</translation>
+    </message>
+    <message>
+        <source>Percentage of autominted z401K</source>
+        <translation>Porcentaje de z401K autogenerados</translation>
+    </message>
+    <message>
+        <source>Wait with automatic conversion to Zerocoin until enough 401K for this denomination is available</source>
+        <translation>Retrasar la conversión automática a Zerocoin hasta que hayan suficientes 401K disponibles para este tamaño de billete</translation>
+    </message>
+    <message>
+        <source>Preferred Automint z401K Denomination</source>
+        <translation>Tamaño de billete z401K preferido en la creación automática de dinero</translation>
+    </message>
+    <message>
+        <source>Connect to the 401KCoin network through a SOCKS5 proxy.</source>
+        <translation>Conectar a la red 401KCoin mediante un proxy SOCKS5.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1657,6 +1778,10 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
     <message>
         <source>User Interface &amp;language:</source>
         <translation>&amp;Idioma de la interface de usuario:</translation>
+    </message>
+    <message>
+        <source>User Interface Theme:</source>
+        <translation>Tema de la Interface de Usuario:</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1766,8 +1891,8 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Recompensa de participación o de nodo maestro que aún no ha madurado</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the 401K Coin network after a connection is established, but this process has not completed yet.</source>
-        <translation>La información mostrada puede estar desactualizada. Su monedero se sincroniza automáticamente con la red 401K Coin después de establecer una conexión, pero este proceso aún no se ha completado.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the 401KCoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>La información mostrada puede estar desactualizada. Su monedero se sincroniza automáticamente con la red 401KCoin después de establecer una conexión, pero este proceso aún no se ha completado.</translation>
     </message>
     <message>
         <source>Unconfirmed transactions to watch-only addresses</source>
@@ -1800,6 +1925,26 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
     <message>
         <source>Spendable:</source>
         <translation>Disponible:</translation>
+    </message>
+    <message>
+        <source>Combined Balances (including immature coins)</source>
+        <translation>Balances Combinados (incluyendo monedas inmaduras)</translation>
+    </message>
+    <message>
+        <source>401K:</source>
+        <translation>401K:</translation>
+    </message>
+    <message>
+        <source>z401K:</source>
+        <translation>z401K:</translation>
+    </message>
+    <message>
+        <source>0 %</source>
+        <translation>0 %</translation>
+    </message>
+    <message>
+        <source>Zerocoin Balance</source>
+        <translation>Balance Zerocoin</translation>
     </message>
     <message>
         <source>Recent transactions</source>
@@ -1837,8 +1982,8 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>No se puede iniciar 401kcoin: módulo click-to-pay</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid 401K address or malformed URI parameters.</source>
-        <translation>¡El identificador de la dirección no puede ser analizado! Esto puede ser causado por una dirección 401K inválida o parámetros del identificador malformados.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid 401KCoin address or malformed URI parameters.</source>
+        <translation>¡El identificador de la dirección no puede ser analizado! Esto puede ser causado por una dirección 401KCoin inválida o parámetros del identificador malformados.</translation>
     </message>
     <message>
         <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
@@ -1917,14 +2062,471 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
     </message>
 </context>
 <context>
+    <name>PrivacyDialog</name>
+    <message>
+        <source>401K which were anonymized via Zerocin Protocol</source>
+        <translation>401K que fueron anonimizados mediante Protocolo Zerocoin</translation>
+    </message>
+    <message>
+        <source>Zerocoin 401K (z401K)</source>
+        <translation>Zerocoin 401K (z401K)</translation>
+    </message>
+    <message>
+        <source>Zerocoin Actions:</source>
+        <translation>Acciones Zerocoin:</translation>
+    </message>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the 401KCoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>La información mostrada puede estar desactualizada. Su monedero se sincroniza automáticamente con la red 401KCoin después de establecer una conexión, pero este proceso aún no se ha completado.</translation>
+    </message>
+    <message>
+        <source>Enter an amount of 401k to convert to z401k</source>
+        <translation>Introduzca la cantidad de 401k que desea convertir a z401k</translation>
+    </message>
+    <message>
+        <source>Mint Zerocoin</source>
+        <translation>Creación de moneda Zerocoin</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>z401K</source>
+        <translation>z401K</translation>
+    </message>
+    <message>
+        <source>Available for Minting:</source>
+        <translation>Disponible para Creación de moneda:</translation>
+    </message>
+    <message>
+        <source>0.000 000 00 401K</source>
+        <translation>0.000 000 00 401K</translation>
+    </message>
+    <message>
+        <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
+        <translation>Resetear la base de datos del monedero Zerocoin. Esta opción borra transacciones que no consiguieron salir publicadas en la cadena de bloques.</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Reiniciar</translation>
+    </message>
+    <message>
+        <source>Coin Control...</source>
+        <translation>Control de Monedas...</translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>Cantidad:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Cantidad:</translation>
+    </message>
+    <message>
+        <source>Rescan the complete blockchain for  Zerocoin mints and their meta-data.</source>
+        <translation>Reescanear la cadena de bloques entera buscando creación de moneda Zerocoin y otros meta-datos.</translation>
+    </message>
+    <message>
+        <source>ReScan</source>
+        <translation>ReeScanear</translation>
+    </message>
+    <message>
+        <source>Status and/or Mesages from the last Mint Action.</source>
+        <translation>Estado y/o Mensajes de la última Acción de Creación de moneda.</translation>
+    </message>
+    <message>
+        <source>z401k Control</source>
+        <translation>Control z401k</translation>
+    </message>
+    <message>
+        <source>z401k Selected:</source>
+        <translation>z401k Seleccionados:</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Cantidad Seleccionada:</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin. Without 'Pay To:' address creates payments to yourself.</source>
+        <translation>Gastar Zerocoin. Sin direcciones "Pagar a:", esto creará pagos a usted mismo.</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin</source>
+        <translation>Gastar Zerocoin</translation>
+    </message>
+    <message>
+        <source>Available Balance:</source>
+        <translation>Balance disponible:</translation>
+    </message>
+    <message>
+        <source>0 z401K</source>
+        <translation>0 z401K</translation>
+    </message>
+    <message>
+        <source>Security Level for Zerocoin Transactions. More is better, but needs more time and resources.</source>
+        <translation>Nivel de Seguridad para Transacciones Zerocoin. Cuanto más mejor, pero necesitará más tiempo y recursos.</translation>
+    </message>
+    <message>
+        <source>Security Level:</source>
+        <translation>Nivel de Seguridad:</translation>
+    </message>
+    <message>
+        <source>Security Level 1 - 100 (default: 42)</source>
+        <translation>Nivel de Seguridad 1 - 100 (por defecto: 42)</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>Pagar &amp;A:</translation>
+    </message>
+    <message>
+        <source>The 401KCoin address to send the payment to. Creates local payment to yourself when empty.</source>
+        <translation>La dirección 401KCoin a la que enviar el pago. Si se deja en blanco, crea un pago a usted mismo.</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Escoja una dirección usada previamente</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt + A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Pegar dirección desde el portapapeles</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt + P</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Etiqueta:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to the list of used addresses</source>
+        <translation>Introduzca una etiqueta para esta dirección para añadirla a la lista de direcciones utilizadas</translation>
+    </message>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>Ca&amp;ntidad:</translation>
+    </message>
+    <message>
+        <source>Convert Change to Zerocoin (might cost additional fees)</source>
+        <translation>Convertir el Cambio a Zerocoin (puede costar alguna tasa adicional)</translation>
+    </message>
+    <message>
+        <source>If checked, the wallet tries to minimize the returning change instead of minimizing the number of spent denominations.</source>
+        <translation>Si está marcado, el monedero intenta minimizar el cambio de vuelta en lugar de minimizar el número de billetes necesarios.</translation>
+    </message>
+    <message>
+        <source>Minimize Change</source>
+        <translation>Minimizar Cambio</translation>
+    </message>
+    <message>
+        <source>Information about the available Zerocoin funds.</source>
+        <translation>Información sobre los fondos Zerocoin disponibles.</translation>
+    </message>
+    <message>
+        <source>Zerocoin Stats:</source>
+        <translation>Estadísticas Zerocoin:</translation>
+    </message>
+    <message>
+        <source>Available Funds</source>
+        <translation>Fondos Disponibles</translation>
+    </message>
+    <message>
+        <source>Available Zerocoin  Balance:</source>
+        <translation>Balance Zerocoin Disponible:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 1:</source>
+        <translation>Billetes con valor 1:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 1:</source>
+        <translation>Billetes con valor 1:</translation>
+    </message>
+    <message>
+        <source>0 x</source>
+        <translation>0 x</translation>
+    </message>
+    <message>
+        <source>Denominations with value 5:</source>
+        <translation>Billetes con valor 5:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 5:</source>
+        <translation>Billetes con valor 5:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 10:</source>
+        <translation>Billetes con valor 10:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 10:</source>
+        <translation>Billetes con valor 10:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 50:</source>
+        <translation>Billetes con valor 50:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 50:</source>
+        <translation>Billetes con valor 50:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 100:</source>
+        <translation>Billetes con valor 100:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 100:</source>
+        <translation>Billetes con valor 100:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 500:</source>
+        <translation>Billetes con valor 500:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 500:</source>
+        <translation>Billetes con valor 500:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 1000:</source>
+        <translation>Billetes con valor 1000:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 1000:</source>
+        <translation>Billetes con valor 1000:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 5000:</source>
+        <translation>Billetes con valor 5000:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 5000:</source>
+        <translation>Billetes con valor 5000:</translation>
+    </message>
+    <message>
+        <source>Note: This hidden objects are used for communication between the 'Coin Control' dialog and its parent objects. We don't want to change/reimplement the existing Coin Control, so this objects must be here, even when we don't use them. No, we don't like this approach, either.</source>
+        <translation>Nota: Estos objetos ocultos se usan para comunicación entre el diálogo "Control de Monedas' y sus objetos ascendientes. No queremos cambiar/reimplementar el Control de Moneda existente, así que dejamos aquí estos objetos, aunque no los utilicemos. Mejoraremos este planteamiento en el futuro.</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Prioridad:</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Comisión:</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>Calderilla:</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>no</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Octetos:</translation>
+    </message>
+    <message>
+        <source>Insufficient funds!</source>
+        <translation>¡Fondos insuficientes!</translation>
+    </message>
+    <message>
+        <source>Coins automatically selected</source>
+        <translation>Monedas seleccionadas automáticamente</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>media</translation>
+    </message>
+    <message>
+        <source>Coin Control Features</source>
+        <translation>Funciones de Control de Monedas</translation>
+    </message>
+    <message>
+        <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
+        <translation>Si esto está activado, pero la dirección de cambio está vacía o es inválida, el cambio será mandado a una nueva dirección generada.</translation>
+    </message>
+    <message>
+        <source>Custom change address</source>
+        <translation>Dirección de cambio personalizada</translation>
+    </message>
+    <message>
+        <source>Amount After Fee:</source>
+        <translation>Cantidad Después de Tasas:</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Cambio:</translation>
+    </message>
+    <message>
+        <source>out of sync</source>
+        <translation>desincronizado</translation>
+    </message>
+    <message>
+        <source>Mint Status: Okay</source>
+        <translation>Estado de Creación de Moneda: Ok</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Copiar cantidad</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Copiar cantidad</translation>
+    </message>
+    <message>
+        <source>Zerocoin functionality is not enabled on the 401KCoin network yet.</source>
+        <translation>La funcionalidad Zerocoin todavía no está habilitada en la red 401KCoin.</translation>
+    </message>
+    <message>
+        <source>Error: Your wallet is locked. Please enter the wallet passphrase first.</source>
+        <translation>Error: Tu monedero está bloqueado. Por favor, primero introduzca la clave de desbloqueo.</translation>
+    </message>
+    <message>
+        <source>Message: Enter an amount &gt; 0.</source>
+        <translation>Mensaje: Introduzca una cantidad &gt; 0.</translation>
+    </message>
+    <message>
+        <source>Minting </source>
+        <translation>Creando moneda</translation>
+    </message>
+    <message>
+        <source>Successfully minted </source>
+        <translation>Monedas creadas correctamente</translation>
+    </message>
+    <message>
+        <source> z401K in </source>
+        <translation>z401K en</translation>
+    </message>
+    <message>
+        <source> sec. Used denominations:
+</source>
+        <translation>seg. Billetes usados:
+</translation>
+    </message>
+    <message>
+        <source>Starting ResetMintZerocoin: rescanning complete blockchain, this will need up to 30 minutes depending on your hardware. 
+Please be patient...</source>
+        <translation>Ejecutando ResetMintZerocoin: reescaneando la cadena de bloques entera, esto necesitará hasta media hora dependiendo de su hardware.
+Por favor espere...</translation>
+    </message>
+    <message>
+        <source>Duration: </source>
+        <translation>Duración:</translation>
+    </message>
+    <message>
+        <source> sec.
+</source>
+        <translation>seg.
+</translation>
+    </message>
+    <message>
+        <source>Starting ResetSpentZerocoin: </source>
+        <translation>Iniciando ResetSpentZerocoin:</translation>
+    </message>
+    <message>
+        <source>No 'Pay To' address provided, creating local payment</source>
+        <translation>No se especificó drección 'Pagar A', por lo que asumimos un pago local</translation>
+    </message>
+    <message>
+        <source>Invalid 401KCoin Address</source>
+        <translation>Dirección 401KCoin Inválida</translation>
+    </message>
+    <message>
+        <source>Invalid Send Amount</source>
+        <translation>Cantidad a Enviar Inválida</translation>
+    </message>
+    <message>
+        <source>Confirm additional Fees</source>
+        <translation>Confirmar Tasas adicionales</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to send?&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>¿Está seguro que desea enviar?&lt;br /&gt;&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source> to address </source>
+        <translation>a la dirección</translation>
+    </message>
+    <message>
+        <source> to a newly generated (unused and therefor anonymous) local address &lt;br /&gt;</source>
+        <translation> a una dirección local recién generada (sin usar todavía y por lo tanto, anónima) &lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>with Security Level </source>
+        <translation>con Nivel de Seguridad</translation>
+    </message>
+    <message>
+        <source>Confirm send coins</source>
+        <translation>Confirmar enviar monedas</translation>
+    </message>
+    <message>
+        <source>Spending Zerocoin.
+Computationally expensive, might need several minutes depending on the selected Security Level and your hardware. 
+Please be patient...</source>
+        <translation>Gastando Zerocoin.
+Esto es computacionalmente intensivo, puede necesitar varios minutos dependiendo del Nivel de Seguridad elegido y el hardware de su máquina.
+Por favor tenga paciencia...</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin failed with status = </source>
+        <translation>Gastar Zerocoin falló con estado =</translation>
+    </message>
+    <message>
+        <source>z401k Spend #: </source>
+        <translation>Gastar z401k #:</translation>
+    </message>
+    <message>
+        <source>denomination: </source>
+        <translation>billete:</translation>
+    </message>
+    <message>
+        <source>serial: </source>
+        <translation>serial:</translation>
+    </message>
+    <message>
+        <source>Spend is 1 of : </source>
+        <translation>Gasto 1 de :</translation>
+    </message>
+    <message>
+        <source>value out: </source>
+        <translation>valor salida:</translation>
+    </message>
+    <message>
+        <source>address: </source>
+        <translation>dirección:</translation>
+    </message>
+    <message>
+        <source>z401k Mint</source>
+        <translation>Creación de z401k</translation>
+    </message>
+    <message>
+        <source>Sending successful, return code: </source>
+        <translation>Envío correcto, código devuelto: </translation>
+    </message>
+    <message>
+        <source>txid: </source>
+        <translation>txid:</translation>
+    </message>
+    <message>
+        <source>fee: </source>
+        <translation>tasa:</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <source>Amount</source>
         <translation>Cantidad</translation>
     </message>
     <message>
-        <source>Enter a 401K address (e.g. %1)</source>
-        <translation>Introduzca una dirección 401K (p.e. %1)</translation>
+        <source>Enter a 401KCoin address (e.g. %1)</source>
+        <translation>Introduzca una dirección 401KCoin (p.e. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1945,6 +2547,10 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
     <message>
         <source>NETWORK</source>
         <translation>RED</translation>
+    </message>
+    <message>
+        <source>BLOOM</source>
+        <translation>BLOOM</translation>
     </message>
     <message>
         <source>UNKNOWN</source>
@@ -2057,8 +2663,8 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Cadena de bloques</translation>
     </message>
     <message>
-        <source>Open the 401K Coin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Abrir el fichero de depuración 401K Coin en el directorio actual de datos. Esto puede llevar unos segundos para ficheros de depuración grandes.</translation>
+        <source>Open the 401KCoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Abrir el fichero de depuración 401KCoin en el directorio actual de datos. Esto puede llevar unos segundos para ficheros de depuración grandes.</translation>
     </message>
     <message>
         <source>Number of Masternodes</source>
@@ -2225,8 +2831,8 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Fuera:</translation>
     </message>
     <message>
-        <source>Welcome to the 401K Coin RPC console.</source>
-        <translation>Bienvenido a la consola RPC de 401K Coin.</translation>
+        <source>Welcome to the 401KCoin RPC console.</source>
+        <translation>Bienvenido a la consola RPC de 401KCoin.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -2296,12 +2902,12 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Una etiqueta opcional a asociar con la nueva dirección de recepción.</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the 401K Coin network.</source>
-        <translation>Un mensaje opcional a adjuntar a la solicitud de pago, que será mostrado cuando se abra la solicitud. Nota: El mensaje no se envía junto al pago por la red 401K Coin.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the 401KCoin network.</source>
+        <translation>Un mensaje opcional a adjuntar a la solicitud de pago, que será mostrado cuando se abra la solicitud. Nota: El mensaje no se envía junto al pago por la red 401KCoin.</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the 401K Coin network.</source>
-        <translation>Un mensaje opcional a adjuntar a la solicitud de pago, que será mostrado cuando se abra la solicitud. &lt;br&gt;Nota: El mensaje no se envía junto al pago por la red 401K Coin.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the 401KCoin network.</source>
+        <translation>Un mensaje opcional a adjuntar a la solicitud de pago, que será mostrado cuando se abra la solicitud. &lt;br&gt;Nota: El mensaje no se envía junto al pago por la red 401KCoin.</translation>
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
@@ -2569,6 +3175,14 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Tiempo de confirmación:</translation>
     </message>
     <message>
+        <source>Open Coin Control...</source>
+        <translation>Abrir Control de Monedas...</translation>
+    </message>
+    <message>
+        <source>Coins automatically selected</source>
+        <translation>Monedas seleccionadas automáticamente</translation>
+    </message>
+    <message>
         <source>If the custom fee is set to 1000 u401Ks and the transaction is only 250 bytes, then "per kilobyte" only pays 250 u401Ks in fee,&lt;br /&gt;while "at least" pays 1000 u401Ks. For transactions bigger than a kilobyte both pay by kilobyte.</source>
         <translation>Si la comisión personalizada se fija en 1000 u401Ks y la transacción necesita sólo 250 bytes, entonces la opción "por kilobyte" sólo pagará 250 u401Ks de comisión,&lt;br/&gt;mientras "por lo menos" pagará 1000 u401Ks. Para transacciones que midan más de un kilobyte ambas pagan por kilobyte.</translation>
     </message>
@@ -2577,8 +3191,8 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Si la comisión personalizada se fija en 1000 u401Ks y la transacción necesita sólo 250 bytes, entonces la opción "por kilobyte" sólo pagará 250 u401Ks de comisión,&lt;br/&gt;mientras "por lo menos" pagará 1000 u401Ks. Para transacciones que midan más de un kilobyte ambas pagan por kilobyte.</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for 401K Coin transactions than the network can process.</source>
-        <translation>Pagar sólo la comisión mínima está bien mientras haya menos volumen de transacciones que espacio en los bloques.&lt;br/&gt;Pero tenga en cuenta que esto podría acabar en una transacción que nunca se confirme si hay más demanda de transacciones 401K Coin de las que la red puede procesar.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for 401KCoin transactions than the network can process.</source>
+        <translation>Pagar sólo la comisión mínima está bien mientras haya menos volumen de transacciones que espacio en los bloques.&lt;br/&gt;Pero tenga en cuenta que esto podría acabar en una transacción que nunca se confirme si hay más demanda de transacciones 401KCoin de las que la red puede procesar.</translation>
     </message>
     <message>
         <source>normal</source>
@@ -2623,6 +3237,10 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
     <message>
         <source>Add &amp;Recipient</source>
         <translation>Añadir Destinata&amp;rio</translation>
+    </message>
+    <message>
+        <source>Anonymized 401K</source>
+        <translation>401K anonimizados</translation>
     </message>
     <message>
         <source>SwiftTX</source>
@@ -2677,8 +3295,12 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>usando</translation>
     </message>
     <message>
-        <source>Warning: Invalid 401K address</source>
-        <translation>Advertencia: Direcciones 401K inválidas</translation>
+        <source>anonymous funds</source>
+        <translation>fondos anónimos</translation>
+    </message>
+    <message>
+        <source>Warning: Invalid 401KCoin address</source>
+        <translation>Advertencia: Direcciones 401KCoin inválidas</translation>
     </message>
     <message>
         <source>any available funds (not recommended)</source>
@@ -2711,6 +3333,10 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
     <message>
         <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
         <translation>Una comisión %1 veces más alta que %2 por kB se considera exageradamente alta.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Estimated to begin confirmation within %n block(s).</source>
+        <translation><numerusform>Estimamos que la confirmación empezará dentro de %n bloque.</numerusform><numerusform>Estimamos que la confirmación empezará dentro de %n bloques.</numerusform></translation>
     </message>
     <message>
         <source>The recipient address is not valid, please recheck.</source>
@@ -2749,6 +3375,14 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>¡La transacción fue rechazada! Esto puede ocurrir si alguna de sus monedas ya se gastó con anterioridad, por ejemplo, si estuvo usted usando una copia de su monedero wallet.dat y gastó allí monedas pero no las marcó como gastadas aquí.</translation>
     </message>
     <message>
+        <source>Error: The wallet was unlocked only to anonymize coins.</source>
+        <translation>Error: El monedero se desbloqueó sólo para anonimizar monedas.</translation>
+    </message>
+    <message>
+        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
+        <translation>Error: El monedero ya fue desbloqueado para anonimizar monedas. El desbloqueo total se ha cancelado.</translation>
+    </message>
+    <message>
         <source>Pay only the minimum fee of %1</source>
         <translation>Pagar sólo la comisión mínima de %1</translation>
     </message>
@@ -2772,8 +3406,8 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Pagar &amp;A:</translation>
     </message>
     <message>
-        <source>The 401K address to send the payment to</source>
-        <translation>La dirección 401K a la cual enviar el pago</translation>
+        <source>The 401KCoin address to send the payment to</source>
+        <translation>La dirección 401KCoin a la cual enviar el pago</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2812,8 +3446,8 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Mensaje:</translation>
     </message>
     <message>
-        <source>A message that was attached to the 401kcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the 401K Coin network.</source>
-        <translation>Un mensaje adjunto al 401kcoin: En recurso web especificado será guardado junto a la transacción para su referencia. Nota: Este mensaje no se enviará por la red 401K Coin.</translation>
+        <source>A message that was attached to the 401KCoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the 401KCoin network.</source>
+        <translation>Un mensaje adjunto al 401KCoin: En recurso web especificado será guardado junto a la transacción para su referencia. Nota: Este mensaje no se enviará por la red 401KCoin.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -2839,8 +3473,8 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>401K Coin Core is shutting down...</source>
-        <translation>El programa 401K Coin se está cerrando...</translation>
+        <source>401KCoin Core is shutting down...</source>
+        <translation>El programa 401KCoin se está cerrando...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -2862,8 +3496,8 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Usted puede firmar mensajes con su dirección para probar que son auténticos. Tenga cuidado con firmar algo corto o vago como "hola", pues los ataques de phising pueden engañarle para que firme su identidad para ellos. Sólo firme textos detallados con los que esté de acuerdo.</translation>
     </message>
     <message>
-        <source>The 401K address to sign the message with</source>
-        <translation>La dirección 401K con la que desee firmar el mensaje</translation>
+        <source>The 401KCoin address to sign the message with</source>
+        <translation>La dirección 401KCoin con la que desee firmar el mensaje</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2894,16 +3528,16 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Copiar la firma actual al portapapeles del sistema</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this 401K address</source>
-        <translation>Firme el mensaje para demostrar que eres el propietario de esta dirección 401K</translation>
+        <source>Sign the message to prove you own this 401KCoin address</source>
+        <translation>Firme el mensaje para demostrar que eres el propietario de esta dirección 401KCoin</translation>
     </message>
     <message>
-        <source>The 401K address the message was signed with</source>
-        <translation>La dirección 401K con la que se firmó el mensaje</translation>
+        <source>The 401KCoin address the message was signed with</source>
+        <translation>La dirección 401KCoin con la que se firmó el mensaje</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified 401K address</source>
-        <translation>Verifica el mensaje para asegurar que fue firmado con la dirección 401K especificada</translation>
+        <source>Verify the message to ensure it was signed with the specified 401KCoin address</source>
+        <translation>Verifica el mensaje para asegurar que fue firmado con la dirección 401KCoin especificada</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2989,8 +3623,8 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>401K Coin Core</source>
-        <translation>Núcleo 401K Coin</translation>
+        <source>401KCoin Core</source>
+        <translation>Núcleo 401KCoin</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -3005,12 +3639,8 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Los desarrolladores de Dash Core</translation>
     </message>
     <message>
-        <source>The PIVX Core developers</source>
-        <translation>Los desarrolladores de PIVX Core</translation>
-    </message>
-    <message>
-        <source>The 401K Coin Core developers</source>
-        <translation>Los desarrolladores de 401K Coin Core</translation>
+        <source>The 401KCoin Core developers</source>
+        <translation>Los desarrolladores de 401KCoin Core</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -3026,6 +3656,10 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
 </context>
 <context>
     <name>TransactionDesc</name>
+    <message numerus="yes">
+        <source>Open for %n more block(s)</source>
+        <translation><numerusform>Abierto para %n bloque más</numerusform><numerusform>Abierto para %n bloques más</numerusform></translation>
+    </message>
     <message>
         <source>Open until %1</source>
         <translation>Abierto hasta %1</translation>
@@ -3086,6 +3720,10 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <source>, has not been successfully broadcast yet</source>
         <translation>, no ha sido correctamente transmitida todavía</translation>
     </message>
+    <message numerus="yes">
+        <source>, broadcast through %n node(s)</source>
+        <translation><numerusform>, retransmitido a través de %n nodo</numerusform><numerusform>, retransmitido a través de %n nodos</numerusform></translation>
+    </message>
     <message>
         <source>Date</source>
         <translation>Fecha</translation>
@@ -3125,6 +3763,10 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
     <message>
         <source>Credit</source>
         <translation>Crédito</translation>
+    </message>
+    <message numerus="yes">
+        <source>matures in %n more block(s)</source>
+        <translation><numerusform>madurará dentro de %n bloque</numerusform><numerusform>madurará dentro de %n bloques</numerusform></translation>
     </message>
     <message>
         <source>not accepted</source>
@@ -3224,6 +3866,10 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <source>Address</source>
         <translation>Dirección</translation>
     </message>
+    <message numerus="yes">
+        <source>Open for %n more block(s)</source>
+        <translation><numerusform>Abierto para %n bloque más</numerusform><numerusform>Abierto por %n bloques más</numerusform></translation>
+    </message>
     <message>
         <source>Open until %1</source>
         <translation>Abierto hasta %1</translation>
@@ -3269,6 +3915,26 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Recibido desde</translation>
     </message>
     <message>
+        <source>Received via Obfuscation</source>
+        <translation>Recibido por medio de Ofuscación</translation>
+    </message>
+    <message>
+        <source>Obfuscation Denominate</source>
+        <translation>Ofuscación Denominada</translation>
+    </message>
+    <message>
+        <source>Obfuscation Collateral Payment</source>
+        <translation>Pago Colateral de Ofuscación</translation>
+    </message>
+    <message>
+        <source>Obfuscation Make Collateral Inputs</source>
+        <translation>La Ofuscación Crea Entradas Colaterales</translation>
+    </message>
+    <message>
+        <source>Obfuscation Create Denominations</source>
+        <translation>Ofuscación Crea Billetes</translation>
+    </message>
+    <message>
         <source>Sent to</source>
         <translation>Enviado a</translation>
     </message>
@@ -3289,8 +3955,36 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Minado</translation>
     </message>
     <message>
+        <source>Obfuscated</source>
+        <translation>Ofuscado</translation>
+    </message>
+    <message>
+        <source>Converted 401k to z401k</source>
+        <translation>401k convertidos a z401k</translation>
+    </message>
+    <message>
+        <source>Spent z401k</source>
+        <translation>z401k Gastados</translation>
+    </message>
+    <message>
+        <source>Received 401k from z401k</source>
+        <translation>401k recibidos desde z401k</translation>
+    </message>
+    <message>
+        <source>Minted Change as z401k from z401k Spend</source>
+        <translation>Cambio Creado en z401k por un Gasto z401k</translation>
+    </message>
+    <message>
+        <source>Converted z401k to 401k</source>
+        <translation>z401k convertidos en 401k</translation>
+    </message>
+    <message>
         <source>watch-only</source>
         <translation>sólo-lectura</translation>
+    </message>
+    <message>
+        <source>z401k Accumulator</source>
+        <translation>Acumulador z401k</translation>
     </message>
     <message>
         <source>(n/a)</source>
@@ -3364,6 +4058,26 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Enviado a</translation>
     </message>
     <message>
+        <source>Obfuscated</source>
+        <translation>Ofuscado</translation>
+    </message>
+    <message>
+        <source>Obfuscation Make Collateral Inputs</source>
+        <translation>La Ofuscación Crea Entradas Colaterales</translation>
+    </message>
+    <message>
+        <source>Obfuscation Create Denominations</source>
+        <translation>Ofuscación Crea Billetes</translation>
+    </message>
+    <message>
+        <source>Obfuscation Denominate</source>
+        <translation>Ofuscación Denominada</translation>
+    </message>
+    <message>
+        <source>Obfuscation Collateral Payment</source>
+        <translation>Pago Colateral de Ofuscación</translation>
+    </message>
+    <message>
         <source>To yourself</source>
         <translation>A usted mismo</translation>
     </message>
@@ -3378,6 +4092,26 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
     <message>
         <source>Masternode Reward</source>
         <translation>Recompensa de Nodo Maestro</translation>
+    </message>
+    <message>
+        <source>Received 401k from z401k</source>
+        <translation>401k recibidos desde z401k</translation>
+    </message>
+    <message>
+        <source>Zerocoin Mint</source>
+        <translation>Creación de moneda Zerocoin</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend</source>
+        <translation>Gasto de Zerocoin</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend, Change in z401k</source>
+        <translation>Gasto de Zerocoin, Cambio en z401k</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend to Self</source>
+        <translation>Pago Zerocoin a tí mismo</translation>
     </message>
     <message>
         <source>Other</source>
@@ -3541,6 +4275,33 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
     </message>
 </context>
 <context>
+    <name>Z401kControlDialog</name>
+    <message>
+        <source>Select z401k to Spend</source>
+        <translation>Seleccione z401k a Gastar</translation>
+    </message>
+    <message>
+        <source>Quantity</source>
+        <translation>Cantidad</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>z401k</source>
+        <translation>z401k</translation>
+    </message>
+    <message>
+        <source>Select/Deselect All</source>
+        <translation>Seleccionar/Deseleccionar Todos</translation>
+    </message>
+    <message>
+        <source>Is Spendable</source>
+        <translation>Es Gastable</translation>
+    </message>
+</context>
+<context>
     <name>401kcoin-core</name>
     <message>
         <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
@@ -3567,8 +4328,12 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Escuchar únicamente a la tarjeta de red indicada para conexiones JSON-RPC. Use la notación [host]:puerto para IPv6. Esta opción puede ser especificada varias veces (por defecto: escuchar en todas las tarjetas de red)</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. 401K Coin Core is probably already running.</source>
-        <translation>No se puede obtener un bloqueo sobre el directorio de datos %s. 401K Coin Core esta probablemente en ejecución.</translation>
+        <source>Calculated accumulator checkpoint is not what is recorded by block index</source>
+        <translation>El punto de chequeo del acumulador que hemos calculado no coincide con lo guardado en el índice de bloques</translation>
+    </message>
+    <message>
+        <source>Cannot obtain a lock on data directory %s. 401KCoin Core is probably already running.</source>
+        <translation>No se puede obtener un bloqueo sobre el directorio de datos %s. 401KCoin Core esta probablemente en ejecución.</translation>
     </message>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
@@ -3587,8 +4352,8 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Borrar todas las transacciones del monedero y solo recuperar partes de la cadena de bloque a traves de -rescan al inicio.</translation>
     </message>
     <message>
-        <source>Disable all 401K Coin specific functionality (Masternodes, SwiftTX, Budgeting) (0-1, default: %u)</source>
-        <translation>Desabilitar toda la funcionalidad especifica 401K Coin (Masternodes, SwiftTX, Budgeting) (0-1, predeterminado: %u)</translation>
+        <source>Disable all 401KCoin specific functionality (Masternodes, Obfuscation, SwiftTX, Budgeting) (0-1, default: %u)</source>
+        <translation>Desabilitar toda la funcionalidad especifica 401KCoin (Masternodes, Obfuscation, SwiftTX, Budgeting) (0-1, predeterminado: %u)</translation>
     </message>
     <message>
         <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
@@ -3596,7 +4361,7 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
-        <translation>Activar la función de administración de sporks con la llave privada 401kopiada.</translation>
+        <translation>Activar la función de administración de sporks con la llave privada apropiada.</translation>
     </message>
     <message>
         <source>Enable swifttx, show confirmations for locked transactions (bool, default: %s)</source>
@@ -3639,8 +4404,8 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Trasladar la actividad de la base de datos en el pool de memoria al log de disco cada &lt;n&gt; megabytes (default: %u)</translation>
     </message>
     <message>
-        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
-        <translation>Cuán exhaustiva es la verificación de bloque de -checkblocks (0-4, predeterminado: %u)</translation>
+        <source>Found unconfirmed denominated outputs, will wait till they confirm to continue.</source>
+        <translation>Se encontró salidas denominadas sin confirmar, se esperará hasta que se confirmen para continuar.</translation>
     </message>
     <message>
         <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
@@ -3679,12 +4444,20 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Número de segundos a mantener pares con mal comportamiento de reconectarse (predeterminado: %u)</translation>
     </message>
     <message>
+        <source>Obfuscation uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.</source>
+        <translation>La ofuscación utiliza importes en denominaciones exactas para enviar fondos, puedes simplemente necesitar anonimizar algunas monedas mas. </translation>
+    </message>
+    <message>
         <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
         <translation>Saluda de información de depuración (predeterminado: %u, proveyendo &lt;category&gt; es opcional)</translation>
     </message>
     <message>
         <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
         <translation>Consultar por direcciones de pares vía búsqueda en DNS, si cantidad de direcciones esta bajo (predeterminado: 1 a menos que se utilice -connect)</translation>
+    </message>
+    <message>
+        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
+        <translation>Credenciales aleatorias para cada conexión proxy. Esto habilita el aislamiento del flujos de datos Tor (por defecto: %u)</translation>
     </message>
     <message>
         <source>Require high priority for relaying free or low-fee transactions (default:%u)</source>
@@ -3732,23 +4505,31 @@ rpcpassword=%s
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
+for example: alertnotify=echo %%s | mail -s "401KCoin Alert" admin@foo.com
 </source>
         <translation>Para usar 401kcoind, o la opción -server de 401kcoin-qt, debes definir un rpcpassword en el archivo de configuración:
 %s
 Es recomendado que uses la siguiente contraseña aleatoria:
-rpcuser=401kcoinrpc
+rpcuser=401kcoin
 rpcrpcpassword=%s
 (No necesitas recordar esta contraseña)
 El nombre de usuario y contraseña NO DEBEN ser los mismos.
 Si el archivo no existe, crearlo con permisos de solo lectura para el propietario.
 También es recomendado definir alertnotify de manera que seas notificado de problemas;
-por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
+por ejemplo: alertnotify=echo %%s | mail -s "401KCoin Alert" admin@foo.com
 </translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. 401K Coin Core is probably already running.</source>
-        <translation>Imposible conectar a %s en esta computadora. Es probable que 401K Coin Core ya este corriendo.</translation>
+        <source>Unable to bind to %s on this computer. 401KCoin Core is probably already running.</source>
+        <translation>Imposible conectar a %s en esta computadora. Es probable que 401KCoin Core ya este corriendo.</translation>
+    </message>
+    <message>
+        <source>Unable to locate enough Obfuscation denominated funds for this transaction.</source>
+        <translation>Imposible localizar suficientes fondos denominados de Ofuscación para esta transacción.</translation>
+    </message>
+    <message>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 401K.</source>
+        <translation>Imposible localizar suficientes fondos no-denominados de Ofuscación para esta transacción que no es igual a 10000 401K.</translation>
     </message>
     <message>
         <source>Unable to locate enough funds for this transaction that are not equal 10000 401K.</source>
@@ -3767,8 +4548,8 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
         <translation>Advertencia: -paytxfee esta muy alta! Esta es la comisión de transacción que pagarás si envías una transacción.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong 401K Coin Core will not work properly.</source>
-        <translation>Advertencia: Por favor verifique que la fecha y hora de su computadora sean correctas! Si su reloj esta fuera de hora 401K Coin Core no funcionará adecuadamente.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong 401KCoin Core will not work properly.</source>
+        <translation>Advertencia: Por favor verifique que la fecha y hora de su computadora sean correctas! Si su reloj esta fuera de hora 401KCoin Core no funcionará adecuadamente.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -3851,12 +4632,28 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
         <translation>Intentar recuperar claves privadas desde un wallet.dat dañado</translation>
     </message>
     <message>
+        <source>Automatically create Tor hidden service (default: %d)</source>
+        <translation>Crear automáticamente servicio Tor oculto (por defecto: %d)</translation>
+    </message>
+    <message>
         <source>Block creation options:</source>
         <translation>Opciones de creación de bloque:</translation>
     </message>
     <message>
+        <source>Calculating missing accumulators...</source>
+        <translation>Calculando acumuladores pendientes...</translation>
+    </message>
+    <message>
+        <source>Can't denominate: no compatible inputs left.</source>
+        <translation>No se puede denominar: quedaron entradas no compatibles.</translation>
+    </message>
+    <message>
         <source>Can't find random Masternode.</source>
         <translation>No se puede encontrar un Masternode al azar.</translation>
+    </message>
+    <message>
+        <source>Can't mix while sync in progress.</source>
+        <translation>No se puede mezclar mientras la sincronización esta en progreso.</translation>
     </message>
     <message>
         <source>Cannot downgrade wallet</source>
@@ -3907,12 +4704,8 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
         <translation>Copyright (C) 2014-%i The Dash Core Developers</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The PIVX Core Developers</source>
-        <translation>Copyright (C) 2015-%i The PIVX Core Developers</translation>
-    </message>
-    <message>
-        <source>Copyright (C) 2017-%i The 401K Coin Core Developers</source>
-        <translation>Copyright (C) 2017-%i The 401K Coin Core Developers</translation>
+        <source>Copyright (C) 2015-%i The 401KCoin Core Developers</source>
+        <translation>Copyright (C) 2015-%i The 401KCoin Core Developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -3929,6 +4722,10 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
     <message>
         <source>Debugging/Testing options:</source>
         <translation>Opciones de Depuración/Pruebas:</translation>
+    </message>
+    <message>
+        <source>Disable OS notifications for incoming transactions (default: %u)</source>
+        <translation>Desactivar notificaciones del sistema para transacciones extrantes (por defecto: %u)</translation>
     </message>
     <message>
         <source>Disable safemode, override a real safe mode event (default: %u)</source>
@@ -3949,6 +4746,10 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
     <message>
         <source>Done loading</source>
         <translation>Realizando carga</translation>
+    </message>
+    <message>
+        <source>Enable automatic Zerocoin minting (0-1, default: %u)</source>
+        <translation>Habilitar creación automática de Zerocoin (0-1, por defecto: %u)</translation>
     </message>
     <message>
         <source>Enable the client to act as a masternode (0-1, default: %u)</source>
@@ -3983,8 +4784,8 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
         <translation>Error al cargar wallet.dat: Billetera dañada</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of 401K Coin Core</source>
-        <translation>Error al cargar wallet.dat: La Billetera requiere una nueva versión del Núcleo 401K Coin</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of 401KCoin Core</source>
+        <translation>Error al cargar wallet.dat: La Billetera requiere una nueva versión del Núcleo 401KCoin</translation>
     </message>
     <message>
         <source>Error opening block database</source>
@@ -4007,6 +4808,10 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
         <translation>Error: Un error interno fatal a ocurrido, ver debug.log para mas detalles</translation>
     </message>
     <message>
+        <source>Error: Can't select current denominated inputs</source>
+        <translation>Error: No se pudo seleccionar las entradas denominadas actuales</translation>
+    </message>
+    <message>
         <source>Error: Disk space is low!</source>
         <translation>Error: El espacio en disco esta bajo!</translation>
     </message>
@@ -4017,6 +4822,10 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
     <message>
         <source>Error: Wallet locked, unable to create transaction!</source>
         <translation>Error: Billetera bloqueada, imposible crear transacción!</translation>
+    </message>
+    <message>
+        <source>Error: You already have pending entries in the Obfuscation pool</source>
+        <translation>Error: Ya tienes entradas pendientes en el pool de Ofuscación</translation>
     </message>
     <message>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
@@ -4087,24 +4896,28 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
         <translation>Información</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. 401K Coin Core is shutting down.</source>
-        <translation>La prueba de salud de inicialización ha fallado. 401K Coin Core se cerrará.</translation>
+        <source>Initialization sanity check failed. 401KCoin Core is shutting down.</source>
+        <translation>La prueba de salud de inicialización ha fallado. 401KCoin Core se cerrará.</translation>
     </message>
     <message>
         <source>Input is not valid.</source>
         <translation>La entrada no es válida.</translation>
     </message>
     <message>
+        <source>Insufficient funds</source>
+        <translation>Fondos insuficientes</translation>
+    </message>
+    <message>
         <source>Insufficient funds.</source>
         <translation>Fondos insuficientes.</translation>
     </message>
     <message>
-        <source>Invalid -onion address: '%s'</source>
-        <translation>Dirección -onion inválida: '%s'</translation>
+        <source>Invalid -onion address or hostname: '%s'</source>
+        <translation>Dirección o nombre de equipo -onion inválido: '%s'</translation>
     </message>
     <message>
-        <source>Invalid -proxy address: '%s'</source>
-        <translation>Dirección -proxy inválida: '%s'</translation>
+        <source>Invalid -proxy address or hostname: '%s'</source>
+        <translation>Dirección o nombre de equipo -proxy inválido: '%s'</translation>
     </message>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>
@@ -4131,6 +4944,10 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
         <translation>Importe inválido para -reservebalance=&lt;amount&gt;</translation>
     </message>
     <message>
+        <source>Invalid amount</source>
+        <translation>Cantidad incorrecta</translation>
+    </message>
+    <message>
         <source>Invalid masternodeprivkey. Please see documenation.</source>
         <translation>Valor de masternodeprivkey es inválido. Por favor ver la documentación.</translation>
     </message>
@@ -4153,6 +4970,38 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
     <message>
         <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!</source>
         <translation>Esto es una versión pre-release de prueba - use bajo su propia responsabilidad - ¡No lo utilice para recompensa de participación ni aplicaciones de comercio!</translation>
+    </message>
+    <message>
+        <source> mints deleted
+</source>
+        <translation>creaciones de moneda borradas
+</translation>
+    </message>
+    <message>
+        <source> mints updated, </source>
+        <translation>creaciones de moneda actualizadas,</translation>
+    </message>
+    <message>
+        <source> unconfirmed transactions removed
+</source>
+        <translation>transacciones sin confirmar eliminadas
+</translation>
+    </message>
+    <message>
+        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation>¡La transacción fue rechazada! Esto puede ocurrir si alguna de sus monedas ya se gastó con anterioridad, por ejemplo, si estuvo usted usando una copia de su monedero wallet.dat y gastó allí monedas pero no las marcó como gastadas aquí.</translation>
+    </message>
+    <message>
+        <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
+        <translation>Error: ¡Esta transacción requiere una tasa de al menos %s debido a la cantidad enviada, su complejidad, o el uso de fondos recibidos recientemente!</translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</source>
+        <translation>Error: Se ha especificado un argumento no soportado -checklevel. El Checklevel debe ser siempre 4. </translation>
+    </message>
+    <message>
+        <source>Preferred Denomination for automatically minted Zerocoin  (1/5/10/50/100/500/1000/5000), 0 for no preference. default: %u)</source>
+        <translation>Tamaño de Billete Zerocoin Preferido para los Zerocoin creados automáticamente (1/5/10/50/100/500/1000/5000), poner 0 si no tiene preferencias. Por defecto: %u) </translation>
     </message>
     <message>
         <source>&lt;category&gt; can be:</source>
@@ -4203,6 +5052,18 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
         <translation>Mantener como máximo &lt;n&gt; transacciones no conectables en memoria (predeterminado: %u)</translation>
     </message>
     <message>
+        <source>Last Obfuscation was too recent.</source>
+        <translation>La última Ofuscación fue demasiado reciente.</translation>
+    </message>
+    <message>
+        <source>Last successful Obfuscation action was too recent.</source>
+        <translation>La última acción de Ofuscación exitosa fue demasiado reciente.</translation>
+    </message>
+    <message>
+        <source>Less than 3 mints added, unable to create spend</source>
+        <translation>Menos de 3 creaciones de moneda añadidas, no podemos generar pago</translation>
+    </message>
+    <message>
         <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
         <translation>Tamaño límite del cache de firmas a &lt;n&gt; entradas (predeterminado: %u)</translation>
     </message>
@@ -4237,6 +5098,10 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
     <message>
         <source>Loading masternode payment cache...</source>
         <translation>Cargando cache de pagos de nodos maestros</translation>
+    </message>
+    <message>
+        <source>Loading sporks...</source>
+        <translation>Cargando sporks...</translation>
     </message>
     <message>
         <source>Loading wallet... (%3.2f %%)</source>
@@ -4283,6 +5148,10 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
         <translation>Información de transacciones de entrada perdidas.</translation>
     </message>
     <message>
+        <source>Mixing in progress...</source>
+        <translation>Mezcla en progreso...</translation>
+    </message>
+    <message>
         <source>Need to specify a port with -whitebind: '%s'</source>
         <translation>Necesita especificar un puerto con -whitebind: '%s'</translation>
     </message>
@@ -4293,6 +5162,14 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
     <message>
         <source>No compatible Masternode found.</source>
         <translation>No hay un Masternode compatible encontrado.</translation>
+    </message>
+    <message>
+        <source>No funds detected in need of denominating.</source>
+        <translation>No hay fondos detectados necesarios de denominación.</translation>
+    </message>
+    <message>
+        <source>No matching denominations found for mixing.</source>
+        <translation>No hemos encontrado billetes coincidentes para mezclado.</translation>
     </message>
     <message>
         <source>Node relay options:</source>
@@ -4319,6 +5196,18 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
         <translation>Número de Copias de seguridad automáticas de monedero (predeterminado: 10)</translation>
     </message>
     <message>
+        <source>Obfuscation is idle.</source>
+        <translation>La Ofuscación está sin uso.</translation>
+    </message>
+    <message>
+        <source>Obfuscation request complete:</source>
+        <translation>Pedido de Ofuscacion completado:</translation>
+    </message>
+    <message>
+        <source>Obfuscation request incomplete:</source>
+        <translation>Pedido de Ofuscación incompleto:</translation>
+    </message>
+    <message>
         <source>Only accept block chain matching built-in checkpoints (default: %u)</source>
         <translation>Solo aceptar cadena de bloque emparejada con puntos de verificación construidos (predeterminado: %u)</translation>
     </message>
@@ -4333,6 +5222,10 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
     <message>
         <source>Password for JSON-RPC connections</source>
         <translation>Contraseña para conexiones JSON-RPC</translation>
+    </message>
+    <message>
+        <source>Percentage of automatically minted Zerocoin  (10-100, default: %u)</source>
+        <translation>Porcentaje de Zerocoin creadas automáticamente (10-100, por defecto: %u)</translation>
     </message>
     <message>
         <source>Prepend debug output with timestamp (default: %u)</source>
@@ -4385,6 +5278,14 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
     <message>
         <source>Rescanning...</source>
         <translation>Reescaneado...</translation>
+    </message>
+    <message>
+        <source>ResetMintZerocoin finished: </source>
+        <translation>ResetMintZerocoin finalizado:</translation>
+    </message>
+    <message>
+        <source>ResetSpentZerocoin finished: </source>
+        <translation>ResetSpentZerocoin finalizado:</translation>
     </message>
     <message>
         <source>Run a thread to flush wallet periodically (default: %u)</source>
@@ -4571,6 +5472,14 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
         <translation>Limite para desconexión de peers de mal desempeño (predeterminado: %u)</translation>
     </message>
     <message>
+        <source>Tor control port password (default: empty)</source>
+        <translation>Contraseña del puerto de control Tor (por defecto: vacío)</translation>
+    </message>
+    <message>
+        <source>Tor control port to use if onion listening enabled (default: %s)</source>
+        <translation>Puerto de control Tor a utilizar si está activada la escucha Onion (por defecto: %s)</translation>
+    </message>
+    <message>
         <source>Transaction amount too small</source>
         <translation>El monto de la transacción es demasiado pequeño</translation>
     </message>
@@ -4643,6 +5552,10 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
         <translation>Nombre de usuario para conexiones JSON-RPC</translation>
     </message>
     <message>
+        <source>Value more than Obfuscation pool maximum allows.</source>
+        <translation>Valor mayor al máximo pool de Ofuscación permitido.</translation>
+    </message>
+    <message>
         <source>Verifying blocks...</source>
         <translation>Verificando bloques...</translation>
     </message>
@@ -4659,8 +5572,8 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
         <translation>Monedero bloqueado.</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart 401K Coin Core to complete</source>
-        <translation>Monedero necesita ser reescrito: reinicie 401K Coin Core para completar</translation>
+        <source>Wallet needed to be rewritten: restart 401KCoin Core to complete</source>
+        <translation>Monedero necesita ser reescrito: reinicie 401KCoin Core para completar</translation>
     </message>
     <message>
         <source>Wallet options:</source>
@@ -4709,6 +5622,14 @@ por ejemplo: alertnotify=echo %%s | mail -s "401K Coin Alert" admin@foo.com
     <message>
         <source>ZeroMQ notification options:</source>
         <translation>Opciones de notificación ZeroMQ:</translation>
+    </message>
+    <message>
+        <source>Zerocoin options:</source>
+        <translation>Opciones Zerocoin:</translation>
+    </message>
+    <message>
+        <source>failed to validate zerocoin</source>
+        <translation>fallo al validar zerocoin</translation>
     </message>
     <message>
         <source>on startup</source>

@@ -10,9 +10,9 @@ cache:
 env:
   global:
     - MAKEJOBS=-j3
-    - RUN_TESTS=false
-    - CHECK_DOC=0
-    - CHECK_LOGPRINT=0
+    - RUN_TESTS=true
+    - CHECK_DOC=1
+    - CHECK_LOGPRINT=1
     - BOOST_TEST_RANDOM=1$TRAVIS_BUILD_ID
     - CCACHE_SIZE=100M
     - CCACHE_TEMPDIR=/tmp/.ccache-temp
@@ -59,16 +59,15 @@ script:
     - depends/$HOST/native/bin/ccache --max-size=$CCACHE_SIZE
     - test -n "$USE_SHELL" && eval '"$USE_SHELL" -c "./autogen.sh"' || ./autogen.sh
     - ./configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
-    - make distdir PACKAGE=bitcoin VERSION=$HOST
-    - cd bitcoin-$HOST
+    - make distdir PACKAGE=401kcoin VERSION=$HOST
+    - cd 401kcoin-$HOST
     - ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
     - make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && make $GOAL V=1 ; false )
     - export LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/depends/$HOST/lib
     - if [ "$RUN_TESTS" = "true" ]; then travis_wait 30 make $MAKEJOBS check VERBOSE=1; fi
-    #- if [ "$RUN_TESTS" = "true" ]; then qa/pull-tester/rpc-tests.py --coverage; fi
 after_script:
     - echo $TRAVIS_COMMIT_RANGE
     - echo $TRAVIS_COMMIT_LOG
 notifications:
   slack:
-    secure: bkJ07Wy4+pJJnXj7FQCrI7pMwX3YNoHmDiW+qQbAqpQgCj6Fp8E/6Yh2wXqodJCy4vE4it00Cx7J2mTvd5sxZfM9j0cv91zIVazI+5koPyAHPFls+y8T8w/lqsqSjgGYOyofbhwr9/cBxnV78Q4vBV2N0Et6W0Yr086bWcZZ42Y3Y6rWkQHAhT8XoIG7MB2n3LLG2LWfLvZXhB1891GBX858GufUKBKhq0bG+/D5OxZcH6aKZ9XwqgCctdx0OKEg0UoKdnZR7U68atQl457oG3UxdrglB6/1jD1E9gNOhVkXr+Jl1RyBqIe99xCF609GDH30z6cFU6kDuRBqYubWjZ/leQbEePnFlxk6jOXod1GV3LpI/LyB9EocD8OKOKAp0qrlSIpbTOvZUBgx+6PyPFxM+U2NjwlDpTDeaP/Iug3vTgS1wMyrdAENObXwuO6NCN8gclsE+839AeSKxw1kFPxzkvmCowGq5NeBxn9xbdEaHggWT/g+Q5q3/Tmvm6i/CHp7GdokKKGHwZfcw0v4E8/qGVwS6SUvQgFB9z6CbZsPqTaJbc1+heAcqEp3AR5ZEJiAzGPlxtZNuDYIikPZaYJkc3CctJz3VOgZxV1b6HV4ZvCYGzCvUljL2GJrRy3ML62P+v0TelHBYOQiCnckudDzRao/9OItfrcXu/mnaIo=
+    secure: w22XjHoG/3xplxWzddS9Ma7i99Q/hq4FA3Q56xS+RtO2vlFgDT+eDzCppstdx96mn2/4e+/V1aiQ4E6GVEvJMeldqSUhPv9OBnKR0KJVAOwu4haNXt+0ZeQFt8lIndKB5cMVyOJkoq6peGoHNXslClM0lGuBn7g7VC2QPQYNWrJNrrGL7IiVb6fNOIKHWcC4URkzSvXAhO/WIqSSlmKxAAx0B2oEsM8LhdAbcjbp7Sm7zH87TIVGBZ7iTVuMc6B9+SfClbE8bBuRtvjTX57Q4UUZzn0zDtKdPdCte0oXdaQF4RdVim9mDodBGIpDo+avW4WL7EE+AK33fs94pwH5bu0LEandR/aeEvVpbSpQ2XsEKSe+6woizgl5i4GXFVZduJF62y/o1f+S/zC3qW9lIEEpiZc4PpX7pDy30X3p6S5nMrW7T/zNh+SjLhS1VP6XKdQtpD3WRCY4GKZYammZhk5RbOy3jTXAahIXuttWdhl/Q3Rb5VqfFJWlrG/qQXt73qOk2/DgJnABxXE6gnWO4MpHAq+kdomNR+nod4HeXI3DOk1wRuQRVoW1rSjiqQd6Db+TP56RKYgt4M4csOD0DG9G+W0AOtZkuKHTeoEtmQfkKFPZLYAQumv41cDN2UE9gKIECmvJSevj4sMCDTWtozKWqay/W4n2+cmhbzmGflY=

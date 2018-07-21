@@ -10,6 +10,7 @@
 
 class CScheduler;
 class CWallet;
+class Cz401KWallet;
 
 namespace boost
 {
@@ -17,9 +18,12 @@ class thread_group;
 } // namespace boost
 
 extern CWallet* pwalletMain;
+extern Cz401KWallet* zwalletMain;
 
 void StartShutdown();
 bool ShutdownRequested();
+/** Interrupt threads */
+void Interrupt(boost::thread_group& threadGroup);
 void Shutdown();
 void PrepareShutdown();
 bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler);

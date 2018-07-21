@@ -13,7 +13,7 @@
  * for both 401kcoind and 401kcoin-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("401K Coin Core");
+const std::string CLIENT_NAME("401KCoin Core");
 
 /**
  * Client version number
