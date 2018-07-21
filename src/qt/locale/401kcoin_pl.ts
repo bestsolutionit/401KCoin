@@ -108,6 +108,10 @@
         <translation>Powtórz nowe hasło</translation>
     </message>
     <message>
+        <source>For anonymization and staking only</source>
+        <translation>Tylko dla anonimizacji i stakingu</translation>
+    </message>
+    <message>
         <source>Encrypt wallet</source>
         <translation>Zakoduj portfel</translation>
     </message>
@@ -223,8 +227,8 @@
         <translation>Zakodowany klucz:</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this 401K address</source>
-        <translation>Zatwierdź wiadomość, aby udowodnić, że podany adres 401K jest w twoim posiadaniu</translation>
+        <source>Sign the message to prove you own this 401KCoin address</source>
+        <translation>Zatwierdź wiadomość, aby udowodnić, że podany adres 401KCoin jest w twoim posiadaniu</translation>
     </message>
     <message>
         <source>Encrypt &amp;Key</source>
@@ -451,11 +455,11 @@
     </message>
     <message>
         <source>Wallet &amp;Repair</source>
-        <translation>Portfel &amp;N401kaw</translation>
+        <translation>Portfel &amp;Napraw</translation>
     </message>
     <message>
         <source>Show wallet repair options</source>
-        <translation>Pokaż opcje n401kawy portfela</translation>
+        <translation>Pokaż opcje naprawy portfela</translation>
     </message>
     <message>
         <source>Open configuration file</source>
@@ -514,12 +518,12 @@
         <translation>&amp;Pomoc</translation>
     </message>
     <message>
-        <source>401K Coin Core</source>
-        <translation>&amp;Rdzeń 401K Coin</translation>
+        <source>401KCoin Core</source>
+        <translation>&amp;Rdzeń 401KCoin</translation>
     </message>
     <message>
-        <source>Send coins to a 401K address</source>
-        <translation>Wyślij monety do adresu 401K</translation>
+        <source>Send coins to a 401KCoin address</source>
+        <translation>Wyślij monety do adresu 401KCoin</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and 401kcoin: URIs)</source>
@@ -534,24 +538,24 @@
         <translation>Przeglądaj masternodes</translation>
     </message>
     <message>
-        <source>&amp;About 401K Coin Core</source>
+        <source>&amp;About 401KCoin Core</source>
         <translation>&amp;O rdzeniu bitcoina</translation>
     </message>
     <message>
-        <source>Show information about 401K Coin Core</source>
+        <source>Show information about 401KCoin Core</source>
         <translation>Pokaż informacje o rdzeniu bitcoina</translation>
     </message>
     <message>
-        <source>Modify configuration options for 401K Coin</source>
-        <translation>Modyfikuj opcje konfiguracji 401K Coin</translation>
+        <source>Modify configuration options for 401KCoin</source>
+        <translation>Modyfikuj opcje konfiguracji 401KCoin</translation>
     </message>
     <message>
-        <source>Sign messages with your 401K addresses to prove you own them</source>
-        <translation>Zatwierdź wiadomość z twoimi adresami 401K, by udowodnić, że jesteś w ich posiadaniu</translation>
+        <source>Sign messages with your 401KCoin addresses to prove you own them</source>
+        <translation>Zatwierdź wiadomość z twoimi adresami 401KCoin, by udowodnić, że jesteś w ich posiadaniu</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified 401K addresses</source>
-        <translation>Zweryfikuj wiadomości by upewnić się, że zostały zatwierdzone z podanego adresu 401K</translation>
+        <source>Verify messages to ensure they were signed with specified 401KCoin addresses</source>
+        <translation>Zweryfikuj wiadomości by upewnić się, że zostały zatwierdzone z podanego adresu 401KCoin</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -578,8 +582,8 @@
         <translation>Otwórz &amp;Plik konfiguracji Masternode</translation>
     </message>
     <message>
-        <source>Open a 401kcoin: URI or payment request</source>
-        <translation>Otwórz 401kcoin: URI i żądanie zapłaty</translation>
+        <source>Open a 401KCoin: URI or payment request</source>
+        <translation>Otwórz401KX: URI i żądanie zapłaty</translation>
     </message>
     <message>
         <source>&amp;Blockchain explorer</source>
@@ -590,12 +594,12 @@
         <translation>Okno eksplorera bloków</translation>
     </message>
     <message>
-        <source>Show the 401K Coin Core help message to get a list with possible 401K Coin command-line options</source>
-        <translation>Pokaż wiadomość pomocy rdzenia 401K Coin, aby dostać listę możliwych opcji 401K Coin command-line</translation>
+        <source>Show the 401KCoin Core help message to get a list with possible 401KCoin command-line options</source>
+        <translation>Pokaż wiadomość pomocy rdzenia 401KCoin, aby dostać listę możliwych opcji 401KCoin command-line</translation>
     </message>
     <message>
-        <source>401K Coin Core client</source>
-        <translation>Rdzeń 401K Coin klient</translation>
+        <source>401KCoin Core client</source>
+        <translation>Rdzeń 401KCoin klient</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -684,6 +688,10 @@ MultiWysyłlka: %1</translation>
     <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
         <translation>Portfel jest 1Zakodowany1 i obecnie 2Odblokowany2</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonimization and staking only</source>
+        <translation>Portfel jest 1Zakodowany1 i obecnie 2Odblokowany2 tylko dla anonimizacji i stakingu</translation>
     </message>
     <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
@@ -904,8 +912,8 @@ MultiWysyłlka: %1</translation>
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>401K Coin Core</source>
-        <translation>&amp;Rdzeń 401K Coin</translation>
+        <source>401KCoin Core</source>
+        <translation>&amp;Rdzeń 401KCoin</translation>
     </message>
     </context>
 <context>
@@ -919,8 +927,8 @@ MultiWysyłlka: %1</translation>
         <translation>Użyj niestandardowej ścieżki danych</translation>
     </message>
     <message>
-        <source>401K Coin Core</source>
-        <translation>&amp;Rdzeń 401K Coin</translation>
+        <source>401KCoin Core</source>
+        <translation>&amp;Rdzeń 401KCoin</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1120,6 +1128,25 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
     </message>
 </context>
 <context>
+    <name>ObfuscationConfig</name>
+    <message>
+        <source>Basic Privacy</source>
+        <translation>Podstawowa prywatność</translation>
+    </message>
+    <message>
+        <source>High Privacy</source>
+        <translation>Wysoka prywatność</translation>
+    </message>
+    <message>
+        <source>Maximum Privacy</source>
+        <translation>Maksymalna prywatność</translation>
+    </message>
+    <message>
+        <source>Please select a privacy level.</source>
+        <translation>Proszę wybrać poziom prywatności</translation>
+    </message>
+    </context>
+<context>
     <name>OpenURIDialog</name>
     <message>
         <source>Open URI</source>
@@ -1161,12 +1188,12 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
         <translation>Zezwól na przychodzące połączenia</translation>
     </message>
     <message>
-        <source>Automatically start 401K Coin after logging in to the system.</source>
-        <translation>Automatycznie uruchom 401K Coin po zalogowaniu do systemu</translation>
+        <source>Automatically start 401KCoin after logging in to the system.</source>
+        <translation>Automatycznie uruchom 401KCoin po zalogowaniu do systemu</translation>
     </message>
     <message>
-        <source>&amp;Start 401K Coin on system login</source>
-        <translation>&amp;Uruchom 401K Coin podczas logowania do systemu</translation>
+        <source>&amp;Start 401KCoin on system login</source>
+        <translation>&amp;Uruchom 401KCoin podczas logowania do systemu</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1185,12 +1212,18 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
         <translation>&amp;Sieć</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting 401K Coin.</source>
-        <translation>Język interfejsu użytkownika może być wybrany tutaj. Ustawienia ulegną zmianie po restarcie 401K Coin</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting 401KCoin.</source>
+        <translation>Język interfejsu użytkownika może być wybrany tutaj. Ustawienia ulegną zmianie po restarcie 401KCoin</translation>
     </message>
     <message>
-        <source>Connect to the 401K Coin network through a SOCKS5 proxy.</source>
-        <translation>Połącz z siecią 401K Coin poprzez SOCKS5 proxy.</translation>
+        <source>Language missing or translation incomplete? Help contributing translations here:
+https://www.transifex.com/401kcoin-project/401kcoin-project-translations</source>
+        <translation>Brakuje języka bądź nieukończona pełnego tłumaczenia? Pomóż w tłumaczeniu tutaj:
+https://www.transifex.com/401kcoin-project/401kcoin-project-translations </translation>
+    </message>
+    <message>
+        <source>Connect to the 401KCoin network through a SOCKS5 proxy.</source>
+        <translation>Połącz z siecią 401KCoin poprzez SOCKS5 proxy.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1219,6 +1252,10 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
     <message>
         <source>User Interface &amp;language:</source>
         <translation>Interfejs użytkownika &amp;Język.</translation>
+    </message>
+    <message>
+        <source>User Interface Theme:</source>
+        <translation>Motyw interfejsu użytkownika:</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1355,14 +1392,77 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
     </message>
 </context>
 <context>
+    <name>PrivacyDialog</name>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Resetuj</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Liczba:</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Wybierz poprzednio używany adres</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Wklej adres ze schowka</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Priorytet:</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Opłata:</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>nie</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>średni</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Zmiana:</translation>
+    </message>
+    <message>
+        <source>out of sync</source>
+        <translation>Brak synchronizacji</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Kopiuj ilość</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopiuj liczbę</translation>
+    </message>
+    </context>
+<context>
     <name>QObject</name>
     <message>
         <source>Amount</source>
         <translation>Liczba</translation>
     </message>
     <message>
-        <source>Enter a 401K address (e.g. %1)</source>
-        <translation>Wprowadź adres 401K (np. %1)</translation>
+        <source>Enter a 401KCoin address (e.g. %1)</source>
+        <translation>Wprowadź adres 401KCoin (np. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1580,7 +1680,7 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
     </message>
     <message>
         <source>&amp;Wallet Repair</source>
-        <translation>&amp;N401kaw portfel</translation>
+        <translation>&amp;Napraw portfel</translation>
     </message>
     <message>
         <source>Salvage wallet</source>
@@ -1604,7 +1704,7 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
     </message>
     <message>
         <source>Wallet repair options.</source>
-        <translation>Opcje n401kawy portfela</translation>
+        <translation>Opcje naprawy portfela</translation>
     </message>
     <message>
         <source>%1 B</source>
@@ -1800,8 +1900,8 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
         <translation>Alt+P</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this 401K address</source>
-        <translation>Zatwierdź wiadomość, aby udowodnić, że podany adres 401K jest w twoim posiadaniu</translation>
+        <source>Sign the message to prove you own this 401KCoin address</source>
+        <translation>Zatwierdź wiadomość, aby udowodnić, że podany adres 401KCoin jest w twoim posiadaniu</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
@@ -1835,8 +1935,8 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>401K Coin Core</source>
-        <translation>&amp;Rdzeń 401K Coin</translation>
+        <source>401KCoin Core</source>
+        <translation>&amp;Rdzeń 401KCoin</translation>
     </message>
     </context>
 <context>
@@ -1924,6 +2024,13 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
     <message>
         <source>&amp;Export</source>
         <translation>Eksportuj</translation>
+    </message>
+    </context>
+<context>
+    <name>Z401kControlDialog</name>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
     </message>
     </context>
 <context>

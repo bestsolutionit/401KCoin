@@ -32,7 +32,7 @@ CScript ParseScript(std::string s)
     static map<string, opcodetype> mapOpNames;
 
     if (mapOpNames.empty()) {
-        for (int op = 0; op <= OP_NOP10; op++) {
+        for (int op = 0; op <= OP_ZEROCOINSPEND; op++) {
             // Allow OP_RESERVED to get into mapOpNames
             if (op < OP_NOP && op != OP_RESERVED)
                 continue;
@@ -79,12 +79,26 @@ CScript ParseScript(std::string s)
     return result;
 }
 
-bool DecodeHexTx(CTransaction& tx, const std::string& strHexTx)
+bool DecodeHexTx(CTransaction& tx, const std::string& strHexTx, bool fTryNoWitness)
 {
     if (!IsHex(strHexTx))
         return false;
 
     vector<unsigned char> txData(ParseHex(strHexTx));
+
+    if (fTryNoWitness) {
+        CDataStream ssData(txData, SER_NETWORK, PROTOCOL_VERSION | SERIALIZE_TRANSACTION_NO_WITNESS);
+        try {
+            ssData >> tx;
+            if (ssData.eof()) {
+                return true;
+            }
+        }
+        catch (const std::exception&) {
+            // Fall through.
+        }
+    }
+
     CDataStream ssData(txData, SER_NETWORK, PROTOCOL_VERSION);
     try {
         ssData >> tx;

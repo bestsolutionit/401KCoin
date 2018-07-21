@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=401KCoin
+Comment=401KCoin P2P Cryptocurrency
+Comment[fr]=401KCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=401KCoin, eşten eşe kriptografik sanal para birimi
+Exec=401kcoin-qt %u
+Terminal=false
+Type=Application
+Icon=401kcoin128
+MimeType=x-scheme-handler/401kcoin;
+Categories=Office;Finance;

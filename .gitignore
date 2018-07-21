@@ -1,5 +1,6 @@
 *.sublime-project
 *.sublime-workspace
+.vscode
 todo.txt
 reset-files.bash
 
@@ -15,6 +16,7 @@ src/qt/test/test_401kcoin-qt
 
 # autoreconf
 Makefile.in
+aclocal.m4
 autom4te.cache/
 build-aux/config.guess
 build-aux/config.sub
@@ -49,6 +51,8 @@ src/qt/forms/ui_*.h
 
 src/qt/test/moc*.cpp
 
+src/leveldb/build_config.mk
+
 .deps
 .dirstamp
 .libs
@@ -69,7 +73,8 @@ src/qt/test/moc*.cpp
 *.trs
 *.dmg
 
-# *.json.h
+*.json.h
+!accumulatorcheckpoints.json.h
 *.raw.h
 
 #libtool object files
@@ -78,6 +83,7 @@ src/qt/test/moc*.cpp
 
 # Compilation and Qt preprocessor part
 *.qm
+Makefile
 401kcoin-qt
 401KCoin-Qt.app
 
@@ -112,14 +118,12 @@ qa/pull-tester/tests-config.sh
 qa/pull-tester/cache/*
 qa/pull-tester/test.*/*
 
-!src/leveldb*/Makefile
-
 .cproject
 .project
 /doc/doxygen/
 /nbproject/
 
 .idea
-CMakeLists.txt
 cmake-build-debug
-*.am.user
+
+cache

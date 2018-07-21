@@ -59,14 +59,17 @@ SendCoinsDialog::SendCoinsDialog(QWidget* parent) : QDialog(parent),
     connect(ui->splitBlockCheckBox, SIGNAL(stateChanged(int)), this, SLOT(splitBlockChecked(int)));
     connect(ui->splitBlockLineEdit, SIGNAL(textChanged(const QString&)), this, SLOT(splitBlockLineEditChanged(const QString&)));
 
-    // 401K Coin specific
+    // 401KCoin specific
     QSettings settings;
+    if (!settings.contains("bUseObfuScation"))
+        settings.setValue("bUseObfuScation", false);
     if (!settings.contains("bUseSwiftTX"))
         settings.setValue("bUseSwiftTX", false);
 
     bool useSwiftTX = settings.value("bUseSwiftTX").toBool();
     if (fLiteMode) {
         ui->checkSwiftTX->setVisible(false);
+        CoinControlDialog::coinControl->useObfuScation = false;
         CoinControlDialog::coinControl->useSwiftTX = false;
     } else {
         ui->checkSwiftTX->setChecked(useSwiftTX);
@@ -131,6 +134,7 @@ SendCoinsDialog::SendCoinsDialog(QWidget* parent) : QDialog(parent),
     ui->customFee->setValue(settings.value("nTransactionFee").toLongLong());
     ui->checkBoxMinimumFee->setChecked(settings.value("fPayOnlyMinFee").toBool());
     ui->checkBoxFreeTx->setChecked(settings.value("fSendFreeTransactions").toBool());
+    ui->checkz401K->hide();
     minimizeFeeSection(settings.value("fFeeSectionMinimized").toBool());
 }
 
@@ -156,9 +160,10 @@ void SendCoinsDialog::setModel(WalletModel* model)
         }
 
         setBalance(model->getBalance(), model->getUnconfirmedBalance(), model->getImmatureBalance(),
+                   model->getZerocoinBalance (), model->getUnconfirmedZerocoinBalance (), model->getImmatureZerocoinBalance (),
                    model->getWatchBalance(), model->getWatchUnconfirmedBalance(), model->getWatchImmatureBalance());
-        connect(model, SIGNAL(balanceChanged(CAmount, CAmount, CAmount, CAmount, CAmount, CAmount)), this,
-                         SLOT(setBalance(CAmount, CAmount, CAmount, CAmount, CAmount, CAmount)));
+        connect(model, SIGNAL(balanceChanged(CAmount, CAmount,  CAmount, CAmount, CAmount, CAmount, CAmount, CAmount, CAmount)), this, 
+                         SLOT(setBalance(CAmount, CAmount, CAmount, CAmount, CAmount, CAmount, CAmount, CAmount, CAmount)));
         connect(model->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
         updateDisplayUnit();
 
@@ -219,7 +224,7 @@ void SendCoinsDialog::on_sendButton_clicked()
         SendCoinsEntry* entry = qobject_cast<SendCoinsEntry*>(ui->entries->itemAt(i)->widget());
 
         //UTXO splitter - address should be our own
-        CBitcoinAddress address = entry->getValue().address.toStdString();
+        CTxDestination address = DecodeDestination(entry->getValue().address.toStdString());
         if (!model->isMine(address) && ui->splitBlockCheckBox->checkState() == Qt::Checked) {
             CoinControlDialog::coinControl->fSplitBlock = false;
             ui->splitBlockCheckBox->setCheckState(Qt::Unchecked);
@@ -257,14 +262,14 @@ void SendCoinsDialog::on_sendButton_clicked()
     if (CoinControlDialog::coinControl->fSplitBlock)
         CoinControlDialog::coinControl->nSplitBlock = int(ui->splitBlockLineEdit->text().toInt());
 
+    QString strFunds = "";
     QString strFee = "";
     recipients[0].inputType = ALL_COINS;
-    QString strFunds = tr("using") + " <b>" + tr("any available funds (not recommended)") + "</b>";
 
     if (ui->checkSwiftTX->isChecked()) {
         recipients[0].useSwiftTX = true;
         strFunds += " ";
-        strFunds += tr("and SwiftTX");
+        strFunds += tr("using SwiftX");
     } else {
         recipients[0].useSwiftTX = false;
     }
@@ -301,7 +306,7 @@ void SendCoinsDialog::on_sendButton_clicked()
             recipientElement = tr("%1 to %2").arg(amount, address);
         }
 
-        if (fSplitBlock) {
+        if (CoinControlDialog::coinControl->fSplitBlock) {
             recipientElement.append(tr(" split into %1 outputs using the UTXO splitter.").arg(CoinControlDialog::coinControl->nSplitBlock));
         }
 
@@ -310,12 +315,12 @@ void SendCoinsDialog::on_sendButton_clicked()
 
     fNewRecipientAllowed = false;
 
-    // request unlock only if was locked or unlocked for staking:
+    // request unlock only if was locked or unlocked for mixing:
     // this way we let users unlock by walletpassphrase or by menu
     // and make many transactions while unlocking through this dialog
     // will call relock
     WalletModel::EncryptionStatus encStatus = model->getEncryptionStatus();
-    if (encStatus == model->Locked || encStatus == model->UnlockedForStakingOnly) {
+    if (encStatus == model->Locked || encStatus == model->UnlockedForAnonymizationOnly) {
         WalletModel::UnlockContext ctx(model->requestUnlock(true));
         if (!ctx.isValid()) {
             // Unlock wallet was cancelled
@@ -538,17 +543,21 @@ bool SendCoinsDialog::handlePaymentRequest(const SendCoinsRecipient& rv)
     return true;
 }
 
-void SendCoinsDialog::setBalance(const CAmount& balance, const CAmount& unconfirmedBalance, const CAmount& immatureBalance, const CAmount& watchBalance, const CAmount& watchUnconfirmedBalance, const CAmount& watchImmatureBalance)
+void SendCoinsDialog::setBalance(const CAmount& balance, const CAmount& unconfirmedBalance, const CAmount& immatureBalance, 
+                                 const CAmount& zerocoinBalance, const CAmount& unconfirmedZerocoinBalance, const CAmount& immatureZerocoinBalance,
+                                 const CAmount& watchBalance, const CAmount& watchUnconfirmedBalance, const CAmount& watchImmatureBalance)
 {
     Q_UNUSED(unconfirmedBalance);
     Q_UNUSED(immatureBalance);
+    Q_UNUSED(zerocoinBalance);
+    Q_UNUSED(unconfirmedZerocoinBalance);
+    Q_UNUSED(immatureZerocoinBalance);
     Q_UNUSED(watchBalance);
     Q_UNUSED(watchUnconfirmedBalance);
     Q_UNUSED(watchImmatureBalance);
 
     if (model && model->getOptionsModel()) {
         uint64_t bal = 0;
-        QSettings settings;
         bal = balance;
         ui->labelBalance->setText(BitcoinUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), bal));
     }
@@ -559,8 +568,9 @@ void SendCoinsDialog::updateDisplayUnit()
     TRY_LOCK(cs_main, lockMain);
     if (!lockMain) return;
 
-    setBalance(model->getBalance(), model->getUnconfirmedBalance(), model->getImmatureBalance(),
-        model->getWatchBalance(), model->getWatchUnconfirmedBalance(), model->getWatchImmatureBalance());
+    setBalance(model->getBalance(), model->getUnconfirmedBalance(), model->getImmatureBalance(), 
+               model->getZerocoinBalance (), model->getUnconfirmedZerocoinBalance (), model->getImmatureZerocoinBalance (),
+               model->getWatchBalance(), model->getWatchUnconfirmedBalance(), model->getWatchImmatureBalance());
     coinControlUpdateLabels();
     ui->customFee->setDisplayUnit(model->getOptionsModel()->getDisplayUnit());
     updateMinFeeLabel();
@@ -578,7 +588,7 @@ void SendCoinsDialog::updateSwiftTX()
 void SendCoinsDialog::processSendCoinsReturn(const WalletModel::SendCoinsReturn& sendCoinsReturn, const QString& msgArg, bool fPrepare)
 {
     bool fAskForUnlock = false;
-
+    
     QPair<QString, CClientUIInterface::MessageBoxFlags> msgParams;
     // Default to a warning message, override if error message is needed
     msgParams.second = CClientUIInterface::MSG_WARNING;
@@ -610,12 +620,12 @@ void SendCoinsDialog::processSendCoinsReturn(const WalletModel::SendCoinsReturn&
         msgParams.first = tr("The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.");
         msgParams.second = CClientUIInterface::MSG_ERROR;
         break;
-    case WalletModel::StakingOnlyUnlocked:
+    case WalletModel::AnonymizeOnlyUnlocked:
         // Unlock is only need when the coins are send
         if(!fPrepare)
             fAskForUnlock = true;
         else
-            msgParams.first = tr("Error: The wallet was unlocked only to staking coins.");
+            msgParams.first = tr("Error: The wallet was unlocked only to anonymize coins.");
         break;
 
     case WalletModel::InsaneFee:
@@ -631,7 +641,7 @@ void SendCoinsDialog::processSendCoinsReturn(const WalletModel::SendCoinsReturn&
     if(fAskForUnlock) {
         model->requestUnlock(false);
         if(model->getEncryptionStatus () != WalletModel::Unlocked) {
-            msgParams.first = tr("Error: The wallet was unlocked only to staking coins. Unlock canceled.");
+            msgParams.first = tr("Error: The wallet was unlocked only to anonymize coins. Unlock canceled.");
         }
         else {
             // Wallet unlocked
@@ -866,20 +876,25 @@ void SendCoinsDialog::coinControlChangeEdited(const QString& text)
         CoinControlDialog::coinControl->destChange = CNoDestination();
         ui->labelCoinControlChangeLabel->setStyleSheet("QLabel{color:red;}");
 
-        CBitcoinAddress addr = CBitcoinAddress(text.toStdString());
-
         if (text.isEmpty()) // Nothing entered
         {
             ui->labelCoinControlChangeLabel->setText("");
-        } else if (!addr.IsValid()) // Invalid address
+        } else if (!IsValidDestinationString(text.toStdString())) // Invalid address
         {
-            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid 401K address"));
+            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid 401KCoin address"));
         } else // Valid address
         {
+            CTxDestination addr = DecodeDestination(text.toStdString());
+            CKeyID* keyid = boost::get<CKeyID>(&addr);
+
+            if (!keyid) {
+                ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid 401KCoin address"));
+                return;
+            }
+            
             CPubKey pubkey;
-            CKeyID keyid;
-            addr.GetKeyID(keyid);
-            if (!model->getPubKey(keyid, pubkey)) // Unknown change address
+            
+            if (!model->getPubKey(*keyid, pubkey)) // Unknown change address
             {
                 ui->labelCoinControlChangeLabel->setText(tr("Warning: Unknown change address"));
             } else // Known change address
@@ -893,7 +908,7 @@ void SendCoinsDialog::coinControlChangeEdited(const QString& text)
                 else
                     ui->labelCoinControlChangeLabel->setText(tr("(no label)"));
 
-                CoinControlDialog::coinControl->destChange = addr.Get();
+                CoinControlDialog::coinControl->destChange = addr;
             }
         }
     }

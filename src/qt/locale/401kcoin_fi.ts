@@ -62,12 +62,12 @@
         <translation>Vastaanottavat osoitteet</translation>
     </message>
     <message>
-        <source>These are your 401K addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Nämä ovat sinun 401K osoitteesi maksujen lähetystä varten. Tarkista aina määrä ja vastaanottava osoite ennen kolikoiden lähettämistä.</translation>
+        <source>These are your 401KCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Nämä ovat sinun 401KCoin osoitteesi maksujen lähetystä varten. Tarkista aina määrä ja vastaanottava osoite ennen kolikoiden lähettämistä.</translation>
     </message>
     <message>
-        <source>These are your 401K addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Nämä ovat sinun 401K osoitteesi maksujen vastaanottamista varten. On suositeltavaa käyttää uutta vastaanottavaa osoitetta jokaiselle uudelle rahansiirrolle.</translation>
+        <source>These are your 401KCoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Nämä ovat sinun 401KCoin osoitteesi maksujen vastaanottamista varten. On suositeltavaa käyttää uutta vastaanottavaa osoitetta jokaiselle uudelle rahansiirrolle.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -132,6 +132,10 @@
         <translation>Ottaa pois käytöstä tavallisen sendmoneyn kun käyttöjärjestelmä on kompromisoitu. Ei tarjoa todellista turvaa.</translation>
     </message>
     <message>
+        <source>For anonymization and staking only</source>
+        <translation>Vain anonymisointiin ja panostukseen</translation>
+    </message>
+    <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Syötä uusi salausavain lompakkoon &lt;br/&gt; Käytä salausavaimena &lt;b&gt;yli kymmentä satunnaista merkkiä&lt;/b&gt;, tai &lt;b&gt; kahdeksaa tai useampaa sanaa&lt;/b&gt;.</translation>
     </message>
@@ -168,8 +172,8 @@
         <translation>Vahvista lompakon salaus</translation>
     </message>
     <message>
-        <source>401K Coin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your 401Ks from being stolen by malware infecting your computer.</source>
-        <translation>401K Coin sulkeutuu salausprosessin ajaksi. Muista, että lompakon salaus ei voi täysin suojella 401Kien varkaudelta, jos tietokoneesi sisältää haittaohjelmia.</translation>
+        <source>401KCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your 401Ks from being stolen by malware infecting your computer.</source>
+        <translation>401KCoin sulkeutuu salausprosessin ajaksi. Muista, että lompakon salaus ei voi täysin suojella 401Kien varkaudelta, jos tietokoneesi sisältää haittaohjelmia.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -231,8 +235,8 @@
         <translation>&amp;BIP 38 Salaus</translation>
     </message>
     <message>
-        <source>Enter a 401K Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Syötä 401K osoite, jonnka tahtoisit salata käyttäen BIP 38.
+        <source>Enter a 401KCoin Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Syötä 401KCoin osoite, jonnka tahtoisit salata käyttäen BIP 38.
 Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityisavaimen.</translation>
     </message>
     <message>
@@ -240,8 +244,8 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>Osoite:</translation>
     </message>
     <message>
-        <source>The 401K address to sign the message with</source>
-        <translation>401K osoite, jolla viesti allekirjoitetaan</translation>
+        <source>The 401KCoin address to sign the message with</source>
+        <translation>401KCoin osoite, jolla viesti allekirjoitetaan</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -272,8 +276,8 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>Kopioi nykyinen allekirjoitus järjestelmän leikepöydälle</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this 401K address</source>
-        <translation>Allekirjoita viesti todistaaksesi, että omistat tämän 401K osoitteen</translation>
+        <source>Sign the message to prove you own this 401KCoin address</source>
+        <translation>Allekirjoita viesti todistaaksesi, että omistat tämän 401KCoin osoitteen</translation>
     </message>
     <message>
         <source>Encrypt &amp;Key</source>
@@ -296,12 +300,12 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>Syötä BIP 38 salattu yksityisavain. Syötä salausavain laatikkoon. Paina Avaa Salaus tuottaaksesi yksityisavaimen. Kun avain on dekryptattu, painamalla "Import osoite" lisää tämän yksityisavaimen lompakkoon.</translation>
     </message>
     <message>
-        <source>The 401K address the message was signed with</source>
-        <translation>401K osoite, jolla viesti allekirjoitettiin</translation>
+        <source>The 401KCoin address the message was signed with</source>
+        <translation>401KCoin osoite, jolla viesti allekirjoitettiin</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified 401K address</source>
-        <translation>Vahvista että viesti on allekirjoitettu kyseessä olevalla 401K osoitteella.</translation>
+        <source>Verify the message to ensure it was signed with the specified 401KCoin address</source>
+        <translation>Vahvista että viesti on allekirjoitettu kyseessä olevalla 401KCoin osoitteella.</translation>
     </message>
     <message>
         <source>Decrypt &amp;Key</source>
@@ -587,12 +591,12 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>&amp;Apua</translation>
     </message>
     <message>
-        <source>401K Coin Core</source>
-        <translation>401K Coin Ydin</translation>
+        <source>401KCoin Core</source>
+        <translation>401KCoin Ydin</translation>
     </message>
     <message>
-        <source>Send coins to a 401K address</source>
-        <translation>Lähetä kolikkoja 401K osoitteeseen</translation>
+        <source>Send coins to a 401KCoin address</source>
+        <translation>Lähetä kolikkoja 401KCoin osoitteeseen</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and 401kcoin: URIs)</source>
@@ -607,24 +611,24 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>Selaa masternodeja</translation>
     </message>
     <message>
-        <source>&amp;About 401K Coin Core</source>
-        <translation>401K Coin Core &amp;ytimestä</translation>
+        <source>&amp;About 401KCoin Core</source>
+        <translation>401KCoin Core &amp;ytimestä</translation>
     </message>
     <message>
-        <source>Show information about 401K Coin Core</source>
-        <translation>Näytä tietoja 401K Coin Ytimestä</translation>
+        <source>Show information about 401KCoin Core</source>
+        <translation>Näytä tietoja 401KCoin Ytimestä</translation>
     </message>
     <message>
-        <source>Modify configuration options for 401K Coin</source>
-        <translation>Muokkaa konfiguraatio vaihtoehtoja 401K Coin:lle</translation>
+        <source>Modify configuration options for 401KCoin</source>
+        <translation>Muokkaa konfiguraatio vaihtoehtoja 401KCoin:lle</translation>
     </message>
     <message>
-        <source>Sign messages with your 401K addresses to prove you own them</source>
+        <source>Sign messages with your 401KCoin addresses to prove you own them</source>
         <translation>Allekirjoita viestejä todistaaksesi, että omistat ne.</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified 401K addresses</source>
-        <translation>Vahvista viestit varmistaaksesi, että ne allekirjoitettiin tietyllä 401K osoiteella.</translation>
+        <source>Verify messages to ensure they were signed with specified 401KCoin addresses</source>
+        <translation>Vahvista viestit varmistaaksesi, että ne allekirjoitettiin tietyllä 401KCoin osoiteella.</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -655,8 +659,8 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>Avaa Masternode konfiguraatiotiedosto</translation>
     </message>
     <message>
-        <source>Open a 401kcoin: URI or payment request</source>
-        <translation>Avaa 401kcoin: URI tai pyydä maksua</translation>
+        <source>Open a 401KCoin: URI or payment request</source>
+        <translation>Avaa 401KCoin: URI tai pyydä maksua</translation>
     </message>
     <message>
         <source>&amp;Blockchain explorer</source>
@@ -667,12 +671,12 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>Lohkon tutkija näkymä</translation>
     </message>
     <message>
-        <source>Show the 401K Coin Core help message to get a list with possible 401K Coin command-line options</source>
-        <translation>Näytä 401K Coin Ydin apuviesti saadaksesi lista mahdollisista 401K Coin komentolinja komennoista.</translation>
+        <source>Show the 401KCoin Core help message to get a list with possible 401KCoin command-line options</source>
+        <translation>Näytä 401KCoin Ydin apuviesti saadaksesi lista mahdollisista 401KCoin komentolinja komennoista.</translation>
     </message>
     <message>
-        <source>401K Coin Core client</source>
-        <translation>401K Coin Ydin asiakasohjelma</translation>
+        <source>401KCoin Core client</source>
+        <translation>401KCoin Ydin asiakasohjelma</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -930,8 +934,8 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>401K Coin Core</source>
-        <translation>401K Coin Ydin</translation>
+        <source>401KCoin Core</source>
+        <translation>401KCoin Ydin</translation>
     </message>
     <message>
         <source>Usage:</source>
@@ -949,12 +953,12 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>Tervetuloa</translation>
     </message>
     <message>
-        <source>Welcome to 401K Coin Core.</source>
-        <translation>Tervetuloa 401K Coin Ytimeen.</translation>
+        <source>Welcome to 401KCoin Core.</source>
+        <translation>Tervetuloa 401KCoin Ytimeen.</translation>
     </message>
     <message>
-        <source>401K Coin Core</source>
-        <translation>401K Coin Ydin</translation>
+        <source>401KCoin Core</source>
+        <translation>401KCoin Ydin</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1109,6 +1113,61 @@ Please check the address and try again.</source>
     </message>
 </context>
 <context>
+    <name>ObfuscationConfig</name>
+    <message>
+        <source>Configure Obfuscation</source>
+        <translation>Konfiguroi Hämäys</translation>
+    </message>
+    <message>
+        <source>Basic Privacy</source>
+        <translation>Perus Yksityisyys</translation>
+    </message>
+    <message>
+        <source>High Privacy</source>
+        <translation>Korkea Yksityisyys</translation>
+    </message>
+    <message>
+        <source>Maximum Privacy</source>
+        <translation>Maksimi Yksityisyys</translation>
+    </message>
+    <message>
+        <source>Please select a privacy level.</source>
+        <translation>Valitse yksityisyyden taso.</translation>
+    </message>
+    <message>
+        <source>Use 2 separate masternodes to mix funds up to 10000 401K</source>
+        <translation>Käytä 2 erillistä masternodea sekoittaaksesi enintään 10000 401KCoin</translation>
+    </message>
+    <message>
+        <source>Use 8 separate masternodes to mix funds up to 10000 401K</source>
+        <translation>Käytä 8 erillistä masternodea sekoittaaksesi enintään 10000 401KCoin</translation>
+    </message>
+    <message>
+        <source>Use 16 separate masternodes</source>
+        <translation>Käytä 16 erillistä masternodea</translation>
+    </message>
+    <message>
+        <source>This option is the quickest and will cost about ~0.025 401K to anonymize 10000 401K</source>
+        <translation>Tämä vaihtoehto on nopein ja maksaa noin ~0.025 401K anonymoidaksesi 10000 401KCoin</translation>
+    </message>
+    <message>
+        <source>This option is moderately fast and will cost about 0.05 401K to anonymize 10000 401K</source>
+        <translation>Tämä vaihtoehto on suhteellisen nopea ja maksaa 0.05 401KCoin anonymoidaksesi 10000 401KCoin</translation>
+    </message>
+    <message>
+        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
+        <translation>Tämä on hitain ja turvallisin vaihtoehto. Täydesti anonymisoiminen ei maksa mitään.</translation>
+    </message>
+    <message>
+        <source>0.1 401K per 10000 401K you anonymize.</source>
+        <translation>0.1 per 10000 401KCoin, jotka anonymisoit.</translation>
+    </message>
+    <message>
+        <source>Obfuscation Configuration</source>
+        <translation>Hämäys konfiguraatio</translation>
+    </message>
+    </context>
+<context>
     <name>OpenURIDialog</name>
     <message>
         <source>Open URI</source>
@@ -1150,12 +1209,12 @@ Please check the address and try again.</source>
         <translation>Ekspertti</translation>
     </message>
     <message>
-        <source>Automatically start 401K Coin after logging in to the system.</source>
-        <translation>Automaattisesti käynnistä 401K Coin kun kirjaudut sisään.</translation>
+        <source>Automatically start 401KCoin after logging in to the system.</source>
+        <translation>Automaattisesti käynnistä 401KCoin kun kirjaudut sisään.</translation>
     </message>
     <message>
-        <source>&amp;Start 401K Coin on system login</source>
-        <translation>&amp;Aloita 401K Coin järjestelmän kirjautumisessa</translation>
+        <source>&amp;Start 401KCoin on system login</source>
+        <translation>&amp;Aloita 401KCoin järjestelmän kirjautumisessa</translation>
     </message>
     <message>
         <source>Enable coin &amp;control features</source>
@@ -1174,12 +1233,12 @@ Please check the address and try again.</source>
         <translation>&amp;Verkko</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting 401K Coin.</source>
+        <source>The user interface language can be set here. This setting will take effect after restarting 401KCoin.</source>
         <translation>Käyttöliittymän kielen voi säätää täällä. Tämä asetus tulee voimaan uudelleenkäynnistettyäsi lompakon.</translation>
     </message>
     <message>
-        <source>Connect to the 401K Coin network through a SOCKS5 proxy.</source>
-        <translation>Yhdistä 401K Coin verkkoon SOCKS5 proxyn kautta</translation>
+        <source>Connect to the 401KCoin network through a SOCKS5 proxy.</source>
+        <translation>Yhdistä 401KCoin verkkoon SOCKS5 proxyn kautta</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1224,6 +1283,10 @@ Please check the address and try again.</source>
     <message>
         <source>User Interface &amp;language:</source>
         <translation>Käyttöliittymän &amp;kieli:</translation>
+    </message>
+    <message>
+        <source>User Interface Theme:</source>
+        <translation>Käyttöliittymän teema:</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1336,6 +1399,89 @@ Please check the address and try again.</source>
     </message>
 </context>
 <context>
+    <name>PrivacyDialog</name>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>Määrä:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Määrä:</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Valitse aikaisemmin käytetty osoite</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Liitä osoite leikepöydältä</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Nimike:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to the list of used addresses</source>
+        <translation>Syötä nimike tälle osoittelle lisätäksesi se käytettävien osoitteiden listaan</translation>
+    </message>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>M&amp;äärä:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Tärkeys:</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Taksa:</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>ei</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Tavut:</translation>
+    </message>
+    <message>
+        <source>Insufficient funds!</source>
+        <translation>Puutteelliset varat!</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>kohtalainen</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Muutos:</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Kopioi määrä</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopioi määrä</translation>
+    </message>
+    <message>
+        <source>Confirm send coins</source>
+        <translation>Vahvista kolikoiden lähetys</translation>
+    </message>
+    </context>
+<context>
     <name>QObject</name>
     <message>
         <source>Amount</source>
@@ -1396,8 +1542,8 @@ Please check the address and try again.</source>
         <translation>Lohko ketju</translation>
     </message>
     <message>
-        <source>Open the 401K Coin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Avaa 401K Coin debug loki nykyisestä sijainnista. Tämä voi kestää muutaman sekunnin suurille lokeille</translation>
+        <source>Open the 401KCoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Avaa 401KCoin debug loki nykyisestä sijainnista. Tämä voi kestää muutaman sekunnin suurille lokeille</translation>
     </message>
     <message>
         <source>Number of Masternodes</source>
@@ -1508,8 +1654,8 @@ Please check the address and try again.</source>
         <translation>Ulos:</translation>
     </message>
     <message>
-        <source>Welcome to the 401K Coin RPC console.</source>
-        <translation>Tervetuloa 401K Coin RPC konsoliin.</translation>
+        <source>Welcome to the 401KCoin RPC console.</source>
+        <translation>Tervetuloa 401KCoin RPC konsoliin.</translation>
     </message>
     <message>
         <source>never</source>
@@ -1551,12 +1697,12 @@ Please check the address and try again.</source>
         <translation>Vaihtoehtoinen nimike uudelle vastaanottavalle osoitteelle</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the 401K Coin network.</source>
-        <translation>Vaihtoehtoinen viesti joka liitetään maksupyyntöön, joka näytetään kun pyyntö avataan. Huomio: Viestiä ei lähetetä maksun mukana 401K Coin verkolle.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the 401KCoin network.</source>
+        <translation>Vaihtoehtoinen viesti joka liitetään maksupyyntöön, joka näytetään kun pyyntö avataan. Huomio: Viestiä ei lähetetä maksun mukana 401KCoin verkolle.</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the 401K Coin network.</source>
-        <translation>Vaihtoehtoinen viesti, joka liitetään maksupyyntöö, joka näytetään kun pyyntö avataan. &lt;br&gt; Huomio: Tätä viestiä ei lähetetä maksun mukana 401K Coin verkolle.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the 401KCoin network.</source>
+        <translation>Vaihtoehtoinen viesti, joka liitetään maksupyyntöö, joka näytetään kun pyyntö avataan. &lt;br&gt; Huomio: Tätä viestiä ei lähetetä maksun mukana 401KCoin  verkolle.</translation>
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
@@ -1836,8 +1982,8 @@ Please check the address and try again.</source>
         <translation>käyttää</translation>
     </message>
     <message>
-        <source>Warning: Invalid 401K address</source>
-        <translation>Varoitus: Virheellinen 401K osoite</translation>
+        <source>Warning: Invalid 401KCoin address</source>
+        <translation>Varoitus: Virheellinen 401KCoin osoite</translation>
     </message>
     <message>
         <source>Are you sure you want to send?</source>
@@ -1864,6 +2010,14 @@ Please check the address and try again.</source>
         <translation>Maksun luonti epäonnistui!</translation>
     </message>
     <message>
+        <source>Error: The wallet was unlocked only to anonymize coins.</source>
+        <translation>Virhe: Lompakko avattiin vain kolikoiden anonymisointiin</translation>
+    </message>
+    <message>
+        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
+        <translation>Virhe: Lompakko avattiin vain kolikoiden anonymisointiin. Avaus peruutettu.</translation>
+    </message>
+    <message>
         <source>(no label)</source>
         <translation>(ei nimikettä)</translation>
     </message>
@@ -1875,8 +2029,8 @@ Please check the address and try again.</source>
         <translation>Tämä on normaali maksu.</translation>
     </message>
     <message>
-        <source>The 401K address to send the payment to</source>
-        <translation>401K osoite johon maksu lähetetään</translation>
+        <source>The 401KCoin address to send the payment to</source>
+        <translation>401KCoin osoite johon maksu lähetetään</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1918,8 +2072,8 @@ Please check the address and try again.</source>
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>401K Coin Core is shutting down...</source>
-        <translation>401K Coin core sammuu...</translation>
+        <source>401KCoin Core is shutting down...</source>
+        <translation>401KCoin core sammuu...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -1937,8 +2091,8 @@ Please check the address and try again.</source>
         <translation>Voit allekirjoittaa viestejä osoitteillasi todistaaksesi, että omistat ne. Ole varovainen ettet allekirjoita mitään kummallista, sillä kalasteluyritykset saattavat yrittää huijata sinut luovuttamaan tietoja. Allekirjoita vain täysin yksityiskohtaisia sanomia, jotka hyväksyt.</translation>
     </message>
     <message>
-        <source>The 401K address to sign the message with</source>
-        <translation>401K osoite, jolla viesti allekirjoitetaan</translation>
+        <source>The 401KCoin address to sign the message with</source>
+        <translation>401KCoin osoite, jolla viesti allekirjoitetaan</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1969,16 +2123,16 @@ Please check the address and try again.</source>
         <translation>Kopioi nykyinen allekirjoitus järjestelmän leikepöydälle</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this 401K address</source>
-        <translation>Allekirjoita viesti todistaaksesi, että omistat tämän 401K osoitteen</translation>
+        <source>Sign the message to prove you own this 401KCoin address</source>
+        <translation>Allekirjoita viesti todistaaksesi, että omistat tämän 401KCoin osoitteen</translation>
     </message>
     <message>
-        <source>The 401K address the message was signed with</source>
-        <translation>401K osoite, jolla viesti allekirjoitettiin</translation>
+        <source>The 401KCoin address the message was signed with</source>
+        <translation>401KCoin osoite, jolla viesti allekirjoitettiin</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified 401K address</source>
-        <translation>Vahvista että viesti on allekirjoitettu kyseessä olevalla 401K osoitteella.</translation>
+        <source>Verify the message to ensure it was signed with the specified 401KCoin address</source>
+        <translation>Vahvista että viesti on allekirjoitettu kyseessä olevalla 401KCoin osoitteella.</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2060,8 +2214,8 @@ Please check the address and try again.</source>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>401K Coin Core</source>
-        <translation>401K Coin Ydin</translation>
+        <source>401KCoin Core</source>
+        <translation>401KCoin Ydin</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -2076,12 +2230,8 @@ Please check the address and try again.</source>
         <translation>Dash Core kehittäjät</translation>
     </message>
     <message>
-        <source>The PIVX Core developers</source>
-        <translation>PIVX core kehittäjät</translation>
-    </message>
-    <message>
-        <source>The 401K Coin Core developers</source>
-        <translation>401K Coin core kehittäjät</translation>
+        <source>The 401KCoin Core developers</source>
+        <translation>401KCoin core kehittäjät</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2384,6 +2534,13 @@ Please check the address and try again.</source>
     </message>
     </context>
 <context>
+    <name>Z401kControlDialog</name>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    </context>
+<context>
     <name>401kcoin-core</name>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -2434,8 +2591,8 @@ Please check the address and try again.</source>
         <translation>Virhe ladattaessa wallet.dat tiedostoa: Lompakko korruptoitunut</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of 401K Coin Core</source>
-        <translation>Virhe ladattaessa wallet.dat tiedostoa: Lompakko vaatii uudemman version 401K Coin Coresta</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of 401KCoin Core</source>
+        <translation>Virhe ladattaessa wallet.dat tiedostoa: Lompakko vaatii uudemman version 401KCoin Coresta</translation>
     </message>
     <message>
         <source>Error reading from database, shutting down.</source>

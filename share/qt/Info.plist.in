@@ -17,7 +17,7 @@
   <string>APPL</string>
 
   <key>CFBundleGetInfoString</key>
-  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@, Copyright © 2009-@COPYRIGHT_YEAR@ The Bitcoin Core developers, 2014-@COPYRIGHT_YEAR@ The Dash Core developers, 2015-@COPYRIGHT_YEAR@ The Pivx Core developers, 2017-@COPYRIGHT_YEAR@ The 401K Coin Core developers</string>
+  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@, Copyright © 2009-@COPYRIGHT_YEAR@ The Bitcoin Core developers, 2014-@COPYRIGHT_YEAR@ The Dash Core developers, 2015-@COPYRIGHT_YEAR@ The PIVX Core developers, 2017-@COPYRIGHT_YEAR@ The 401KCoin Developers</string>
 
   <key>CFBundleShortVersionString</key>
   <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@</string>
@@ -31,8 +31,14 @@
   <key>CFBundleExecutable</key>
   <string>401KCoin-Qt</string>
 
+  <key>CFBundleName</key>
+  <string>401KCoin-Qt</string>
+
+  <key>LSHasLocalizedDisplayName</key>
+  <true/>
+
   <key>CFBundleIdentifier</key>
-  <string>io.savebitcoin.401KCoin-Qt</string>
+  <string>io.401kcoin.401KCoin-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -40,7 +46,7 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>io.savebitcoin.401KCoinPayment</string>
+      <string>io.401kcoin.401KCoinPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
         <string>401kcoin</string>
@@ -52,9 +58,9 @@
   <array>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>io.savebitcoin.paymentrequest</string>
+      <string>io.401kcoin.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>401K Coin payment request</string>
+      <string>401KCoin payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>
@@ -78,7 +84,7 @@
       <string>Editor</string>
       <key>LSItemContentTypes</key>
       <array>
-        <string>io.savebitcoin.paymentrequest</string>
+        <string>io.401kcoin.paymentrequest</string>
       </array>
       <key>LSHandlerRank</key>
       <string>Owner</string>

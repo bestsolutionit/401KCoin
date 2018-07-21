@@ -19,6 +19,7 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 
+
 am__is_gnu_make = { \
   if test -z '$(MAKELEVEL)'; then \
     false; \
@@ -110,6 +111,7 @@ am__aclocal_m4_deps = $(top_srcdir)/build-aux/m4/ax_boost_base.m4 \
 	$(top_srcdir)/build-aux/m4/bitcoin_find_bdb48.m4 \
 	$(top_srcdir)/build-aux/m4/bitcoin_qt.m4 \
 	$(top_srcdir)/build-aux/m4/bitcoin_subdir_to_include.m4 \
+	$(top_srcdir)/build-aux/m4/l_atomic.m4 \
 	$(top_srcdir)/build-aux/m4/libtool.m4 \
 	$(top_srcdir)/build-aux/m4/ltoptions.m4 \
 	$(top_srcdir)/build-aux/m4/ltsugar.m4 \
@@ -127,7 +129,8 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/src/config/401kcoin-config.h
 CONFIG_CLEAN_FILES = share/setup.nsi share/qt/Info.plist \
 	src/test/buildenv.py qa/pull-tester/run-bitcoind-for-test.sh \
-	qa/pull-tester/tests-config.sh contrib/devtools/split-debug.sh
+	qa/pull-tester/tests-config.sh contrib/devtools/split-debug.sh \
+	doc/Doxyfile
 CONFIG_CLEAN_VPATH_FILES =
 SCRIPTS = $(dist_noinst_SCRIPTS)
 AM_V_P = $(am__v_P_$(V))
@@ -157,6 +160,35 @@ am__can_run_installinfo = \
     n|no|NO) false;; \
     *) (install-info --version) >/dev/null 2>&1;; \
   esac
+am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
+am__vpath_adj = case $$p in \
+    $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
+    *) f=$$p;; \
+  esac;
+am__strip_dir = f=`echo $$p | sed -e 's|^.*/||'`;
+am__install_max = 40
+am__nobase_strip_setup = \
+  srcdirstrip=`echo "$(srcdir)" | sed 's/[].[^$$\\*|]/\\\\&/g'`
+am__nobase_strip = \
+  for p in $$list; do echo "$$p"; done | sed -e "s|$$srcdirstrip/||"
+am__nobase_list = $(am__nobase_strip_setup); \
+  for p in $$list; do echo "$$p $$p"; done | \
+  sed "s| $$srcdirstrip/| |;"' / .*\//!s/ .*/ ./; s,\( .*\)/[^/]*$$,\1,' | \
+  $(AWK) 'BEGIN { files["."] = "" } { files[$$2] = files[$$2] " " $$1; \
+    if (++n[$$2] == $(am__install_max)) \
+      { print $$2, files[$$2]; n[$$2] = 0; files[$$2] = "" } } \
+    END { for (dir in files) print dir, files[dir] }'
+am__base_list = \
+  sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
+  sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
+am__uninstall_files_from_dir = { \
+  test -z "$$files" \
+    || { test ! -d "$$dir" && test ! -f "$$dir" && test ! -r "$$dir"; } \
+    || { echo " ( cd '$$dir' && rm -f" $$files ")"; \
+         $(am__cd) "$$dir" && rm -f $$files; }; \
+  }
+am__installdirs = "$(DESTDIR)$(pkgconfigdir)"
+DATA = $(pkgconfig_DATA)
 RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
   distclean-recursive maintainer-clean-recursive
 am__recursive_targets = \
@@ -194,6 +226,7 @@ am__DIST_COMMON = $(srcdir)/Makefile.in \
 	$(top_srcdir)/build-aux/ltmain.sh \
 	$(top_srcdir)/build-aux/missing \
 	$(top_srcdir)/contrib/devtools/split-debug.sh.in \
+	$(top_srcdir)/doc/Doxyfile.in \
 	$(top_srcdir)/qa/pull-tester/run-bitcoind-for-test.sh.in \
 	$(top_srcdir)/qa/pull-tester/tests-config.sh.in \
 	$(top_srcdir)/share/qt/Info.plist.in \
@@ -201,7 +234,8 @@ am__DIST_COMMON = $(srcdir)/Makefile.in \
 	$(top_srcdir)/src/config/401kcoin-config.h.in \
 	$(top_srcdir)/src/test/buildenv.py.in COPYING INSTALL \
 	build-aux/compile build-aux/config.guess build-aux/config.sub \
-	build-aux/install-sh build-aux/ltmain.sh build-aux/missing
+	build-aux/depcomp build-aux/install-sh build-aux/ltmain.sh \
+	build-aux/missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -238,19 +272,22 @@ am__relativize = \
   done; \
   reldir="$$dir2"
 DIST_ARCHIVES = $(distdir).tar.gz
+GZIP_ENV = --best
 DIST_TARGETS = dist-gzip
 distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /Volumes/D/401k/401KCoin/build-aux/missing aclocal-1.16
+ACLOCAL = ${SHELL} /Volumes/D/401k/Phore/build-aux/missing aclocal-1.16
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
 AR = /usr/bin/ar
-AUTOCONF = ${SHELL} /Volumes/D/401k/401KCoin/build-aux/missing autoconf
-AUTOHEADER = ${SHELL} /Volumes/D/401k/401KCoin/build-aux/missing autoheader
-AUTOMAKE = ${SHELL} /Volumes/D/401k/401KCoin/build-aux/missing automake-1.16
+ARFLAGS = cr
+AUTOCONF = ${SHELL} /Volumes/D/401k/Phore/build-aux/missing autoconf
+AUTOHEADER = ${SHELL} /Volumes/D/401k/Phore/build-aux/missing autoheader
+AUTOMAKE = ${SHELL} /Volumes/D/401k/Phore/build-aux/missing automake-1.16
 AWK = awk
+BDB_CFLAGS = 
 BDB_CPPFLAGS = 
 BDB_LIBS = -ldb_cxx-4.8
 BITCOIN_CLI_NAME = 401kcoin-cli
@@ -258,23 +295,23 @@ BITCOIN_DAEMON_NAME = 401kcoind
 BITCOIN_GUI_NAME = 401kcoin-qt
 BITCOIN_TX_NAME = 401kcoin-tx
 BOOST_CHRONO_LIB = -lboost_chrono-mt
-BOOST_CPPFLAGS = -pthread -I/usr/local/include
+BOOST_CPPFLAGS = -DBOOST_SP_USE_STD_ATOMIC -DBOOST_AC_USE_STD_ATOMIC -pthread -I/usr/local/include
 BOOST_FILESYSTEM_LIB = -lboost_filesystem
 BOOST_LDFLAGS = -L/usr/local/lib
 BOOST_LIBS = -L/usr/local/lib -lboost_system -lboost_filesystem -lboost_program_options-mt -lboost_thread-mt -lboost_chrono-mt
 BOOST_PROGRAM_OPTIONS_LIB = -lboost_program_options-mt
 BOOST_SYSTEM_LIB = -lboost_system
 BOOST_THREAD_LIB = -lboost_thread-mt
-BOOST_UNIT_TEST_FRAMEWORK_LIB = -lboost_unit_test_framework-mt
+BOOST_UNIT_TEST_FRAMEWORK_LIB = 
 BREW = brew
 BUILD_QT = qt
-BUILD_TEST = test
-BUILD_TEST_QT = test
+BUILD_TEST = 
+BUILD_TEST_QT = 
 CC = gcc
 CCACHE = 
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
-CLIENT_VERSION_BUILD = 6
+CLIENT_VERSION_BUILD = 0
 CLIENT_VERSION_IS_RELEASE = true
 CLIENT_VERSION_MAJOR = 1
 CLIENT_VERSION_MINOR = 1
@@ -283,13 +320,13 @@ COMPARISON_TOOL_REORG_TESTS = 0
 COPYRIGHT_YEAR = 2018
 CPP = gcc -E
 CPPFILT = /usr/bin/c++filt
-CPPFLAGS = -I/usr/local/opt/openssl/include -DBOOST_SPIRIT_THREADSAFE -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS -isystem /opt/local/include -I/usr/local/opt/berkeley-db@4/include -DMAC_OSX  -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -DHAVE_QT5
+CPPFLAGS = -I/usr/local/opt/openssl/include -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS -isystem /opt/local/include -I/usr/local/opt/berkeley-db@4/include -DMAC_OSX -DHAVE_QT5
 CRYPTO_CFLAGS = -I/usr/local/Cellar/openssl/1.0.2o_2/include
 CRYPTO_LIBS = -L/usr/local/Cellar/openssl/1.0.2o_2/lib -lcrypto
 CXX = g++ -std=c++11
 CXXCPP = g++ -std=c++11 -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -g -O2 -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter  -Wstack-protector -fstack-protector-all -fPIC -fvisibility=hidden
+CXXFLAGS = -g -O2 -Wall -Wextra -Wformat -Wvla -Wformat-security -Wthread-safety-analysis -Wno-unused-parameter -Wno-self-assign -Wno-unused-local-typedef -Wno-deprecated-register -Wno-implicit-fallthrough
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -300,6 +337,7 @@ ECHO_C = \c
 ECHO_N = 
 ECHO_T = 
 EGREP = /usr/bin/grep -E
+ERROR_CXXFLAGS = 
 EVENT_CFLAGS = -I/usr/local/Cellar/libevent/2.1.8/include
 EVENT_LIBS = -L/usr/local/Cellar/libevent/2.1.8/lib -levent
 EVENT_PTHREADS_CFLAGS = -D_THREAD_SAFE -I/usr/local/Cellar/libevent/2.1.8/include
@@ -311,6 +349,9 @@ GENHTML =
 GENISOIMAGE = 
 GIT = /usr/local/bin/git
 GREP = /usr/bin/grep
+HARDENED_CPPFLAGS =  -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2
+HARDENED_CXXFLAGS =  -Wstack-protector -fstack-protector-all
+HARDENED_LDFLAGS = 
 HAVE_CXX11 = 1
 HEXDUMP = /usr/bin/hexdump
 IMAGEMAGICK_CONVERT = 
@@ -320,11 +361,10 @@ INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
-JAVA = /usr/bin/java
 JAVA_COMPARISON_TOOL = 
 LCOV = 
 LD = /Library/Developer/CommandLineTools/usr/bin/ld
-LDFLAGS = -L/usr/local/opt/openssl/lib -Wl,-headerpad_max_install_names  -Wl,-dead_strip
+LDFLAGS = -L/usr/local/opt/openssl/lib -Wl,-headerpad_max_install_names -Wl,-dead_strip
 LEVELDB_CPPFLAGS = 
 LEVELDB_TARGET_FLAGS = TARGET_OS=Darwin
 LIBLEVELDB = 
@@ -340,7 +380,7 @@ LTLIBOBJS =
 LT_SYS_LIBRARY_PATH = 
 LUPDATE = /usr/local/Cellar/qt/5.11.1/bin/lupdate
 MAINT = 
-MAKEINFO = ${SHELL} /Volumes/D/401k/401KCoin/build-aux/missing makeinfo
+MAKEINFO = ${SHELL} /Volumes/D/401k/Phore/build-aux/missing makeinfo
 MAKENSIS = 
 MANIFEST_TOOL = :
 MINIUPNPC_CPPFLAGS = 
@@ -353,47 +393,52 @@ NMEDIT = nmedit
 OBJCOPY = 
 OBJCXX = g++ -std=c++11
 OBJCXXDEPMODE = depmode=gcc3
-OBJCXXFLAGS = -g -O2 -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter  -Wstack-protector -fstack-protector-all -fPIC
+OBJCXXFLAGS = -g -O2 -Wall -Wextra -Wformat -Wvla -Wformat-security -Wthread-safety-analysis -Wno-unused-parameter -Wno-self-assign -Wno-unused-local-typedef -Wno-deprecated-register -Wno-implicit-fallthrough
 OBJDUMP = objdump
 OBJEXT = o
 OTOOL = otool
 OTOOL64 = :
 PACKAGE = 401kcoin
 PACKAGE_BUGREPORT = www.401kcoin.ltd
-PACKAGE_NAME = 401K Coin Core
-PACKAGE_STRING = 401K Coin Core 1.1.0
+PACKAGE_NAME = 401KCoin Core
+PACKAGE_STRING = 401KCoin Core 1.1.0
 PACKAGE_TARNAME = 401kcoin
 PACKAGE_URL = 
 PACKAGE_VERSION = 1.1.0
 PATH_SEPARATOR = :
+PIC_FLAGS = -fPIC
+PIE_FLAGS = -fPIC
 PKG_CONFIG = /usr/local/bin/pkg-config
 PKG_CONFIG_LIBDIR = 
-PKG_CONFIG_PATH = /usr/local/opt/qt/lib/pkgconfig:/usr/local/opt/openssl/lib/pkgconfig:
+PKG_CONFIG_PATH = /usr/local/opt/qt/lib/pkgconfig:/usr/local/opt/openssl/lib/pkgconfig:/usr/local/opt/openssl/lib/pkgconfig
 PORT = port
 PROTOBUF_CFLAGS = -pthread -I/usr/local/Cellar/protobuf/3.6.0/include
 PROTOBUF_LIBS = -L/usr/local/Cellar/protobuf/3.6.0/lib -lprotobuf -pthread
 PROTOC = /usr/local/bin/protoc
 PTHREAD_CC = gcc
-PTHREAD_CFLAGS = -D_THREAD_SAFE -pthread
+PTHREAD_CFLAGS = -pthread
 PTHREAD_LIBS = 
-PYTHON = /Library/Frameworks/Python.framework/Versions/3.6/bin/python3
+PYTHON = /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6
 PYTHONPATH = 
 QR_CFLAGS = 
 QR_LIBS = 
+QT4_CFLAGS = 
+QT4_LIBS = 
+QT5_CFLAGS = -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/local/Cellar/qt/5.11.1/include/QtNetwork -I/usr/local/Cellar/qt/5.11.1/include -I/usr/local/Cellar/qt/5.11.1/include/QtWidgets -I/usr/local/Cellar/qt/5.11.1/include -I/usr/local/Cellar/qt/5.11.1/include/QtGui -I/usr/local/Cellar/qt/5.11.1/include -I/usr/local/Cellar/qt/5.11.1/include/QtCore -I/usr/local/Cellar/qt/5.11.1/include
+QT5_LIBS = -F/usr/local/Cellar/qt/5.11.1/lib -framework QtNetwork -F/usr/local/Cellar/qt/5.11.1/lib -framework QtWidgets -F/usr/local/Cellar/qt/5.11.1/lib -framework QtGui -F/usr/local/Cellar/qt/5.11.1/lib -framework QtCore
 QTPLATFORM_CFLAGS = 
 QTPLATFORM_LIBS = 
 QTPRINT_CFLAGS = 
 QTPRINT_LIBS = 
 QTXCBQPA_CFLAGS = 
 QTXCBQPA_LIBS = 
-QT_CFLAGS = -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/local/Cellar/qt/5.11.1/include/QtNetwork -I/usr/local/Cellar/qt/5.11.1/include -I/usr/local/Cellar/qt/5.11.1/include/QtWidgets -I/usr/local/Cellar/qt/5.11.1/include -I/usr/local/Cellar/qt/5.11.1/include/QtGui -I/usr/local/Cellar/qt/5.11.1/include -I/usr/local/Cellar/qt/5.11.1/include/QtCore -I/usr/local/Cellar/qt/5.11.1/include
 QT_DBUS_CFLAGS = -DQT_DBUS_LIB -DQT_CORE_LIB -I/usr/local/Cellar/qt/5.11.1/include/QtDBus -I/usr/local/Cellar/qt/5.11.1/include -I/usr/local/Cellar/qt/5.11.1/include/QtCore -I/usr/local/Cellar/qt/5.11.1/include
 QT_DBUS_INCLUDES = -DQT_DBUS_LIB -DQT_CORE_LIB -I/usr/local/Cellar/qt/5.11.1/include/QtDBus -I/usr/local/Cellar/qt/5.11.1/include -I/usr/local/Cellar/qt/5.11.1/include/QtCore -I/usr/local/Cellar/qt/5.11.1/include
 QT_DBUS_LIBS = -F/usr/local/Cellar/qt/5.11.1/lib -framework QtDBus -F/usr/local/Cellar/qt/5.11.1/lib -framework QtCore
 QT_INCLUDES = -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/local/Cellar/qt/5.11.1/include/QtNetwork -I/usr/local/Cellar/qt/5.11.1/include -I/usr/local/Cellar/qt/5.11.1/include/QtWidgets -I/usr/local/Cellar/qt/5.11.1/include -I/usr/local/Cellar/qt/5.11.1/include/QtGui -I/usr/local/Cellar/qt/5.11.1/include -I/usr/local/Cellar/qt/5.11.1/include/QtCore -I/usr/local/Cellar/qt/5.11.1/include
 QT_LDFLAGS = 
 QT_LIBS = -F/usr/local/Cellar/qt/5.11.1/lib -framework QtNetwork -F/usr/local/Cellar/qt/5.11.1/lib -framework QtWidgets -F/usr/local/Cellar/qt/5.11.1/lib -framework QtGui -F/usr/local/Cellar/qt/5.11.1/lib -framework QtCore -framework Foundation -framework ApplicationServices -framework AppKit
-QT_PIE_FLAGS = 
+QT_PIE_FLAGS = -fPIC
 QT_SELECT = qt5
 QT_TEST_CFLAGS = -DQT_TESTLIB_LIB -DQT_CORE_LIB -I/usr/local/Cellar/qt/5.11.1/include/QtTest -I/usr/local/Cellar/qt/5.11.1/include -I/usr/local/Cellar/qt/5.11.1/include/QtCore -I/usr/local/Cellar/qt/5.11.1/include
 QT_TEST_INCLUDES = -DQT_TESTLIB_LIB -DQT_CORE_LIB -I/usr/local/Cellar/qt/5.11.1/include/QtTest -I/usr/local/Cellar/qt/5.11.1/include -I/usr/local/Cellar/qt/5.11.1/include/QtCore -I/usr/local/Cellar/qt/5.11.1/include
@@ -410,7 +455,7 @@ SHELL = /bin/sh
 SSL_CFLAGS = -I/usr/local/Cellar/openssl/1.0.2o_2/include
 SSL_LIBS = -L/usr/local/Cellar/openssl/1.0.2o_2/lib -lssl
 STRIP = /usr/bin/strip
-TESTDEFS =  -DBOOST_TEST_DYN_LINK
+TESTDEFS = 
 TIFFCP = 
 UIC = /usr/local/Cellar/qt/5.11.1/bin/uic
 UNIVALUE_CFLAGS = -I$(srcdir)/univalue/include
@@ -425,10 +470,10 @@ X11XCB_LIBS =
 XGETTEXT = 
 ZMQ_CFLAGS = -I/usr/local/Cellar/zeromq/4.2.5/include
 ZMQ_LIBS = -L/usr/local/Cellar/zeromq/4.2.5/lib -lzmq
-abs_builddir = /Volumes/D/401k/401KCoin
-abs_srcdir = /Volumes/D/401k/401KCoin
-abs_top_builddir = /Volumes/D/401k/401KCoin
-abs_top_srcdir = /Volumes/D/401k/401KCoin
+abs_builddir = /Volumes/D/401k/Phore
+abs_srcdir = /Volumes/D/401k/Phore
+abs_top_builddir = /Volumes/D/401k/Phore
+abs_top_srcdir = /Volumes/D/401k/Phore
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -460,7 +505,7 @@ host_vendor = apple
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /Volumes/D/401k/401KCoin/build-aux/install-sh
+install_sh = ${SHELL} /Volumes/D/401k/Phore/build-aux/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -483,7 +528,8 @@ top_builddir = .
 top_srcdir = .
 ACLOCAL_AMFLAGS = -I build-aux/m4
 SUBDIRS = src
-GZIP_ENV = "-9n"
+#pkgconfigdir = $(libdir)/pkgconfig
+#pkgconfig_DATA = libbitcoinconsensus.pc
 BITCOIND_BIN = $(top_builddir)/src/$(BITCOIN_DAEMON_NAME)$(EXEEXT)
 BITCOIN_QT_BIN = $(top_builddir)/src/qt/$(BITCOIN_GUI_NAME)$(EXEEXT)
 BITCOIN_CLI_BIN = $(top_builddir)/src/$(BITCOIN_CLI_NAME)$(EXEEXT)
@@ -527,7 +573,7 @@ OSX_APP_BUILT = $(OSX_APP)/Contents/PkgInfo $(OSX_APP)/Contents/Resources/empty.
 #APP_DIST_EXTRAS = $(APP_DIST_DIR)/.background/$(OSX_BACKGROUND_IMAGE) $(APP_DIST_DIR)/.DS_Store $(APP_DIST_DIR)/Applications
 #OSX_BACKGROUND_IMAGE_DPIFILES := $(foreach dpi,$(OSX_BACKGROUND_IMAGE_DPIS),dpi$(dpi).$(OSX_BACKGROUND_IMAGE))
 dist_noinst_SCRIPTS = autogen.sh
-EXTRA_DIST = $(top_srcdir)/share/genbuild.sh qa/pull-tester/rpc-tests.sh qa/pull-tester/run-bitcoin-cli qa/rpc-tests $(DIST_DOCS) $(WINDOWS_PACKAGING) $(OSX_PACKAGING)
+EXTRA_DIST = $(top_srcdir)/share/genbuild.sh qa/pull-tester/rpc-tests.sh qa/pull-tester/run-bitcoin-cli test $(DIST_DOCS) $(WINDOWS_PACKAGING) $(OSX_PACKAGING)
 CLEANFILES = $(OSX_DMG) $(BITCOIN_WIN_INSTALLER)
 all: all-recursive
 
@@ -592,6 +638,8 @@ qa/pull-tester/tests-config.sh: $(top_builddir)/config.status $(top_srcdir)/qa/p
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 contrib/devtools/split-debug.sh: $(top_builddir)/config.status $(top_srcdir)/contrib/devtools/split-debug.sh.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
+doc/Doxyfile: $(top_builddir)/config.status $(top_srcdir)/doc/Doxyfile.in
+	cd $(top_builddir) && $(SHELL) ./config.status $@
 
 mostlyclean-libtool:
 	-rm -f *.lo
@@ -601,6 +649,27 @@ clean-libtool:
 
 distclean-libtool:
 	-rm -f libtool config.lt
+install-pkgconfigDATA: $(pkgconfig_DATA)
+	@$(NORMAL_INSTALL)
+	@list='$(pkgconfig_DATA)'; test -n "$(pkgconfigdir)" || list=; \
+	if test -n "$$list"; then \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(pkgconfigdir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(pkgconfigdir)" || exit 1; \
+	fi; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(pkgconfigdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(pkgconfigdir)" || exit $$?; \
+	done
+
+uninstall-pkgconfigDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(pkgconfig_DATA)'; test -n "$(pkgconfigdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	dir='$(DESTDIR)$(pkgconfigdir)'; $(am__uninstall_files_from_dir)
 
 # This directory's subdirectories are mostly independent; you can cd
 # into them and run 'make' without going through this Makefile.
@@ -896,9 +965,12 @@ distuninstallcheck:
 	        exit 1; } >&2
 check-am: all-am
 check: check-recursive
-all-am: Makefile $(SCRIPTS)
+all-am: Makefile $(SCRIPTS) $(DATA)
 installdirs: installdirs-recursive
 installdirs-am:
+	for dir in "$(DESTDIR)$(pkgconfigdir)"; do \
+	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
+	done
 install: install-recursive
 install-exec: install-exec-recursive
 install-data: install-data-recursive
@@ -952,7 +1024,7 @@ info: info-recursive
 
 info-am:
 
-install-data-am:
+install-data-am: install-pkgconfigDATA
 
 install-dvi: install-dvi-recursive
 
@@ -998,7 +1070,7 @@ ps: ps-recursive
 
 ps-am:
 
-uninstall-am:
+uninstall-am: uninstall-pkgconfigDATA
 
 .MAKE: $(am__recursive_targets) install-am install-strip
 
@@ -1013,15 +1085,17 @@ uninstall-am:
 	install-data install-data-am install-dvi install-dvi-am \
 	install-exec install-exec-am install-html install-html-am \
 	install-info install-info-am install-man install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs installdirs-am \
-	maintainer-clean maintainer-clean-generic mostlyclean \
-	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
-	tags tags-am uninstall uninstall-am
+	install-pdf-am install-pkgconfigDATA install-ps install-ps-am \
+	install-strip installcheck installcheck-am installdirs \
+	installdirs-am maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-generic mostlyclean-libtool pdf pdf-am \
+	ps ps-am tags tags-am uninstall uninstall-am \
+	uninstall-pkgconfigDATA
 
 .PRECIOUS: Makefile
 
 .PHONY: deploy FORCE
+
 export PYTHONPATH
 
 dist-hook:

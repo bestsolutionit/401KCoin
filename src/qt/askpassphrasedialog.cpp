@@ -48,9 +48,9 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget* parent, WalletModel
         ui->passEdit1->hide();
         setWindowTitle(tr("Encrypt wallet"));
         break;
-    case UnlockStaking:
-        ui->stakingCheckBox->setChecked(true);
-        ui->stakingCheckBox->show();
+    case UnlockAnonymize:
+        ui->anonymizationCheckBox->setChecked(true);
+        ui->anonymizationCheckBox->show();
     case Unlock: // Ask passphrase
         ui->warningLabel->setText(tr("This operation needs your wallet passphrase to unlock the wallet."));
         ui->passLabel2->hide();
@@ -73,7 +73,7 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget* parent, WalletModel
         break;
     }
 
-    ui->stakingCheckBox->setChecked(model->isStakingOnlyUnlocked());
+    ui->anonymizationCheckBox->setChecked(model->isAnonymizeOnlyUnlocked());
 
     textChanged();
     connect(ui->passEdit1, SIGNAL(textChanged(QString)), this, SLOT(textChanged()));
@@ -119,7 +119,7 @@ void AskPassphraseDialog::accept()
                 if (model->setWalletEncrypted(true, newpass1)) {
                     QMessageBox::warning(this, tr("Wallet encrypted"),
                         "<qt>" +
-                            tr("401K Coin will close now to finish the encryption process. "
+                            tr("401KCoin will close now to finish the encryption process. "
                                "Remember that encrypting your wallet cannot fully protect "
                                "your 401Ks from being stolen by malware infecting your computer.") +
                             "<br><br><b>" +
@@ -142,9 +142,9 @@ void AskPassphraseDialog::accept()
             QDialog::reject(); // Cancelled
         }
     } break;
-    case UnlockStaking:
+    case UnlockAnonymize:
     case Unlock:
-        if (!model->setWalletLocked(false, oldpass, ui->stakingCheckBox->isChecked())) {
+        if (!model->setWalletLocked(false, oldpass, ui->anonymizationCheckBox->isChecked())) {
             QMessageBox::critical(this, tr("Wallet unlock failed"),
                 tr("The passphrase entered for the wallet decryption was incorrect."));
         } else {
@@ -185,7 +185,7 @@ void AskPassphraseDialog::textChanged()
     case Encrypt: // New passphrase x2
         acceptable = !ui->passEdit2->text().isEmpty() && !ui->passEdit3->text().isEmpty();
         break;
-    case UnlockStaking: // Old passphrase x1
+    case UnlockAnonymize: // Old passphrase x1
     case Unlock:          // Old passphrase x1
     case Decrypt:
         acceptable = !ui->passEdit1->text().isEmpty();

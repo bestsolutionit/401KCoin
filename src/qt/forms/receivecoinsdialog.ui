@@ -32,7 +32,33 @@
          <number>0</number>
         </property>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_Header" stretch="1,0">
+         <layout class="QHBoxLayout" name="horizontalLayout_Header" stretch="1,0,1">
+          <item>
+           <widget class="QLabel" name="labelOverviewHeaderLeft">
+            <property name="minimumSize">
+             <size>
+              <width>464</width>
+              <height>60</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>60</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>20</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>RECEIVE</string>
+            </property>
+           </widget>
+          </item>
           <item>
            <spacer name="horizontalSpacer_3">
             <property name="orientation">
@@ -130,7 +156,7 @@
              <item row="6" column="0">
               <widget class="QLabel" name="label_3">
                <property name="toolTip">
-                <string>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the 401K Coin network.</string>
+                <string>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the 401KCoin network.</string>
                </property>
                <property name="text">
                 <string>&amp;Message:</string>
@@ -153,7 +179,7 @@
              <item row="6" column="2">
               <widget class="QLineEdit" name="reqMessage">
                <property name="toolTip">
-                <string>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the 401K Coin network.</string>
+                <string>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the 401KCoin network.</string>
                </property>
               </widget>
              </item>
@@ -196,20 +222,74 @@
                </property>
               </widget>
              </item>
-             <item row="5" column="2">
-              <widget class="BitcoinAmountField" name="reqAmount">
-               <property name="minimumSize">
-                <size>
-                 <width>80</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="toolTip">
-                <string>An optional amount to request. Leave this empty or zero to not request a specific amount.</string>
-               </property>
-              </widget>
-             </item>
-             <item row="8" column="0">
+            <item row="5" column="2">
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <item>
+               <widget class="BitcoinAmountField" name="reqAmount">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>80</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>1000</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>An optional amount to request. Leave this empty or zero to not request a specific amount.</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="useBech32">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>1000</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::StrongFocus</enum>
+                </property>
+                <property name="toolTip">
+                 <string>Bech32 addresses (BIP-173) are cheaper to spend from and offer better protection against typos. When unchecked a P2SH wrapped SegWit address will be created, compatible with older wallets.</string>
+                </property>
+                <property name="text">
+                 <string>Generate Bech32 address</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item> 
+           <item row="8" column="0">
               <widget class="QLabel" name="label_7">
                <property name="text">
                 <string/>

@@ -7,7 +7,7 @@
 #  spendfrom.py  # Lists available funds
 #  spendfrom.py --from=ADDRESS --to=ADDRESS --amount=11.00
 #
-# Assumes it will talk to a 401kcoind or 401kcoin-Qt running
+# Assumes it will talk to a 401kcoind or 401KCoin-Qt running
 # on localhost.
 #
 # Depends on jsonrpc

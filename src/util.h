@@ -29,16 +29,23 @@
 #include <boost/filesystem/path.hpp>
 #include <boost/thread/exceptions.hpp>
 
-//401K Coin only features
+//401KCoin only features
 
 extern bool fMasterNode;
 extern bool fLiteMode;
 extern bool fEnableSwiftTX;
 extern int nSwiftTXDepth;
+extern int nZeromintPercentage;
+extern const int64_t AUTOMINT_DELAY;
+extern int nPreferredDenom;
+extern int nAnonymize401KCoinAmount;
+extern int nLiquidityProvider;
+extern bool fEnableZeromint;
 extern int64_t enforceMasternodePaymentsTime;
 extern std::string strMasterNodeAddr;
 extern int keysLoaded;
 extern bool fSucessfullyLoaded;
+extern std::vector<int64_t> obfuScationDenominations;
 extern std::string strBudgetMode;
 
 extern std::map<std::string, std::string> mapArgs;
@@ -53,6 +60,7 @@ extern bool fLogIPs;
 extern volatile bool fReopenDebugLog;
 
 void SetupEnvironment();
+bool SetupNetworking();
 
 /** Return true if log accepts specified category */
 bool LogAcceptCategory(const char* category);
@@ -98,6 +106,8 @@ static inline bool error(const char* format)
     return false;
 }
 
+double double_safe_addition(double fValue, double fIncrement);
+double double_safe_multiplication(double fValue, double fmultiplicator);
 void PrintExceptionContinue(std::exception* pex, const char* pszThread);
 void ParseParameters(int argc, const char* const argv[]);
 void FileCommit(FILE* fileout);
@@ -219,5 +229,13 @@ void TraceThread(const char* name, Callable func)
         throw;
     }
 }
+
+/** Parse number as fixed point according to JSON number syntax.
+ * See http://json.org/number.gif
+ * @returns true on success, false on error.
+ * @note The result must be in the range (-10^18,10^18), otherwise an overflow error will trigger.
+ */
+bool ParseFixedPoint(const std::string &val, int decimals, int64_t *amount_out);
+
 
 #endif // BITCOIN_UTIL_H

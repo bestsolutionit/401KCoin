@@ -62,12 +62,12 @@
         <translation>Prijímacia adresa</translation>
     </message>
     <message>
-        <source>These are your 401K addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Toto sú vaše 401K adresy na odosielanie platieb. Pred odoslaním vždy skontrolujte výšku a adresu prijemcu.</translation>
+        <source>These are your 401KCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Toto sú vaše 401KCoin adresy na odosielanie platieb. Pred odoslaním vždy skontrolujte výšku a adresu prijemcu.</translation>
     </message>
     <message>
-        <source>These are your 401K addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Toto sú vaše 401K adresy na prijímanie platieb. Pre každú transakciu sa odporúča použiť novú prijímaciu adresu.</translation>
+        <source>These are your 401KCoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Toto sú vaše 401KCoin adresy na prijímanie platieb. Pre každú transakciu sa odporúča použiť novú prijímaciu adresu.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -136,6 +136,10 @@
         <translation>Slúži na zakázanie obyčajného odoslania peňazí, v prípade, že bol OS účet kompromitovaný. Neposkytuje žiadnu skutočnú bezpečnosť.</translation>
     </message>
     <message>
+        <source>For anonymization and staking only</source>
+        <translation>Len pre anonymizáciu a staking</translation>
+    </message>
+    <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Zadajte novú prístupovú frázu do peňaženky. &lt;br/&gt; Použite prístupovú frázu &lt;b&gt;, ktorá má desať alebo viac náhodných znakov &lt;/ b&gt; alebo &lt;b&gt; osem alebo viac slov &lt;/ b&gt;.</translation>
     </message>
@@ -172,8 +176,8 @@
         <translation>Potvrďte šifrovanie peňaženky</translation>
     </message>
     <message>
-        <source>401K Coin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your 401Ks from being stolen by malware infecting your computer.</source>
-        <translation>401K Coin sa teraz ukončí, aby dokončil proces šifrovania. Nezabudnite, že šifrovanie peňaženky nemôže úplne ochrániť vaše 401K pred odcudzením škodlivým softvérom, ktorý infikuje váš počítač.</translation>
+        <source>401KCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your 401Ks from being stolen by malware infecting your computer.</source>
+        <translation>401KCoin sa teraz ukončí, aby dokončil proces šifrovania. Nezabudnite, že šifrovanie peňaženky nemôže úplne ochrániť vaše 401K pred odcudzením škodlivým softvérom, ktorý infikuje váš počítač.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -235,16 +239,16 @@
         <translation>BIP 38 Šifrovanie</translation>
     </message>
     <message>
-        <source>Enter a 401K Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Zadajte adresu 401K, ktorú chcete zašifrovať pomocou BIP 38. Zadajte prístupovú frázu do stredného poľa. Stlačte šifrovanie na výpočet šifrovaného privátneho kľúča.</translation>
+        <source>Enter a 401KCoin Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Zadajte adresu 401KCoin, ktorú chcete zašifrovať pomocou BIP 38. Zadajte prístupovú frázu do stredného poľa. Stlačte šifrovanie na výpočet šifrovaného privátneho kľúča.</translation>
     </message>
     <message>
         <source>Address:</source>
         <translation>Adresa:</translation>
     </message>
     <message>
-        <source>The 401K address to sign the message with</source>
-        <translation>Adresa 401K, ktorou chcete správu podpísať</translation>
+        <source>The 401KCoin address to sign the message with</source>
+        <translation>Adresa 401KCoin, ktorou chcete správu podpísať</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -275,8 +279,8 @@
         <translation>Skopírujte aktuálny podpis do schránky</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this 401K address</source>
-        <translation>Podpíšte správu, aby ste preukázali, že ste vlastníkom tejto 401K adresy</translation>
+        <source>Sign the message to prove you own this 401KCoin address</source>
+        <translation>Podpíšte správu, aby ste preukázali, že ste vlastníkom tejto 401KCoin adresy</translation>
     </message>
     <message>
         <source>Encrypt &amp;Key</source>
@@ -299,12 +303,12 @@
         <translation>Zadajte súkromný kľúč zašifrovaný BIP 38. Zadajte prístupovú frázu do stredného poľa. Kliknite na Dešifrovať kľúč, ak chcete vypočítať privátny kľúč. Po dešifrovaní kľúča pridáte do peňaženky tento súkromný kľúč kliknutím na položku 'Importovať adresu'.</translation>
     </message>
     <message>
-        <source>The 401K address the message was signed with</source>
-        <translation>401K adresa, ktorou bola správa podpísaná</translation>
+        <source>The 401KCoin address the message was signed with</source>
+        <translation>401KCoin adresa, ktorou bola správa podpísaná</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified 401K address</source>
-        <translation>Skontrolujte správu, aby ste sa uistili, že bola podpísaná zadanou 401K adresou</translation>
+        <source>Verify the message to ensure it was signed with the specified 401KCoin address</source>
+        <translation>Skontrolujte správu, aby ste sa uistili, že bola podpísaná zadanou 401KCoin adresou</translation>
     </message>
     <message>
         <source>Decrypt &amp;Key</source>
@@ -594,12 +598,12 @@
         <translation>Panel nástrojov Záložky</translation>
     </message>
     <message>
-        <source>401K Coin Core</source>
-        <translation>401K Coin Core</translation>
+        <source>401KCoin Core</source>
+        <translation>401KCoin Core</translation>
     </message>
     <message>
-        <source>Send coins to a 401K address</source>
-        <translation>Odoslať mince na adresu 401K</translation>
+        <source>Send coins to a 401KCoin address</source>
+        <translation>Odoslať mince na adresu 401KCoin</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and 401kcoin: URIs)</source>
@@ -614,24 +618,24 @@
         <translation>Prezrieť masternody</translation>
     </message>
     <message>
-        <source>&amp;About 401K Coin Core</source>
-        <translation>O 401K Coin Core</translation>
+        <source>&amp;About 401KCoin Core</source>
+        <translation>O 401KCoin Core</translation>
     </message>
     <message>
-        <source>Show information about 401K Coin Core</source>
-        <translation>Zobraziť informácie o 401K Coin Core</translation>
+        <source>Show information about 401KCoin Core</source>
+        <translation>Zobraziť informácie o 401KCoin Core</translation>
     </message>
     <message>
-        <source>Modify configuration options for 401K Coin</source>
-        <translation>Zmeňte možnosti konfigurácie pre 401K Coin</translation>
+        <source>Modify configuration options for 401KCoin</source>
+        <translation>Zmeňte možnosti konfigurácie pre 401KCoin</translation>
     </message>
     <message>
-        <source>Sign messages with your 401K addresses to prove you own them</source>
-        <translation>Podpíšte správy pomocou adresy 401K, aby ste preukázali, že ich vlastníte</translation>
+        <source>Sign messages with your 401KCoin addresses to prove you own them</source>
+        <translation>Podpíšte správy pomocou adresy 401KCoin, aby ste preukázali, že ich vlastníte</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified 401K addresses</source>
-        <translation>Overte správy, aby sa zabezpečilo, že boli podpísané zadanými 401K adresami</translation>
+        <source>Verify messages to ensure they were signed with specified 401KCoin addresses</source>
+        <translation>Overte správy, aby sa zabezpečilo, že boli podpísané zadanými 401KCoin adresami</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -662,8 +666,8 @@
         <translation>Otvoriť konfiguračný súbor masternodu</translation>
     </message>
     <message>
-        <source>Open a 401kcoin: URI or payment request</source>
-        <translation>Otvorte 401kcoin: URI alebo žiadosť o platbu</translation>
+        <source>Open a 401KCoin: URI or payment request</source>
+        <translation>Otvorte 401KCoin: URI alebo žiadosť o platbu</translation>
     </message>
     <message>
         <source>&amp;Blockchain explorer</source>
@@ -674,12 +678,12 @@
         <translation>Okno blockchain prehliadača</translation>
     </message>
     <message>
-        <source>Show the 401K Coin Core help message to get a list with possible 401K Coin command-line options</source>
-        <translation>Zobraziť pomocnú správu programu 401K Coin Core a získajte zoznam možností príkazového riadka 401K Coin</translation>
+        <source>Show the 401KCoin Core help message to get a list with possible 401KCoin command-line options</source>
+        <translation>Zobraziť pomocnú správu programu 401KCoin Core a získajte zoznam možností príkazového riadka 401KCoin</translation>
     </message>
     <message>
-        <source>401K Coin Core client</source>
-        <translation>401K Coin Core klient</translation>
+        <source>401KCoin Core client</source>
+        <translation>401KCoin Core klient</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -782,6 +786,10 @@ MultiSend: %1</translation>
         <translation>Peňaženka je &lt;b&gt;zašifrovaná&lt;/ b&gt; a momentálne je &lt;b&gt;odomknutá&lt;/ b&gt;</translation>
     </message>
     <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonimization and staking only</source>
+        <translation>Peňaženka je &lt;b&gt;zašifrovaná&lt;/ b&gt; a momentálne &lt;b&gt;odomknutá&lt;/ b&gt; iba na anonymizáciu a staking</translation>
+    </message>
+    <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Peňaženka je &lt;b&gt;zašifrovaná&lt;/ b&gt; a momentálne je &lt;b&gt;zamknutá&lt;/ b&gt;</translation>
     </message>
@@ -811,10 +819,6 @@ MultiSend: %1</translation>
 </context>
 <context>
     <name>ClientModel</name>
-    <message>
-        <source>Total: %1 (OBF compatible: %2 / Enabled: %3)</source>
-        <translation>Sumár: %1 (OBF kompatibilné: %2 / Zapnuté: %3)</translation>
-    </message>
     <message>
         <source>Network Alert</source>
         <translation>Upozornenie siete </translation>
@@ -900,15 +904,15 @@ MultiSend: %1</translation>
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>401K Coin Core</source>
-        <translation>401K Coin Core</translation>
+        <source>401KCoin Core</source>
+        <translation>401KCoin Core</translation>
     </message>
     </context>
 <context>
     <name>Intro</name>
     <message>
-        <source>401K Coin Core</source>
-        <translation>401K Coin Core</translation>
+        <source>401KCoin Core</source>
+        <translation>401KCoin Core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -938,6 +942,9 @@ MultiSend: %1</translation>
     </message>
     </context>
 <context>
+    <name>ObfuscationConfig</name>
+    </context>
+<context>
     <name>OpenURIDialog</name>
     </context>
 <context>
@@ -951,6 +958,53 @@ MultiSend: %1</translation>
     </context>
 <context>
     <name>PeerTableModel</name>
+    </context>
+<context>
+    <name>PrivacyDialog</name>
+    <message>
+        <source>Quantity:</source>
+        <translation>Množstvo:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Suma:</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Vyberte predtým použitú adresu</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Vložte adresu zo schránky</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Priorita:</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Poplatok:</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Bytov:</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Zmena:</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Skopírovať sumu</translation>
+    </message>
     </context>
 <context>
     <name>QObject</name>
@@ -1082,8 +1136,8 @@ MultiSend: %1</translation>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <source>The 401K address to sign the message with</source>
-        <translation>Adresa 401K, ktorou chcete správu podpísať</translation>
+        <source>The 401KCoin address to sign the message with</source>
+        <translation>Adresa 401KCoin, ktorou chcete správu podpísať</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1106,16 +1160,16 @@ MultiSend: %1</translation>
         <translation>Skopírujte aktuálny podpis do schránky</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this 401K address</source>
-        <translation>Podpíšte správu, aby ste preukázali, že ste vlastníkom tejto 401K adresy</translation>
+        <source>Sign the message to prove you own this 401KCoin address</source>
+        <translation>Podpíšte správu, aby ste preukázali, že ste vlastníkom tejto 401KCoin adresy</translation>
     </message>
     <message>
-        <source>The 401K address the message was signed with</source>
-        <translation>401K adresa, ktorou bola správa podpísaná</translation>
+        <source>The 401KCoin address the message was signed with</source>
+        <translation>401KCoin adresa, ktorou bola správa podpísaná</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified 401K address</source>
-        <translation>Skontrolujte správu, aby ste sa uistili, že bola podpísaná zadanou 401K adresou</translation>
+        <source>Verify the message to ensure it was signed with the specified 401KCoin address</source>
+        <translation>Skontrolujte správu, aby ste sa uistili, že bola podpísaná zadanou 401KCoin adresou</translation>
     </message>
     <message>
         <source>Reset all sign message fields</source>
@@ -1153,8 +1207,8 @@ MultiSend: %1</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>401K Coin Core</source>
-        <translation>401K Coin Core</translation>
+        <source>401KCoin Core</source>
+        <translation>401KCoin Core</translation>
     </message>
     </context>
 <context>
@@ -1247,6 +1301,9 @@ MultiSend: %1</translation>
         <source>Export the data in the current tab to a file</source>
         <translation>Exportovať údaje na aktuálnej karte do súboru</translation>
     </message>
+    </context>
+<context>
+    <name>Z401kControlDialog</name>
     </context>
 <context>
     <name>401kcoin-core</name>

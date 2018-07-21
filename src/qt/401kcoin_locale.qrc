@@ -10,6 +10,7 @@
         <file alias="es">locale/401kcoin_es.qm</file>
         <file alias="fi">locale/401kcoin_fi.qm</file>
         <file alias="fr_FR">locale/401kcoin_fr_FR.qm</file>
+        <file alias="hr">locale/401kcoin_hr.qm</file>
         <file alias="it">locale/401kcoin_it.qm</file>
         <file alias="ja">locale/401kcoin_ja.qm</file>
         <file alias="ko_KR">locale/401kcoin_ko_KR.qm</file>

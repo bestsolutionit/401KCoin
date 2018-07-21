@@ -30,10 +30,10 @@
        <item>
         <widget class="QCheckBox" name="bitcoinAtStartup">
          <property name="toolTip">
-          <string>Automatically start 401K Coin after logging in to the system.</string>
+          <string>Automatically start 401KCoin after logging in to the system.</string>
          </property>
          <property name="text">
-          <string>&amp;Start 401K Coin on system login</string>
+          <string>&amp;Start 401KCoin on system login</string>
          </property>
         </widget>
        </item>
@@ -130,6 +130,85 @@
          </property>
         </spacer>
        </item>
+       <item>
+        <widget class="QCheckBox" name="checkBoxZeromintEnable">
+         <property name="toolTip">
+          <string>Enable automatic minting of 401KCoin units to z401K</string>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string>Enable z401K Automint</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLabel" name="percentage_label">
+           <property name="toolTip">
+            <string>Percentage of incoming 401K which get automatically converted to z401K via Zerocoin Protocol (min: 10%)</string>
+           </property>
+           <property name="text">
+            <string>Percentage of autominted z401K</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="zeromintPercentage">
+           <property name="minimum">
+            <number>10</number>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetFixedSize</enum>
+         </property>
+         <item>
+          <widget class="QLabel" name="labelPreferredDenom">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Wait with automatic conversion to Zerocoin until enough 401K for this denomination is available</string>
+           </property>
+           <property name="text">
+            <string>Preferred Automint z401K Denomination</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="preferredDenom">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>27</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Wait with automatic conversion to Zerocoin until enough 401K for this denomination is available</string>
+           </property>
+           <property name="maxVisibleItems">
+            <number>9</number>
+           </property>
+           <property name="maxCount">
+            <number>9</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="tabWallet">
@@ -220,7 +299,7 @@
        <item>
         <widget class="QCheckBox" name="mapPortUpnp">
          <property name="toolTip">
-          <string>Automatically open the 401K Coin client port on the router. This only works when your router supports UPnP and it is enabled.</string>
+          <string>Automatically open the 401KCoin client port on the router. This only works when your router supports UPnP and it is enabled.</string>
          </property>
          <property name="text">
           <string>Map port using &amp;UPnP</string>
@@ -240,7 +319,7 @@
        <item>
         <widget class="QCheckBox" name="connectSocks">
          <property name="toolTip">
-          <string>Connect to the 401K Coin network through a SOCKS5 proxy.</string>
+          <string>Connect to the 401KCoin network through a SOCKS5 proxy.</string>
          </property>
          <property name="text">
           <string>&amp;Connect through SOCKS5 proxy (default proxy):</string>
@@ -406,9 +485,52 @@
          <item>
           <widget class="QValueComboBox" name="lang">
            <property name="toolTip">
-            <string>The user interface language can be set here. This setting will take effect after restarting 401K Coin.</string>
+            <string>The user interface language can be set here. This setting will take effect after restarting 401KCoin.</string>
            </property>
           </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="toolTip">
+          <string notr="true"/>
+         </property>
+         <property name="statusTip">
+          <string notr="true"/>
+         </property>
+         <property name="whatsThis">
+          <string notr="true"/>
+         </property>
+         <property name="accessibleName">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Language missing or translation incomplete? Help contributing translations here:
+https://www.transifex.com/401kcoin-project/401kcoin-project-translations</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+         <property name="openExternalLinks">
+          <bool>true</bool>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::TextBrowserInteraction</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4_Display" stretch="0,0">
+         <item>
+          <widget class="QLabel" name="themeLabel">
+           <property name="text">
+            <string>User Interface Theme:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QValueComboBox" name="theme"/>
          </item>
         </layout>
        </item>
@@ -456,6 +578,19 @@
           <widget class="QValueComboBox" name="digits"/>
          </item>
         </layout>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBoxHideZeroBalances">
+         <property name="toolTip">
+          <string>Hide empty balances</string>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string>Hide empty balances</string>
+         </property>
+        </widget>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3_Display">

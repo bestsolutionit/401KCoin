@@ -37,11 +37,17 @@ public:
         DisplayUnit,         // BitcoinUnits::Unit
         ThirdPartyTxUrls,    // QString
         Digits,              // QString
+        Theme,               // QString
         Language,            // QString
         CoinControlFeatures, // bool
         ThreadsScriptVerif,  // int
         DatabaseCache,       // int
         SpendZeroConfChange, // bool
+        ZeromintEnable,      // bool
+        ZeromintPercentage,  // int
+        ZeromintPrefDenom,   // int
+        HideZeroBalances,    // bool
+        Anonymize401KCoinAmount, //int
         ShowMasternodesTab,  // bool
         Listen,              // bool
         StakeSplitThreshold, // int
@@ -81,6 +87,7 @@ private:
     int nDisplayUnit;
     QString strThirdPartyTxUrls;
     bool fCoinControlFeatures;
+    bool fHideZeroBalances;
     /* settings that were overriden by command-line */
     QString strOverriddenByCommandLine;
 
@@ -89,7 +96,12 @@ private:
 
 signals:
     void displayUnitChanged(int unit);
+    void zeromintEnableChanged(bool);
+    void zeromintPercentageChanged(int);
+    void preferredDenomChanged(int);
+    void anonymize401KCoinAmountChanged(int);
     void coinControlFeaturesChanged(bool);
+    void hideZeroBalancesChanged(bool);
 };
 
 #endif // BITCOIN_QT_OPTIONSMODEL_H

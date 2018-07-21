@@ -1,7 +1,7 @@
-Contributing to 401K Coin Core
-==================================
+Contributing to 401KCoin Core
+============================
 
-The 401K Coin Core project operates an open contributor model where anyone is
+The 401KCoin Core project operates an open contributor model where anyone is
 welcome to contribute towards development in the form of peer review, testing
 and patches. This document explains the practical process and guidelines for
 contributing.
@@ -157,10 +157,10 @@ where possible keep them short, un-complex and easy to verify.
 "Decision Making" Process
 -------------------------
 
-The following applies to code changes to the 401K Coin Core project, and is not to be
-confused with overall 401K Coin Network Protocol consensus changes.
+The following applies to code changes to the 401KCoin Core project, and is not to be
+confused with overall 401KCoin Network Protocol consensus changes.
 
-Whether a pull request is merged into 401K Coin Core rests with the project merge
+Whether a pull request is merged into 401KCoin Core rests with the project merge
 maintainers and ultimately the project lead.
 
 Maintainers will take into consideration if a patch is in line with the general
@@ -174,7 +174,7 @@ In general, all pull requests must:
   - be well peer reviewed;
   - follow code style guidelines;
 
-Patches that change 401K Coin consensus rules are considerably more involved than
+Patches that change 401KCoin consensus rules are considerably more involved than
 normal because they affect the entire ecosystem and so must be preceded by
 extensive discussions and clear detailing. While each case will be different,
 one should be prepared to expend more time and effort than for other kinds of
@@ -214,7 +214,7 @@ higher in terms of discussion and peer review requirements, keeping in mind that
 mistakes could be very costly to the wider community. This includes refactoring
 of consensus critical code.
 
-Where a patch set proposes to change the 401K Coin consensus, it must have been
+Where a patch set proposes to change the 401KCoin consensus, it must have been
 discussed extensively on the forums and Slack, be accompanied by a widely
 discussed Proposal and have a generally widely perceived technical consensus of being
 a worthwhile change based on the judgement of the maintainers.
@@ -254,7 +254,7 @@ about:
 Release Policy
 --------------
 
-The project leader is the release manager for each 401K Coin Core release.
+The project leader is the release manager for each 401KCoin Core release.
 
 Copyright
 ---------
