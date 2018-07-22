@@ -83,7 +83,7 @@ src/leveldb/build_config.mk
 
 # Compilation and Qt preprocessor part
 *.qm
-Makefile
+/Makefile
 401kcoin-qt
 401KCoin-Qt.app
 
@@ -128,10 +128,8 @@ cmake-build-debug
 
 cache
 src/univalue/build-aux/m4/libtool.m4
-Makefile
 aclocal.m4
 src/Makefile
-src/leveldb/build_config.mk
 src/univalue/Makefile
 src/univalue/aclocal.m4
 src/univalue/build-aux/compile
