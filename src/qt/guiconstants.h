@@ -51,7 +51,7 @@ static const int MAX_URI_LENGTH = 255;
 #define SPINNER_FRAMES 35
 
 #define QAPP_ORG_NAME "401KCoin"
-#define QAPP_ORG_DOMAIN "401kcoin.org"
+#define QAPP_ORG_DOMAIN "401kcoin.ltd"
 #define QAPP_APP_NAME_DEFAULT "401KCoin-Qt"
 #define QAPP_APP_NAME_TESTNET "401KCoin-Qt-testnet"
 

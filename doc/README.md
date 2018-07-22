@@ -3,7 +3,7 @@
 
 Setup
 ---------------------
-[401KCoin Core](http://401kcoin.org/wallet) is the original 401KCoin client and it builds the backbone of the network. However, it downloads and stores the entire history of 401KCoin transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[401KCoin Core](http://www.401kcoin.ltd/wallet) is the original 401KCoin client and it builds the backbone of the network. However, it downloads and stores the entire history of 401KCoin transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
@@ -28,8 +28,8 @@ Drag 401KCoin-Qt to your applications folder, and then run 401KCoin-Qt.
 
 * See the documentation at the [401KCoin Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
 for help and more information.
-* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [401KCoin Forum](http://forum.401kcoin.org/).
-* Join one of our Slack groups [401KCoin Slack Groups](https://401kcoin.org/slack-logins/).
+* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [401KCoin Forum](http://forum.401kcoin.ltd/).
+* Join one of our Slack groups [401KCoin Slack Groups](https://www.401kcoin.ltd/slack-logins/).
 * Join our Discord server [Discord Server](https://discord.gg/dTRhamf)
 
 Building
@@ -56,7 +56,7 @@ The 401KCoin repo's [root README](https://github.com/401KCoin/401KCoin/blob/mast
 
 ### Resources
 
-* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [401KCoin](http://forum.401kcoin.org/) forum.
+* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [401KCoin](http://forum.401kcoin.ltd/) forum.
 * Join the [401KCoin-Dev](https://401kcoin-dev.slack.com/) Slack group ([Sign-Up](https://401kcoin-dev.herokuapp.com/)).
 
 ### Miscellaneous
