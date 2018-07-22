@@ -65,7 +65,7 @@ static const Checkpoints::CCheckpointData data = {
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
-    boost::assign::map_list_of(0, uint256("9cda9be2aa56762886d9ece98f7ab618048d1a092371989edcd6982db1191845"));
+    boost::assign::map_list_of(0, uint256("1a1bba0d0a516ca37038534cbb1a23001ecda7907e033c821630a3248ba5a706"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
     1504595227,
@@ -117,8 +117,8 @@ public:
         pchMessageStart[1] = 0xe2;
         pchMessageStart[2] = 0x9a;
         pchMessageStart[3] = 0x2b;
-        vAlertPubKey = ParseHex("04878a83b51fcf96c2b43690f09c84bbd64df781333ad1dc96d66121e65f7572d3630542a0def8611bb836a009bd42c7aec41d17ded5e0239536791e02ab9272a3");
-        nDefaultPort = 55002;
+        vAlertPubKey = ParseHex("048253bcd1b1c2cffefa52793533ebd08d9b376db13d0e870b000619a41b86e62fc3e71eda4000b77bad3a9cb17c9028b3ee3d8cb5b12a8f4a63328d0a050c3d54");
+        nDefaultPort = 9902;
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         nMaxReorganizationDepth = 100;
         nEnforceBlockUpgradeMajority = 750;
@@ -199,7 +199,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "04c627eb27385ec2bd733fde55c1b2f6e48b768bc43c57cd3ac11f1972846b979418425f29c1dfc5ec7776e46ac8b6c9e5fea610dff0804a5b2681b2633f1e3070";
+        strSporkKey = "041b3223581fb6caeb21590a6ecd824ade87618a7a454527874d9bbf9d743a047fdc388f8fe648517e8432e27df359f0e721851055e1770e1db5c1ccdbcfd62853";
         strObfuscationPoolDummyAddress = "KEYiweVK31tG5DyxzaVHRWcr57KQZjN3jt";
 
         /** Zerocoin */
@@ -241,8 +241,8 @@ public:
         pchMessageStart[1] = 0x24;
         pchMessageStart[2] = 0x9c;
         pchMessageStart[3] = 0xbd;
-        vAlertPubKey = ParseHex("04cb01107a46c5ff9b5b7f639a89ba5c19b7b8aa2c3a6db651c85bb4f042f617c3b05e221c4ebe2038773b9db6ffe481d91bc38d409e314a919a8609e48e5da288");
-        nDefaultPort = 55004;
+        vAlertPubKey = ParseHex("04fa1a4d483cfc53fcd3b8dc5c5515264bfc08f3854307cfe972fa8e22c30687706f440875e6ea13485de05ede0088369962cdcdf2a7019f5216ce1d2606d3eb3d");
+        nDefaultPort = 9904;
         nEnforceBlockUpgradeMajority = 51;
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
@@ -259,12 +259,12 @@ public:
         nZerocoinLastOldParams = 100000000;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1530403200;
-        genesis.nNonce = 12346;
+        genesis.nTime = 1529020800;
+        genesis.nNonce = 12345;
 
         hashGenesisBlock = genesis.GetHash();
        
-        assert(hashGenesisBlock == uint256("0x9cda9be2aa56762886d9ece98f7ab618048d1a092371989edcd6982db1191845"));
+        assert(hashGenesisBlock == uint256("0x1a1bba0d0a516ca37038534cbb1a23001ecda7907e033c821630a3248ba5a706"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -293,7 +293,7 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
         nPoolMaxTransactions = 2;
-        strSporkKey = "0452490279ae0c3be6b9523db00b67e604d8489d17f1d52db51994277ecc7021aa75a3da55a7f828035838d8fe5cd1d8efad29df275c62a57ac733cfa9ca81146d"; 
+        strSporkKey = "0465a06a991df5ccbb5aa8513e6d74a3d18f7f681f6423c518cfa1471f1c17535655b2224697ad41c8fcc2df3b9f4d3cda83bd5a012a38ba64a5df576490aa8682"; 
         strObfuscationPoolDummyAddress = "kK2WToV9w7q1q2BJeGwxYqxf1jJsv55Nxv";
         nBudgetFeeConfirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                      // here because we only have a 8 block finalization window on testnet
@@ -336,7 +336,7 @@ public:
         nZerocoinStartHeight = 100;
 
         hashGenesisBlock = genesis.GetHash();
-        nDefaultPort = 55004;
+        nDefaultPort = 9904;
         
         assert(hashGenesisBlock == uint256("0x1a1bba0d0a516ca37038534cbb1a23001ecda7907e033c821630a3248ba5a706"));
 
@@ -352,7 +352,7 @@ public:
         fMineBlocksOnDemand = true;
         fTestnetToBeDeprecatedFieldRPC = false;
         nRequiredAccumulation = 1;
-        strSporkKey = "0452490279ae0c3be6b9523db00b67e604d8489d17f1d52db51994277ecc7021aa75a3da55a7f828035838d8fe5cd1d8efad29df275c62a57ac733cfa9ca81146d";
+        strSporkKey = "0465a06a991df5ccbb5aa8513e6d74a3d18f7f681f6423c518cfa1471f1c17535655b2224697ad41c8fcc2df3b9f4d3cda83bd5a012a38ba64a5df576490aa8682";
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
@@ -371,7 +371,7 @@ public:
     {
         networkID = CBaseChainParams::UNITTEST;
         strNetworkID = "unittest";
-        nDefaultPort = 55003;
+        nDefaultPort = 9903;
         vFixedSeeds.clear(); //! Unit test mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Unit test mode doesn't have any DNS seeds.
 
